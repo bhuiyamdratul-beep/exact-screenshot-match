@@ -196,7 +196,7 @@ const About = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${index === 0 ? 'grayscale' : ''}`}
                   />
                 </div>
                 <h3 className="font-semibold text-foreground">{member.name}</h3>
