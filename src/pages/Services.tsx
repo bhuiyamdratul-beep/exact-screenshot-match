@@ -91,7 +91,7 @@ const Services = () => {
   const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 });
 
   return (
-    <div className="min-h-screen bg-background dark">
+    <div className="min-h-screen overflow-x-hidden bg-background dark">
       <Navbar />
       
       {/* Hero Section */}
@@ -119,7 +119,7 @@ const Services = () => {
       ))}
 
       {/* CTA Section */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-background">
         <div className="container-custom text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
             Ready to Get Started?
@@ -147,7 +147,7 @@ const ServiceSection = ({ service, index }: { service: typeof serviceDetails[0];
   return (
     <section
       id={service.title.toLowerCase().replace(/\s+/g, "-")}
-      className={`section-padding ${isEven ? "bg-background" : "bg-muted/30"}`}
+      className={`section-padding bg-background`}
     >
       <div className="container-custom">
         <div

@@ -74,7 +74,7 @@ const About = () => {
   const { ref: teamRef, isInView: teamInView } = useInView({ threshold: 0.1 });
 
   return (
-    <div className="min-h-screen bg-background dark">
+    <div className="min-h-screen overflow-x-hidden bg-background dark">
       <Navbar />
       
       {/* Hero Section */}
@@ -97,7 +97,7 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -148,7 +148,7 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-background">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-12 text-center text-foreground">Our Values</h2>
           <div
@@ -225,7 +225,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-background">
         <div className="container-custom text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
             Ready to Work With Us?

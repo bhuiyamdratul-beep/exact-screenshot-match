@@ -85,7 +85,7 @@ const Portfolio = () => {
     : portfolioDetails.filter(project => project.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background dark">
+    <div className="min-h-screen overflow-x-hidden bg-background dark">
       <Navbar />
       
       {/* Hero Section */}
@@ -129,7 +129,7 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-background">
         <div className="container-custom">
           {filteredProjects.length === 0 ? (
             <div className="text-center py-12">
@@ -173,7 +173,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-background">
         <div className="container-custom text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
             Have a Project in Mind?
