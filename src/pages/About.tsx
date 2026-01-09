@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, Award, Clock, Target, Linkedin, Twitter, Github } from "lucide-react";
 import founderImage from "@/assets/founder-ratul.jpg";
+import teamLeadImage from "@/assets/team-lead-yeasin.png";
 
 const stats = [
   { icon: Users, value: "50+", label: "Happy Clients" },
@@ -48,7 +49,7 @@ const team = [
   {
     name: "Yeasin Arafat Mollik",
     role: "Team Lead",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+    image: teamLeadImage,
     bio: "Experienced team lead specializing in project management and delivering high-quality software solutions.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
