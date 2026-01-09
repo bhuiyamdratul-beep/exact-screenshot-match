@@ -50,13 +50,14 @@ const Navbar = () => {
       <div className="px-6 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-sm">
-              D
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-10 bg-gradient-to-br from-primary via-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-all duration-300 group-hover:scale-105">
+              <span className="text-primary-foreground font-bold text-xl italic tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>D</span>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-white/20 to-transparent" />
             </div>
             <div>
-              <span className="font-bold text-foreground">DREAM IT DEVELOPER</span>
-              <p className="text-[10px] text-muted-foreground">Quality is Our Strength</p>
+              <span className="font-bold text-foreground tracking-wide">DREAM IT DEVELOPER</span>
+              <p className="text-[10px] text-muted-foreground tracking-wider">Quality is Our Strength</p>
             </div>
           </Link>
 
