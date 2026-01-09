@@ -7,6 +7,7 @@ import Niches from "@/components/landing/Niches";
 import PlatformLogos from "@/components/landing/PlatformLogos";
 import Process from "@/components/landing/Process";
 import Portfolio from "@/components/landing/Portfolio";
+import Testimonials from "@/components/landing/Testimonials";
 import FAQ from "@/components/landing/FAQ";
 import Contact from "@/components/landing/Contact";
 import Footer from "@/components/landing/Footer";
@@ -23,6 +24,7 @@ const Index = () => {
       <PlatformLogos />
       <Process />
       <Portfolio />
+      <Testimonials />
       <FAQ />
       <Contact />
       <Footer />
