@@ -29,7 +29,7 @@ export const siteConfig = {
     title: "Who We Are?",
     paragraphs: [
       "At Dream It Developer, we specialize in creating high-converting sales funnels and marketing automation using GoHighLevel, ClickFunnels, Zapier, and ActiveCampaign. We power these solutions with agentic AI, RAG integrations, and custom API development to maximize results.",
-      "Led by Yeasin Arafat Mollik (Founder & CEO), we deliver full-stack solutions that drive measurable growth. From AI chatbots to sales funnels, mobile apps to cloud infrastructure, we build technology that maximizes ROI and scales seamlessly with your business operations.",
+      "Led by Md Ahoshan Hasan Ratul (Founder & CEO), we deliver full-stack solutions that drive measurable growth. From AI chatbots to sales funnels, mobile apps to cloud infrastructure, we build technology that maximizes ROI and scales seamlessly with your business operations.",
     ],
     image: "https://www.techwebninja.com/assets/who%20we%20are-tnakWEtQ.png",
   },
