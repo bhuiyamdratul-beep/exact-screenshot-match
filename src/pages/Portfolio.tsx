@@ -85,7 +85,7 @@ const Portfolio = () => {
     : portfolioDetails.filter(project => project.category === activeCategory);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background dark">
+    <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
       
       {/* Hero Section */}
