@@ -53,20 +53,6 @@ const team = [
     bio: "Experienced team lead specializing in project management and delivering high-quality software solutions.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
-  {
-    name: "Sarah Chen",
-    role: "UI/UX Designer",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face",
-    bio: "Creative designer passionate about creating beautiful, user-centered experiences that drive engagement.",
-    socials: { linkedin: "#", twitter: "#" },
-  },
-  {
-    name: "Michael Torres",
-    role: "Backend Developer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-    bio: "Specializes in building robust APIs, database architecture, and cloud infrastructure.",
-    socials: { linkedin: "#", github: "#" },
-  },
 ];
 
 const About = () => {
