@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { siteConfig } from "@/config/siteConfig";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
@@ -55,12 +56,33 @@ const portfolioDetails = [
     technologies: ["GoHighLevel", "Zapier", "ActiveCampaign", "ClickFunnels"],
     results: ["300% increase in conversions", "Automated follow-ups", "Integrated payment processing"],
   },
+  {
+    title: "Healthcare Dashboard",
+    category: "UI/UX Design",
+    description: "Intuitive dashboard design for healthcare providers with patient management, scheduling, and analytics.",
+    image: "https://www.techwebninja.com/assets/ui%20ux-B0NPQ8RP.png",
+    technologies: ["Figma", "React", "D3.js", "Material UI"],
+    results: ["60% faster navigation", "Improved user satisfaction", "HIPAA compliant design"],
+  },
+  {
+    title: "Fitness Tracking App",
+    category: "App Development",
+    description: "Cross-platform fitness app with workout tracking, nutrition logging, and social features.",
+    image: "https://www.techwebninja.com/assets/app%20developement-COrTuCgL.png",
+    technologies: ["Flutter", "Firebase", "HealthKit", "Google Fit"],
+    results: ["50K+ active users", "4.7 star rating", "Wearable integration"],
+  },
 ];
 
 const categories = ["All", "Web Development", "App Development", "AI Integration", "CRM", "UI/UX Design"];
 
 const Portfolio = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
   const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 });
+
+  const filteredProjects = activeCategory === "All" 
+    ? portfolioDetails 
+    : portfolioDetails.filter(project => project.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-background dark">
@@ -92,8 +114,9 @@ const Portfolio = () => {
             {categories.map((category) => (
               <button
                 key={category}
+                onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  category === "All"
+                  category === activeCategory
                     ? "bg-primary text-primary-foreground"
                     : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
                 }`}
@@ -108,11 +131,17 @@ const Portfolio = () => {
       {/* Portfolio Grid */}
       <section className="section-padding bg-muted/30">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-8">
-            {portfolioDetails.map((project, index) => (
-              <PortfolioCard key={project.title} project={project} index={index} />
-            ))}
-          </div>
+          {filteredProjects.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">No projects found in this category.</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-8">
+              {filteredProjects.map((project, index) => (
+                <PortfolioCard key={project.title} project={project} index={index} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

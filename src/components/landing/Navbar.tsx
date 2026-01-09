@@ -18,18 +18,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    setIsOpen(false);
-    
-    // If it's a hash link on the same page
-    if (href.startsWith("#")) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   const navItems = [
     { name: "Home", href: "/", isPage: true },
     { name: "Services", href: "/services", isPage: true },
@@ -56,10 +44,10 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-sm">
-              N
+              D
             </div>
             <div>
-              <span className="font-bold text-foreground">TECH WEB NINJA</span>
+              <span className="font-bold text-foreground">DREAM IT DEVELOPER</span>
               <p className="text-[10px] text-muted-foreground">Quality is Our Strength</p>
             </div>
           </Link>

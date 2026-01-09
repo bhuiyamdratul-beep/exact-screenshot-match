@@ -38,7 +38,7 @@ const values = [
 
 const team = [
   {
-    name: "Mustafizur Rahman",
+    name: "Md Ahoshan Hasan Ratul",
     role: "Founder & Lead Developer",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
     bio: "Full-stack developer with 5+ years of experience in building scalable web applications and AI solutions.",
@@ -87,7 +87,7 @@ const About = () => {
             }`}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-              About <span className="text-gradient">Tech Web Ninja</span>
+              About <span className="text-gradient">Dream It Developer</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               We're a passionate team of developers, designers, and strategists dedicated to helping businesses thrive in the digital age.
