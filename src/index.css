@@ -38,33 +38,33 @@
   }
 
   .dark {
-    --background: 225 20% 8%;
-    --foreground: 210 40% 98%;
+    --background: 220 20% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 225 20% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 20% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 225 20% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 20% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 11 89% 54%;
+    --primary: 4 90% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 14% 20%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 15% 13%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 14% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 15% 10%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 11 89% 54%;
+    --accent: 4 90% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 14% 20%;
-    --input: 220 14% 20%;
-    --ring: 11 89% 54%;
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 4 90% 58%;
   }
 }
 
@@ -110,11 +110,11 @@
   }
 
   .dark-section {
-    @apply bg-[hsl(225,20%,8%)];
+    @apply bg-[hsl(220,20%,4%)];
   }
 
   .card-dark {
-    @apply bg-[hsl(225,20%,12%)] border border-[hsl(220,14%,20%)] rounded-2xl;
+    @apply bg-[hsl(220,20%,8%)] border border-[hsl(220,15%,15%)] rounded-2xl;
   }
 }
 
