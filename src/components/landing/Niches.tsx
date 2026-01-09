@@ -10,7 +10,7 @@ const Niches = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
-            We've Worked in Many Niches
+            We've Worked in Many Niches:
           </h2>
         </div>
 
