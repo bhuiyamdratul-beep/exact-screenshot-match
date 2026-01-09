@@ -11,24 +11,33 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer className="bg-card border-t border-border py-12">
       <div className="container-custom">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold gradient-brand mb-4">{siteConfig.company.name}</h3>
-            <p className="text-background/70 leading-relaxed">{siteConfig.company.tagline}</p>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-sm">
+                N
+              </div>
+              <div>
+                <span className="font-bold text-foreground">{siteConfig.company.name}</span>
+              </div>
+            </div>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {siteConfig.company.tagline}
+            </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {siteConfig.footer.quickLinks.map((link) => (
                 <li key={link.name}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-background/70 hover:text-background transition-colors"
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors"
                   >
                     {link.name}
                   </button>
@@ -39,13 +48,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
+            <h4 className="font-semibold text-foreground mb-4">Services</h4>
             <ul className="space-y-2">
               {siteConfig.footer.serviceLinks.map((link) => (
                 <li key={link.name}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-background/70 hover:text-background transition-colors"
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors"
                   >
                     {link.name}
                   </button>
@@ -56,13 +65,13 @@ const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
+            <h4 className="font-semibold text-foreground mb-4">Connect</h4>
             <ul className="space-y-2">
               {siteConfig.footer.legalLinks.map((link) => (
                 <li key={link.name}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-background/70 hover:text-background transition-colors"
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors"
                   >
                     {link.name}
                   </button>
@@ -73,8 +82,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-background/10 text-center">
-          <p className="text-background/70">{siteConfig.footer.copyright}</p>
+        <div className="pt-8 border-t border-border text-center">
+          <p className="text-muted-foreground text-sm">{siteConfig.footer.copyright}</p>
         </div>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,9 +10,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      setScrolled(window.scrollY > 50);
 
-      // Update active section based on scroll position
       const sections = document.querySelectorAll("section[id]");
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop - 100;
@@ -38,26 +38,35 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background/95 backdrop-blur-md shadow-sm"
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl rounded-full ${
+        scrolled
+          ? "bg-card/95 backdrop-blur-md shadow-lg border border-border"
+          : "bg-card/90 backdrop-blur-md border border-border"
       }`}
     >
-      <div className="container-custom">
-        <div className="flex justify-between items-center py-4">
-          <div className="nav-brand">
-            <h1 className="text-2xl font-bold gradient-brand">{siteConfig.company.name}</h1>
+      <div className="px-6 py-3">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-sm">
+              N
+            </div>
+            <div>
+              <span className="font-bold text-foreground">TECH WEB NINJA</span>
+              <p className="text-[10px] text-muted-foreground">Quality is Our Strength</p>
+            </div>
           </div>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-6">
             {siteConfig.navigation.map((item) => (
               <li key={item.name}>
                 <button
                   onClick={() => handleNavClick(item.href)}
-                  className={`font-medium transition-colors hover:text-primary relative ${
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
                     activeSection === item.href.replace("#", "")
-                      ? "text-primary after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-0.5 after:bg-primary"
-                      : "text-foreground"
+                      ? "text-primary border-b-2 border-primary pb-1"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {item.name}
@@ -66,9 +75,19 @@ const Navbar = () => {
             ))}
           </ul>
 
+          {/* CTA Button */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Button
+              onClick={() => handleNavClick("#contact")}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
+            >
+              Get Started
+            </Button>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -78,8 +97,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden transition-all duration-300 overflow-hidden ${
-            isOpen ? "max-h-96 pb-4" : "max-h-0"
+          className={`lg:hidden transition-all duration-300 overflow-hidden ${
+            isOpen ? "max-h-96 pt-4 pb-2" : "max-h-0"
           }`}
         >
           <ul className="flex flex-col items-center gap-4">
@@ -87,14 +106,20 @@ const Navbar = () => {
               <li key={item.name}>
                 <button
                   onClick={() => handleNavClick(item.href)}
-                  className={`font-medium transition-colors hover:text-primary ${
-                    activeSection === item.href.replace("#", "") ? "text-primary" : "text-foreground"
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    activeSection === item.href.replace("#", "") ? "text-primary" : "text-muted-foreground"
                   }`}
                 >
                   {item.name}
                 </button>
               </li>
             ))}
+            <Button
+              onClick={() => handleNavClick("#contact")}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 mt-2"
+            >
+              Get Started
+            </Button>
           </ul>
         </div>
       </div>
