@@ -55,11 +55,13 @@ const Navbar = () => {
             <img 
               src={logoImage} 
               alt="Dream It Developer Logo" 
-              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
+              className="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-300"
             />
             <div>
-              <span className="font-bold text-foreground tracking-wide">DREAM IT DEVELOPER</span>
-              <p className="text-[10px] text-muted-foreground tracking-wider">Quality is Our Strength</p>
+              <span className="font-extrabold text-lg sm:text-xl text-foreground tracking-wide bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                DREAM IT DEVELOPER
+              </span>
+              <p className="text-[11px] text-muted-foreground tracking-wider font-medium">Quality is Our Strength</p>
             </div>
           </Link>
 
