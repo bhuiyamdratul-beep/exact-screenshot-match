@@ -103,7 +103,7 @@ const Navbar = () => {
               </button>
             )}
             <Link to="/#contact">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-3 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all duration-300">
                 Get Started
               </Button>
             </Link>
@@ -150,7 +150,7 @@ const Navbar = () => {
               </li>
             ))}
             <Link to="/#contact" onClick={() => setIsOpen(false)}>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 mt-2">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-3 text-base font-semibold shadow-lg shadow-primary/25 mt-2">
                 Get Started
               </Button>
             </Link>
