@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/siteConfig";
-import { useInView } from "@/hooks/useInView";
+import { motion } from "framer-motion";
 
 const techIcons = [
   // Row 1
@@ -26,8 +26,6 @@ const techIcons = [
 ];
 
 const PlatformLogos = () => {
-  const { ref, isInView } = useInView({ threshold: 0.1 });
-  const { ref: gridRef, isInView: gridInView } = useInView({ threshold: 0.1 });
   // Double the logos for seamless infinite scroll
   const logos = [...siteConfig.platforms, ...siteConfig.platforms];
 
@@ -83,14 +81,14 @@ const PlatformLogos = () => {
 
       {/* Platform Selection Section */}
       <div className="container-custom">
-        <div 
-          ref={ref}
-          className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-700 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground italic leading-tight">
               We Help You Choose The Best Platform fit To Your Requirements And Budget
             </h2>
@@ -103,32 +101,36 @@ const PlatformLogos = () => {
             <p className="text-foreground font-bold text-lg italic">
               You can relax now, you found us!
             </p>
-          </div>
+          </motion.div>
 
           {/* Right - Tech Grid 6x3 */}
-          <div ref={gridRef} className="card-dark p-8 rounded-3xl">
-            <div className="grid grid-cols-6 gap-5">
+          <motion.div 
+            className="card-dark p-8 rounded-3xl"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="grid grid-cols-6 gap-4">
               {techIcons.map((icon, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className={`w-14 h-14 flex items-center justify-center transition-all duration-500 ${
-                    gridInView 
-                      ? "opacity-100 scale-100" 
-                      : "opacity-0 scale-75"
-                  }`}
-                  style={{ 
-                    transitionDelay: `${index * 50}ms`,
-                  }}
+                  className="w-12 h-12 flex items-center justify-center"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.03 }}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
                 >
                   <img 
                     src={icon} 
                     alt="Tech icon" 
-                    className="w-12 h-12 object-contain hover:scale-125 hover:rotate-6 transition-transform duration-300 cursor-pointer"
+                    className="w-10 h-10 object-contain cursor-pointer"
                   />
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
