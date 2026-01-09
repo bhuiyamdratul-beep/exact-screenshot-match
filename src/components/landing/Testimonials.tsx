@@ -1,96 +1,72 @@
 import { useInView } from "@/hooks/useInView";
-import { Star } from "lucide-react";
+import { useState } from "react";
 
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "CEO, TechStart Inc.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
-    rating: 5,
-    text: "Dream It Developer transformed our online presence completely. Their team delivered a stunning website that exceeded our expectations and boosted our conversions by 150%.",
-  },
-  {
-    name: "Michael Chen",
-    role: "Founder, GrowthLab",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-    rating: 5,
-    text: "Working with this team was an absolute pleasure. They understood our vision perfectly and delivered a high-quality app that our users love. Highly recommended!",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Marketing Director, BrandCo",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-    rating: 5,
-    text: "The attention to detail and professionalism shown by Dream It Developer is unmatched. They delivered our project on time and the results speak for themselves.",
-  },
-  {
-    name: "David Thompson",
-    role: "CTO, InnovateTech",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-    rating: 5,
-    text: "Exceptional technical expertise combined with creative design. Our e-commerce platform has never performed better. A truly professional team!",
-  },
-];
+const platforms = ["Upwork", "Fiverr", "Google", "Trustpilot"];
+
+const testimonialImages: Record<string, string[]> = {
+  Upwork: [
+    "https://www.techwebninja.com/assets/upwork-CXGFjG6I.png",
+    "https://www.techwebninja.com/assets/upworkk-BPAyW7qe.png",
+  ],
+  Fiverr: [
+    "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
+  ],
+  Google: [
+    "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=600&h=400&fit=crop",
+  ],
+  Trustpilot: [
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+  ],
+};
 
 const Testimonials = () => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [activeTab, setActiveTab] = useState("Upwork");
 
   return (
-    <section className="section-padding bg-muted/30">
+    <section className="section-padding bg-background">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
-            What Our Clients Say
+            Testimonials From Our Recent Clients
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hear from businesses we have helped grow and succeed in the digital world.
-          </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={testimonial.name}
-              className={`card-dark p-6 transition-all duration-500 hover:border-primary/50 ${
-                isInView
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
+        {/* Platform Tabs */}
+        <div className="flex justify-center gap-2 mb-8 flex-wrap">
+          {platforms.map((platform) => (
+            <button
+              key={platform}
+              onClick={() => setActiveTab(platform)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                activeTab === platform
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 fill-primary text-primary"
-                  />
-                ))}
-              </div>
+              {platform}
+            </button>
+          ))}
+        </div>
 
-              {/* Review Text */}
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                "{testimonial.text}"
-              </p>
-
-              {/* Client Info */}
-              <div className="flex items-center gap-3">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-semibold text-foreground text-sm">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-muted-foreground text-xs">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </div>
+        {/* Testimonial Images */}
+        <div
+          ref={ref}
+          className={`flex justify-center gap-6 flex-wrap transition-all duration-500 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          {testimonialImages[activeTab]?.map((image, index) => (
+            <div
+              key={index}
+              className="rounded-2xl overflow-hidden border border-border shadow-lg max-w-md"
+            >
+              <img
+                src={image}
+                alt={`${activeTab} review ${index + 1}`}
+                className="w-full h-auto object-cover"
+              />
             </div>
           ))}
         </div>
