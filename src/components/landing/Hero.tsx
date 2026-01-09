@@ -1,5 +1,6 @@
 import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const handleScroll = (href: string) => {
@@ -12,30 +13,60 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-background">
       {/* Decorative Ring */}
-      <div className="hero-ring" />
+      <motion.div 
+        className="hero-ring"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.5, scale: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      />
 
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              <span className="block text-foreground animate-fade-in-up">
+              <motion.span 
+                className="block text-foreground"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 {siteConfig.hero.title.line1}
-              </span>
-              <span className="block text-gradient animate-fade-in-up-delay-1">
+              </motion.span>
+              <motion.span 
+                className="block text-gradient"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              >
                 {siteConfig.hero.title.line2}
-              </span>
-              <span className="block text-gradient animate-fade-in-up-delay-2">
+              </motion.span>
+              <motion.span 
+                className="block text-gradient"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+              >
                 {siteConfig.hero.title.line3}
-              </span>
+              </motion.span>
             </h1>
-            <p className="text-muted-foreground text-lg mb-8 max-w-xl leading-relaxed animate-fade-in-up-delay-3">
+            <motion.p 
+              className="text-muted-foreground text-lg mb-8 max-w-xl leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            >
               {siteConfig.hero.subtitle}
-            </p>
-            <div className="flex flex-wrap gap-4 animate-fade-in-up-delay-4">
+            </motion.p>
+            <motion.div 
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+            >
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8 hover:scale-105 transition-transform"
                 onClick={() => handleScroll("#contact")}
               >
                 {siteConfig.hero.primaryCta}
@@ -43,22 +74,35 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-border text-foreground bg-transparent hover:bg-muted font-semibold rounded-full px-8"
+                className="border-2 border-border text-foreground bg-transparent hover:bg-muted font-semibold rounded-full px-8 hover:scale-105 transition-transform"
                 onClick={() => handleScroll("#portfolio")}
               >
                 {siteConfig.hero.secondaryCta}
               </Button>
-            </div>
+            </motion.div>
           </div>
 
           {/* Hero Image */}
-          <div className="relative hidden lg:flex justify-center items-center">
-            <img
+          <motion.div 
+            className="relative hidden lg:flex justify-center items-center"
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
+            <motion.img
               src={siteConfig.hero.heroImage}
               alt="Programming illustration"
-              className="w-full max-w-lg animate-float"
+              className="w-full max-w-lg"
+              animate={{ 
+                y: [0, -20, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
