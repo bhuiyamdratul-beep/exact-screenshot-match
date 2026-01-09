@@ -1,50 +1,37 @@
 // =============================================
-// SITE CONFIGURATION - CUSTOMIZE YOUR BUSINESS HERE
+// TECH WEB NINJA - SITE CONFIGURATION
 // =============================================
-// Change the values below to match your actual business information.
-// All sections of the website will update automatically.
+// Customize your business information here.
 
 export const siteConfig = {
   // Company Information
   company: {
-    name: "Dream It Developer",
-    tagline: "Transforming dreams into digital reality.",
-    description: "We turn your dreams into reality",
+    name: "Tech Web Ninja",
+    tagline: "Quality is Our Strength",
+    description: "We build AI solutions, high-converting websites, funnels, and custom software that drive real business growth.",
   },
 
   // Hero Section
   hero: {
     title: {
-      line1: "Dream It.",
-      line2: "Build It.",
-      line3: "Deploy It.",
+      line1: "We Build Websites and",
+      line2: "Apps That Print",
+      line3: "Revenue.",
     },
-    subtitle: "Transforming your ideas into powerful digital solutions",
-    floatingCards: [
-      { icon: "💻", label: "Web Development" },
-      { icon: "📱", label: "Mobile Apps" },
-      { icon: "🚀", label: "Cloud Solutions" },
-    ],
+    subtitle: "We build AI solutions, high-converting websites, funnels, and custom software that drive real business growth. We combine smart automation, data-driven strategy, and conversion-focused design for measurable results and long-term success.",
+    primaryCta: "Book a Free Consultation",
+    secondaryCta: "View Our Work",
+    heroImage: "https://www.techwebninja.com/assets/Programming-min-0IhnXD2l.png",
   },
 
   // About Section
   about: {
-    title: "Who We Are",
+    title: "Who We Are?",
     paragraphs: [
-      "Dream It Developer is a passionate team of developers dedicated to creating exceptional digital experiences. We combine creativity with technical expertise to bring your vision to life.",
-      "Our mission is to help businesses and individuals achieve their goals through innovative technology solutions that are both beautiful and functional.",
+      "At Tech Web Ninja, we specialize in creating high-converting sales funnels and marketing automation using GoHighLevel, ClickFunnels, Zapier, and ActiveCampaign. We power these solutions with agentic AI, RAG integrations, and custom API development to maximize results.",
+      "Led by Mustafizur, we deliver full-stack solutions that drive measurable growth. From AI chatbots to sales funnels, mobile apps to cloud infrastructure, we build technology that maximizes ROI and scales seamlessly with your business operations.",
     ],
-    stats: [
-      { value: "100+", label: "Projects Completed" },
-      { value: "50+", label: "Happy Clients" },
-      { value: "5+", label: "Years Experience" },
-    ],
-    expertise: [
-      { icon: "⚡", title: "Frontend", description: "React, Vue, Angular, Next.js" },
-      { icon: "🔧", title: "Backend", description: "Node.js, Python, PHP, Java" },
-      { icon: "📱", title: "Mobile", description: "React Native, Flutter, Swift" },
-      { icon: "☁️", title: "Cloud", description: "AWS, Azure, GCP, Docker" },
-    ],
+    image: "https://www.techwebninja.com/assets/who%20we%20are-tnakWEtQ.png",
   },
 
   // Services Section
@@ -52,76 +39,115 @@ export const siteConfig = {
     {
       icon: "🌐",
       title: "Web Development",
-      description: "Custom websites and web applications built with modern technologies and best practices.",
-      features: ["Responsive Design", "E-commerce Solutions", "CMS Integration"],
+      description: "Build responsive, scalable, and high-performance websites tailored to your business needs using modern technologies and industry best practices.",
+      image: "https://www.techwebninja.com/assets/web%20development-BZcvMlsB.png",
     },
     {
       icon: "📱",
-      title: "Mobile Development",
-      description: "Native and cross-platform mobile applications for iOS and Android.",
-      features: ["iOS Development", "Android Development", "Cross-platform Apps"],
+      title: "App Development",
+      description: "Create powerful mobile and desktop applications with intuitive interfaces and seamless functionality across all platforms for your users.",
+      image: "https://www.techwebninja.com/assets/app%20developement-COrTuCgL.png",
+    },
+    {
+      icon: "🤖",
+      title: "AI Integration",
+      description: "Seamlessly integrate cutting-edge artificial intelligence solutions into your business processes to automate workflows and enhance strategic decision-making.",
+      image: "https://www.techwebninja.com/assets/ai-C1sOCY56.png",
+    },
+    {
+      icon: "📊",
+      title: "CRM",
+      description: "Streamline customer relationships with powerful CRM solutions that help you manage leads, track interactions, and grow your business efficiently.",
+      image: "https://www.techwebninja.com/assets/funnels-BYr5dGu8.png",
     },
     {
       icon: "🎨",
-      title: "UI/UX Design",
-      description: "Beautiful and intuitive user interfaces that provide exceptional user experiences.",
-      features: ["User Research", "Wireframing", "Prototyping"],
+      title: "UI UX Design",
+      description: "Design beautiful and user-friendly interfaces that deliver exceptional user experiences and drive engagement across all digital touchpoints.",
+      image: "https://www.techwebninja.com/assets/ui%20ux-B0NPQ8RP.png",
     },
     {
-      icon: "☁️",
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and deployment solutions for your applications.",
-      features: ["Cloud Migration", "DevOps Setup", "CI/CD Pipelines"],
-    },
-    {
-      icon: "🔒",
-      title: "Security",
-      description: "Comprehensive security audits and implementation to protect your applications.",
-      features: ["Security Audits", "Penetration Testing", "Compliance"],
-    },
-    {
-      icon: "🔄",
-      title: "Maintenance & Support",
-      description: "Ongoing maintenance and support to keep your applications running smoothly.",
-      features: ["Bug Fixes", "Performance Optimization", "Feature Updates"],
+      icon: "✏️",
+      title: "Graphic Design",
+      description: "Create visual designs, branding materials, and creative assets that communicate your message effectively and leave lasting impressions.",
+      image: "https://www.techwebninja.com/assets/graphic%20design-Bg9ErkSc.png",
     },
   ],
 
-  // Portfolio Section
+  // Technology Stack
+  techStack: [
+    { title: "AI ML Solutions", description: "Intelligent agents that act", icon: "🧠" },
+    { title: "Business Intelligence", description: "Context-aware AI responses", icon: "📊" },
+    { title: "RPA Services", description: "Seamless platform connections", icon: "⚡" },
+    { title: "Microservices", description: "Scalable modern architecture", icon: "🔗" },
+    { title: "Serverless Architecture", description: "Event-driven computing", icon: "☁️" },
+  ],
+
+  // Industries / Niches
+  niches: [
+    { title: "Real Estate", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop" },
+    { title: "E-Commerce", image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=400&h=300&fit=crop" },
+    { title: "Online Course", image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=300&fit=crop" },
+    { title: "Business Coaches", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" },
+    { title: "Dropshipping", image: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=400&h=300&fit=crop" },
+    { title: "Personal Branding", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop" },
+    { title: "Insurance", image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop" },
+    { title: "Fitness", image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop" },
+    { title: "Hair & Beauty", image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=300&fit=crop" },
+    { title: "Finance/Trading", image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop" },
+  ],
+
+  // Work Process
+  process: [
+    { step: 1, title: "Understand Needs", description: "We discuss your goals and clarify exactly what you want." },
+    { step: 2, title: "Plan & Strategize", description: "We create a clear roadmap to achieve the best results." },
+    { step: 3, title: "Build & Launch", description: "We develop your system and launch it smoothly." },
+    { step: 4, title: "Support & Improve", description: "We provide ongoing support and optimize as needed." },
+  ],
+
+  // Portfolio
   portfolio: [
+    { title: "Modern Business Website", image: "https://www.techwebninja.com/assets/Home-1-1-B-ONE2xy.png" },
+    { title: "E-commerce Platform", image: "https://www.techwebninja.com/assets/Homepage-V3-new-edits-1-CcJpCTAV.webp" },
+    { title: "Corporate Web Solution", image: "https://www.techwebninja.com/assets/web1-DqMBi1Q2.png" },
+  ],
+
+  // FAQ
+  faq: [
     {
-      title: "E-commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration",
+      question: "What services does Tech Web Ninja offer?",
+      answer: "We offer comprehensive digital solutions including web development, mobile app development, AI integration, sales funnels, UI/UX design, and graphic design. Each service is tailored to meet your specific business needs.",
     },
     {
-      title: "Mobile Banking App",
-      description: "Secure mobile banking application with biometric authentication",
+      question: "How long does it take to complete a project?",
+      answer: "Project timelines vary depending on complexity and scope. A typical website takes 4-8 weeks, while mobile apps may take 8-16 weeks. We'll provide a detailed timeline during our initial consultation.",
     },
     {
-      title: "Healthcare Dashboard",
-      description: "Real-time patient monitoring and analytics dashboard",
+      question: "Do you provide ongoing support after project completion?",
+      answer: "Yes! We offer maintenance packages and ongoing support to ensure your website or app continues to perform optimally. This includes updates, security patches, and technical assistance.",
     },
     {
-      title: "Learning Management System",
-      description: "Comprehensive LMS with video streaming and assessments",
+      question: "What is your development process?",
+      answer: "We follow an agile methodology: discovery and planning, design and prototyping, development, testing and quality assurance, deployment, and ongoing optimization. You'll be involved at every stage.",
     },
     {
-      title: "Social Media Platform",
-      description: "Modern social networking platform with real-time features",
+      question: "Can you work with existing websites or apps?",
+      answer: "Absolutely! We can redesign, optimize, or add new features to your existing digital products. We'll assess your current setup and recommend the best path forward.",
     },
     {
-      title: "IoT Dashboard",
-      description: "Connected device management and monitoring system",
+      question: "What makes Tech Web Ninja different from other agencies?",
+      answer: "We focus on results, not just aesthetics. Every project is built with conversion optimization, performance, and scalability in mind. Plus, we maintain clear communication and transparent processes throughout.",
     },
   ],
 
   // Contact Section
   contact: {
-    title: "Contact Information",
-    subtitle: "Ready to bring your ideas to life? Get in touch with us today!",
-    email: "hello@dreamitdeveloper.com",
+    title: "Ready to Transform Your Digital Presence?",
+    subtitle: "Let's Make It Happen Together!",
+    description: "Don't miss out on the latest insights and strategies. Get expert guidance to take your business to the next level with our proven solutions.",
+    email: "hello@techwebninja.com",
     phone: "+1 (555) 123-4567",
-    address: "123 Developer Street, Tech City, TC 12345",
+    address: "123 Tech Street, Digital City, TC 12345",
     socialLinks: [
       { name: "LinkedIn", url: "#" },
       { name: "GitHub", url: "#" },
@@ -129,6 +155,30 @@ export const siteConfig = {
       { name: "Instagram", url: "#" },
     ],
   },
+
+  // Platform logos
+  platforms: [
+    "https://www.techwebninja.com/assets/clickfunnels-logo-techwebninja-mQ-99U0R.png",
+    "https://www.techwebninja.com/assets/elementor-logo-techwebninja-DYJz6zDy.png",
+    "https://www.techwebninja.com/assets/gohighlevel-logo-techwebninja-BQHP_Rtc.png",
+    "https://www.techwebninja.com/assets/kajabi-logo-techwebninja-C0r5FL-R.png",
+    "https://www.techwebninja.com/assets/kartra-logo-techwebninja-BqHplkFy.png",
+    "https://www.techwebninja.com/assets/shopify-logo-techwebninja-CZ5WrMAa.png",
+    "https://www.techwebninja.com/assets/squarespace-logo-techwebninja-l91gziAJ.png",
+    "https://www.techwebninja.com/assets/unbounce-logo-techwebninja-B977IcN6.png",
+    "https://www.techwebninja.com/assets/wix-logo-techwebninja-BLQ7qnWJ.png",
+    "https://www.techwebninja.com/assets/woocommerce-logo-techwebninja-kciR1pZB.png",
+    "https://www.techwebninja.com/assets/wordpress-logo-techwebninja-BEYyl7Nx.png",
+  ],
+
+  // Navigation
+  navigation: [
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "Portfolio", href: "#portfolio" },
+    { name: "About Us", href: "#about" },
+    { name: "Contact Us", href: "#contact" },
+  ],
 
   // Footer
   footer: {
@@ -140,24 +190,15 @@ export const siteConfig = {
     ],
     serviceLinks: [
       { name: "Web Development", href: "#services" },
-      { name: "Mobile Development", href: "#services" },
+      { name: "App Development", href: "#services" },
+      { name: "AI Integration", href: "#services" },
       { name: "UI/UX Design", href: "#services" },
-      { name: "Cloud Solutions", href: "#services" },
     ],
     legalLinks: [
       { name: "Contact Us", href: "#contact" },
       { name: "Privacy Policy", href: "#" },
       { name: "Terms of Service", href: "#" },
     ],
-    copyright: `© ${new Date().getFullYear()} Dream It Developer. All rights reserved.`,
+    copyright: `© ${new Date().getFullYear()} Tech Web Ninja. All rights reserved.`,
   },
-
-  // Navigation
-  navigation: [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Contact", href: "#contact" },
-  ],
 };
