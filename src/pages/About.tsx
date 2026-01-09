@@ -5,6 +5,7 @@ import { useInView } from "@/hooks/useInView";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, Award, Clock, Target, Linkedin, Twitter, Github } from "lucide-react";
+import founderImage from "@/assets/founder-ratul.jpg";
 
 const stats = [
   { icon: Users, value: "50+", label: "Happy Clients" },
@@ -39,8 +40,8 @@ const values = [
 const team = [
   {
     name: "Md Ahoshan Hasan Ratul",
-    role: "Founder & Lead Developer",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+    role: "Founder & CEO",
+    image: founderImage,
     bio: "Full-stack developer with 5+ years of experience in building scalable web applications and AI solutions.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
