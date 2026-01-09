@@ -1,12 +1,12 @@
 // =============================================
-// TECH WEB NINJA - SITE CONFIGURATION
+// DREAM IT DEVELOPER - SITE CONFIGURATION
 // =============================================
 // Customize your business information here.
 
 export const siteConfig = {
   // Company Information
   company: {
-    name: "Tech Web Ninja",
+    name: "Dream It Developer",
     tagline: "Quality is Our Strength",
     description: "We build AI solutions, high-converting websites, funnels, and custom software that drive real business growth.",
   },
@@ -28,8 +28,8 @@ export const siteConfig = {
   about: {
     title: "Who We Are?",
     paragraphs: [
-      "At Tech Web Ninja, we specialize in creating high-converting sales funnels and marketing automation using GoHighLevel, ClickFunnels, Zapier, and ActiveCampaign. We power these solutions with agentic AI, RAG integrations, and custom API development to maximize results.",
-      "Led by Mustafizur, we deliver full-stack solutions that drive measurable growth. From AI chatbots to sales funnels, mobile apps to cloud infrastructure, we build technology that maximizes ROI and scales seamlessly with your business operations.",
+      "At Dream It Developer, we specialize in creating high-converting sales funnels and marketing automation using GoHighLevel, ClickFunnels, Zapier, and ActiveCampaign. We power these solutions with agentic AI, RAG integrations, and custom API development to maximize results.",
+      "Led by Md Ahoshan Hasan Ratul, we deliver full-stack solutions that drive measurable growth. From AI chatbots to sales funnels, mobile apps to cloud infrastructure, we build technology that maximizes ROI and scales seamlessly with your business operations.",
     ],
     image: "https://www.techwebninja.com/assets/who%20we%20are-tnakWEtQ.png",
   },
@@ -115,7 +115,7 @@ export const siteConfig = {
   // FAQ
   faq: [
     {
-      question: "What services does Tech Web Ninja offer?",
+      question: "What services does Dream It Developer offer?",
       answer: "We offer comprehensive digital solutions including web development, mobile app development, AI integration, sales funnels, UI/UX design, and graphic design. Each service is tailored to meet your specific business needs.",
     },
     {
@@ -135,7 +135,7 @@ export const siteConfig = {
       answer: "Absolutely! We can redesign, optimize, or add new features to your existing digital products. We'll assess your current setup and recommend the best path forward.",
     },
     {
-      question: "What makes Tech Web Ninja different from other agencies?",
+      question: "What makes Dream It Developer different from other agencies?",
       answer: "We focus on results, not just aesthetics. Every project is built with conversion optimization, performance, and scalability in mind. Plus, we maintain clear communication and transparent processes throughout.",
     },
   ],
@@ -145,7 +145,7 @@ export const siteConfig = {
     title: "Ready to Transform Your Digital Presence?",
     subtitle: "Let's Make It Happen Together!",
     description: "Don't miss out on the latest insights and strategies. Get expert guidance to take your business to the next level with our proven solutions.",
-    email: "hello@techwebninja.com",
+    email: "hello@dreamitdeveloper.com",
     phone: "+1 (555) 123-4567",
     address: "123 Tech Street, Digital City, TC 12345",
     socialLinks: [
@@ -199,6 +199,6 @@ export const siteConfig = {
       { name: "Privacy Policy", href: "#" },
       { name: "Terms of Service", href: "#" },
     ],
-    copyright: `© ${new Date().getFullYear()} Tech Web Ninja. All rights reserved.`,
+    copyright: `© ${new Date().getFullYear()} Dream It Developer. All rights reserved.`,
   },
 };
