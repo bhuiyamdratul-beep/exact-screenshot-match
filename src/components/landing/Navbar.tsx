@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
+import logoImage from "@/assets/logo-d.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,10 +52,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 bg-gradient-to-br from-primary via-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-all duration-300 group-hover:scale-105">
-              <span className="text-primary-foreground font-bold text-xl italic tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>D</span>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-white/20 to-transparent" />
-            </div>
+            <img 
+              src={logoImage} 
+              alt="Dream It Developer Logo" 
+              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
+            />
             <div>
               <span className="font-bold text-foreground tracking-wide">DREAM IT DEVELOPER</span>
               <p className="text-[10px] text-muted-foreground tracking-wider">Quality is Our Strength</p>
