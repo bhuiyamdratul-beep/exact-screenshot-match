@@ -39,10 +39,17 @@ const values = [
 
 const team = [
   {
-    name: "Yeasin Arafat Mollik",
+    name: "Md Ahoshan Hasan Ratul",
     role: "Founder & CEO",
     image: founderImage,
     bio: "Full-stack developer with 5+ years of experience in building scalable web applications and AI solutions.",
+    socials: { linkedin: "#", twitter: "#", github: "#" },
+  },
+  {
+    name: "Yeasin Arafat Mollik",
+    role: "Team Lead",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+    bio: "Experienced team lead specializing in project management and delivering high-quality software solutions.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
@@ -58,13 +65,6 @@ const team = [
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
     bio: "Specializes in building robust APIs, database architecture, and cloud infrastructure.",
     socials: { linkedin: "#", github: "#" },
-  },
-  {
-    name: "Emily Johnson",
-    role: "Project Manager",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-    bio: "Ensures projects are delivered on time and exceed client expectations with her exceptional organizational skills.",
-    socials: { linkedin: "#", twitter: "#" },
   },
 ];
 
