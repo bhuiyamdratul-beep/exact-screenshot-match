@@ -91,7 +91,7 @@ const Services = () => {
   const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 });
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background dark">
+    <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
       
       {/* Hero Section */}

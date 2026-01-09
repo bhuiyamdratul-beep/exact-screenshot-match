@@ -74,7 +74,7 @@ const About = () => {
   const { ref: teamRef, isInView: teamInView } = useInView({ threshold: 0.1 });
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background dark">
+    <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
       
       {/* Hero Section */}
