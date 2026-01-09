@@ -39,7 +39,7 @@ const values = [
 
 const team = [
   {
-    name: "Md Ahoshan Hasan Ratul",
+    name: "Yeasin Arafat Mollik",
     role: "Founder & CEO",
     image: founderImage,
     bio: "Full-stack developer with 5+ years of experience in building scalable web applications and AI solutions.",
