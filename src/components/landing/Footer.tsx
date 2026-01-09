@@ -34,13 +34,13 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-sm">
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
                 D
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-foreground text-lg">{siteConfig.company.name}</span>
-                <span className="text-xs text-muted-foreground">Quality is Our Strength</span>
+                <span className="text-xs text-primary">Quality is Our Strength</span>
               </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-4">
