@@ -10,21 +10,51 @@ const PlatformLogos = () => {
 
   return (
     <section className="py-12 bg-background overflow-hidden">
-      {/* Platform Logos Marquee - Top */}
-      <div className="relative mb-16">
-        <div className="flex animate-marquee">
-          {logos.map((logo, index) => (
-            <div
-              key={`top-${index}`}
-              className="flex-shrink-0 mx-6 w-28 h-14 flex items-center justify-center"
-            >
-              <img
-                src={logo}
-                alt="Platform logo"
-                className="max-w-full max-h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          ))}
+      {/* Platform Logos Marquee with Diagonal White Strip */}
+      <div className="relative py-8 mb-16">
+        {/* Diagonal White Background */}
+        <div 
+          className="absolute inset-0 bg-white"
+          style={{ 
+            transform: "skewY(-3deg)",
+            transformOrigin: "center"
+          }}
+        />
+        
+        {/* Top Row */}
+        <div className="relative z-10 mb-4">
+          <div className="flex animate-marquee">
+            {logos.map((logo, index) => (
+              <div
+                key={`top-${index}`}
+                className="flex-shrink-0 mx-6 w-28 h-12 flex items-center justify-center"
+              >
+                <img
+                  src={logo}
+                  alt="Platform logo"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Row - Reverse Direction */}
+        <div className="relative z-10">
+          <div className="flex animate-marquee" style={{ animationDirection: "reverse" }}>
+            {logos.map((logo, index) => (
+              <div
+                key={`bottom-${index}`}
+                className="flex-shrink-0 mx-6 w-28 h-12 flex items-center justify-center"
+              >
+                <img
+                  src={logo}
+                  alt="Platform logo"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -82,24 +112,6 @@ const PlatformLogos = () => {
               ))}
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Platform Logos Marquee - Bottom (reverse direction) */}
-      <div className="relative mt-16">
-        <div className="flex animate-marquee" style={{ animationDirection: "reverse" }}>
-          {logos.map((logo, index) => (
-            <div
-              key={`bottom-${index}`}
-              className="flex-shrink-0 mx-6 w-28 h-14 flex items-center justify-center"
-            >
-              <img
-                src={logo}
-                alt="Platform logo"
-                className="max-w-full max-h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          ))}
         </div>
       </div>
     </section>
