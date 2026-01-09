@@ -146,8 +146,8 @@ export const siteConfig = {
     subtitle: "Let's Make It Happen Together!",
     description: "Don't miss out on the latest insights and strategies. Get expert guidance to take your business to the next level with our proven solutions.",
     email: "hello@dreamitdeveloper.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Tech Street, Digital City, TC 12345",
+    phone: "+880 1XXX-XXXXXX",
+    address: "Magura Sadar, Magura, PO: 7600, Dhaka, Bangladesh",
     socialLinks: [
       { name: "LinkedIn", url: "#" },
       { name: "GitHub", url: "#" },
