@@ -30,6 +30,7 @@ const Navbar = () => {
     { name: "Services", href: "/services", isPage: true },
     { name: "Portfolio", href: "/portfolio", isPage: true },
     { name: "About Us", href: "/about", isPage: true },
+    { name: "Blog", href: "/blog", isPage: true },
     { name: "Contact Us", href: "/#contact", isPage: false },
   ];
 
