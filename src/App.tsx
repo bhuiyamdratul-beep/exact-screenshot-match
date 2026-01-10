@@ -10,6 +10,7 @@ import Portfolio from "./pages/Portfolio";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <FloatingWhatsApp />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
