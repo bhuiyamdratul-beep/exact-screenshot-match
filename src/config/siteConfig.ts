@@ -28,8 +28,11 @@ export const siteConfig = {
   about: {
     title: "Who We Are?",
     paragraphs: [
-      "At Dream It Developer, we specialize in creating high-converting sales funnels and marketing automation using GoHighLevel, ClickFunnels, Zapier, and ActiveCampaign. We power these solutions with agentic AI, RAG integrations, and custom API development to maximize results.",
-      "Led by Md Ahoshan Hasan Ratul (Founder & CEO), we deliver full-stack solutions that drive measurable growth. From AI chatbots to sales funnels, mobile apps to cloud infrastructure, we build technology that maximizes ROI and scales seamlessly with your business operations.",
+      "At Dream It Developer, we specialize in building high-converting sales funnels, marketing automation, and AI-powered business systems. We work with platforms like GoHighLevel, ClickFunnels, Zapier, ActiveCampaign, and custom AI integrations to help businesses grow faster and operate smarter.",
+      "We design automation-first solutions using n8n, build modern and scalable interfaces with Lovable, and deploy production-ready applications on Vercel. For rapid and efficient development, we also leverage Bolt to deliver high-quality solutions at speed.",
+      "Led by Md Ahoshan Hasan Ratul (Founder & CEO) and Yeasin Arafat Mollik (Lead), our team combines strategic leadership with hands-on technical expertise to deliver full-stack digital solutions that drive real, measurable results.",
+      "Md Ahoshan Hasan Ratul focuses on company vision, business growth, and AI-driven system architecture, ensuring every solution is aligned with long-term scalability and strong ROI. Yeasin Arafat Mollik leads development and execution, turning complex ideas into reliable, high-performance systems that work seamlessly in real-world operations.",
+      "From AI chatbots and automation workflows to sales funnels, mobile apps, cloud infrastructure, and API-driven platforms—we build technology that integrates smoothly with your business and scales as you grow.",
     ],
     image: "https://www.techwebninja.com/assets/who%20we%20are-tnakWEtQ.png",
   },
