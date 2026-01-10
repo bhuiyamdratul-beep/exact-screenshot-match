@@ -8,6 +8,7 @@ import { Users, Award, Clock, Target, Linkedin, Twitter, Github } from "lucide-r
 import founderImage from "@/assets/founder-ratul.jpg";
 import teamLeadImage from "@/assets/team-lead-yeasin.png";
 import teamAbirImage from "@/assets/team-abir.jpg";
+import teamLabonnoImage from "@/assets/team-labonno.jpg";
 
 const stats = [
   { icon: Users, value: "50+", label: "Happy Clients" },
@@ -59,6 +60,13 @@ const team = [
     role: "Graphic Designer",
     image: teamAbirImage,
     bio: "Creates stunning visual designs and brand identities that captivate audiences and communicate brand values effectively.",
+    socials: { linkedin: "#", twitter: "#", github: "#" },
+  },
+  {
+    name: "Labonno Akter",
+    role: "Python Developer",
+    image: teamLabonnoImage,
+    bio: "Specializes in Python development, building robust backend solutions and automation scripts that power efficient business operations.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
 ];
