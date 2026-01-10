@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Users, Award, Clock, Target, Linkedin, Twitter, Github } from "lucide-react";
 import founderImage from "@/assets/founder-ratul.jpg";
 import teamLeadImage from "@/assets/team-lead-yeasin.png";
+import teamAbirImage from "@/assets/team-abir.jpg";
 
 const stats = [
   { icon: Users, value: "50+", label: "Happy Clients" },
@@ -51,6 +52,13 @@ const team = [
     role: "Lead",
     image: teamLeadImage,
     bio: "Leads development and execution, turning complex ideas into reliable, high-performance systems that work seamlessly in real-world operations.",
+    socials: { linkedin: "#", twitter: "#", github: "#" },
+  },
+  {
+    name: "Md Abir Mahmud",
+    role: "Graphic Designer",
+    image: teamAbirImage,
+    bio: "Creates stunning visual designs and brand identities that captivate audiences and communicate brand values effectively.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
 ];
