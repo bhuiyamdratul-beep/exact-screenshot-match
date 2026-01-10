@@ -159,6 +159,7 @@ const Services = () => {
 const ServiceSection = ({ service, index }: { service: typeof serviceDetails[0]; index: number }) => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
   const isEven = index % 2 === 0;
+  const isN8n = service.title === "n8n Automation";
 
   return (
     <section
@@ -203,7 +204,7 @@ const ServiceSection = ({ service, index }: { service: typeof serviceDetails[0];
             </div>
 
             {/* Technologies */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mb-6">
               {service.technologies.map((tech) => (
                 <span
                   key={tech}
@@ -213,6 +214,16 @@ const ServiceSection = ({ service, index }: { service: typeof serviceDetails[0];
                 </span>
               ))}
             </div>
+
+            {/* n8n Case Studies Link */}
+            {isN8n && (
+              <Link to="/n8n-portfolio">
+                <Button variant="outline" className="rounded-full">
+                  View Case Studies
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
