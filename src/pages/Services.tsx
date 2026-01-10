@@ -18,7 +18,7 @@ const serviceDetails = [
       "Performance optimization and SEO",
       "API integrations and third-party services",
     ],
-    technologies: ["React", "Next.js", "Vue.js", "WordPress", "Shopify", "Webflow"],
+    technologies: ["React", "Next.js", "Vue.js", "WordPress", "Shopify", "Webflow", "Python"],
   },
   {
     ...siteConfig.services[1],
@@ -84,6 +84,22 @@ const serviceDetails = [
       "Brand guidelines",
     ],
     technologies: ["Adobe Photoshop", "Illustrator", "After Effects", "Canva", "Figma", "Procreate"],
+  },
+  {
+    icon: "⚡",
+    title: "n8n Automation",
+    description: "Powerful workflow automation and integration solutions using n8n to connect your apps and streamline business processes.",
+    image: "https://www.techwebninja.com/assets/ai-C1sOCY56.png",
+    fullDescription: "Automate your business workflows with n8n, the powerful open-source automation platform. We build custom integrations that connect your tools, automate repetitive tasks, and create seamless data flows across your entire tech stack.",
+    features: [
+      "Custom workflow automation",
+      "Multi-app integrations",
+      "Data synchronization across platforms",
+      "Scheduled tasks and triggers",
+      "API connections and webhooks",
+      "Error handling and monitoring",
+    ],
+    technologies: ["n8n", "REST APIs", "Webhooks", "JavaScript", "PostgreSQL", "Docker"],
   },
 ];
 

@@ -113,6 +113,7 @@ export const siteConfig = {
     { title: "Modern Business Website", image: "https://www.techwebninja.com/assets/Home-1-1-B-ONE2xy.png" },
     { title: "E-commerce Platform", image: "https://www.techwebninja.com/assets/Homepage-V3-new-edits-1-CcJpCTAV.webp" },
     { title: "Corporate Web Solution", image: "https://www.techwebninja.com/assets/web1-DqMBi1Q2.png" },
+    { title: "n8n Workflow Automation", image: "https://www.techwebninja.com/assets/ai-C1sOCY56.png" },
   ],
 
   // FAQ
@@ -197,7 +198,7 @@ export const siteConfig = {
       { name: "Web Development", href: "#services" },
       { name: "App Development", href: "#services" },
       { name: "AI Integration", href: "#services" },
-      { name: "UI/UX Design", href: "#services" },
+      { name: "n8n Automation", href: "#services" },
     ],
     legalLinks: [
       { name: "Contact Us", href: "#contact" },
