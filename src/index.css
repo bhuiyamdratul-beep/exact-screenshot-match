@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 214 45% 98%;
+    --background: 0 0% 100%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -21,8 +21,8 @@
     --secondary: 217 91% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 214 32% 91%;
-    --muted-foreground: 220 9% 34%;
+    --muted: 214 45% 98%;
+    --muted-foreground: 220 9% 46%;
 
     --accent: 0 84% 60%;
     --accent-foreground: 0 0% 100%;
@@ -36,11 +36,20 @@
 
     --radius: 0.5rem;
     
+    /* Section backgrounds */
+    --section-bg: 214 45% 98%;
+    
+    /* Body text */
+    --body-text: 220 9% 34%;
+    
     /* Icon accent colors */
     --accent-yellow: 48 96% 53%;
     --accent-orange: 25 95% 53%;
     --accent-blue: 213 94% 68%;
     --accent-green: 160 64% 52%;
+    
+    /* Button hover */
+    --primary-hover: 0 74% 50%;
   }
 
   .dark {
@@ -68,15 +77,24 @@
     --destructive: 0 74% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 15%;
+    --border: 0 0% 100% / 0.08;
     --input: 220 20% 15%;
     --ring: 0 84% 60%;
+    
+    /* Section backgrounds */
+    --section-bg: 220 43% 7%;
+    
+    /* Body text */
+    --body-text: 218 11% 65%;
     
     /* Icon accent colors */
     --accent-yellow: 48 96% 53%;
     --accent-orange: 25 95% 53%;
     --accent-blue: 213 94% 68%;
     --accent-green: 160 64% 52%;
+    
+    /* Button hover */
+    --primary-hover: 0 74% 50%;
   }
 }
 
