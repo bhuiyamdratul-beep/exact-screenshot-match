@@ -43,14 +43,14 @@ const team = [
     name: "Md Ahoshan Hasan Ratul",
     role: "Founder & CEO",
     image: founderImage,
-    bio: "Full-stack developer with 5+ years of experience in building scalable web applications and AI solutions.",
+    bio: "Focuses on company vision, business growth, and AI-driven system architecture, ensuring every solution is aligned with long-term scalability and strong ROI.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
     name: "Yeasin Arafat Mollik",
-    role: "Team Lead",
+    role: "Lead",
     image: teamLeadImage,
-    bio: "Experienced team lead specializing in project management and delivering high-quality software solutions.",
+    bio: "Leads development and execution, turning complex ideas into reliable, high-performance systems that work seamlessly in real-world operations.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
 ];
@@ -97,15 +97,11 @@ const About = () => {
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                {siteConfig.about.paragraphs[0]}
-              </p>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                {siteConfig.about.paragraphs[1]}
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Today, we continue to push boundaries, embracing new technologies like AI and automation to deliver even more value to our clients. Our mission remains the same: to transform your digital dreams into reality.
-              </p>
+              {siteConfig.about.paragraphs.map((paragraph, index) => (
+                <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         </div>
