@@ -9,6 +9,7 @@ import founderImage from "@/assets/founder-ratul.jpg";
 import teamLeadImage from "@/assets/team-lead-yeasin.png";
 import teamAbirImage from "@/assets/team-abir.jpg";
 import teamLabonnoImage from "@/assets/team-labonno.jpg";
+import teamZihadImage from "@/assets/team-zihad.jpg";
 
 const stats = [
   { icon: Users, value: "50+", label: "Happy Clients" },
@@ -67,6 +68,13 @@ const team = [
     role: "Python Developer",
     image: teamLabonnoImage,
     bio: "Specializes in Python development, building robust backend solutions and automation scripts that power efficient business operations.",
+    socials: { linkedin: "#", twitter: "#", github: "#" },
+  },
+  {
+    name: "Ibn Ahsan Zihad",
+    role: "Mobile Apps Developer",
+    image: teamZihadImage,
+    bio: "Expert in building cross-platform mobile applications that deliver seamless user experiences and drive engagement on iOS and Android.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
 ];
