@@ -2,11 +2,10 @@ import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,35 +21,20 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      // Compose the message
-      const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`;
+    // Compose the message
+    const whatsappMessage = `Hi, I need help!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`;
 
-      // Send via WhatsApp API
-      const { data, error } = await supabase.functions.invoke('send-whatsapp', {
-        body: {
-          recipientPhone: siteConfig.contact.whatsapp,
-          message: whatsappMessage,
-        },
-      });
+    // Open WhatsApp with pre-filled message
+    const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
 
-      if (error) {
-        console.error('WhatsApp send error:', error);
-        toast.error("Failed to send message. Please try again or contact us directly.");
-      } else {
-        toast.success("Message sent successfully! We'll get back to you soon.");
-        setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
-      }
-    } catch (err) {
-      console.error('Submit error:', err);
-      toast.error("Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    toast.success("Opening WhatsApp to send your message!");
+    setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
+    setIsSubmitting(false);
   };
 
   return (
