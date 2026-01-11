@@ -6,6 +6,7 @@ import { ArrowRight, Mail, Phone, MapPin, Send, MessageCircle } from "lucide-rea
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const Contact = () => {
     email: "",
     subject: "",
     message: "",
+    phone: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -24,12 +26,31 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
+    try {
+      // Compose the message
+      const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`;
+
+      // Send via WhatsApp API
+      const { data, error } = await supabase.functions.invoke('send-whatsapp', {
+        body: {
+          recipientPhone: siteConfig.contact.whatsapp,
+          message: whatsappMessage,
+        },
+      });
+
+      if (error) {
+        console.error('WhatsApp send error:', error);
+        toast.error("Failed to send message. Please try again or contact us directly.");
+      } else {
+        toast.success("Message sent successfully! We'll get back to you soon.");
+        setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
+      }
+    } catch (err) {
+      console.error('Submit error:', err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -94,16 +115,28 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                <div>
-                  <Input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="bg-background/50 border-border/50 focus:border-primary"
-                  />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <Input
+                      type="tel"
+                      name="phone"
+                      placeholder="Your Phone (optional)"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="bg-background/50 border-border/50 focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      type="text"
+                      name="subject"
+                      placeholder="Subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      className="bg-background/50 border-border/50 focus:border-primary"
+                    />
+                  </div>
                 </div>
                 <div>
                   <Textarea
