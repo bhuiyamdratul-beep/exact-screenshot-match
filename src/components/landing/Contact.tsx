@@ -15,26 +15,27 @@ const Contact = () => {
     message: "",
     phone: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const getWhatsAppUrl = () => {
+    const whatsappMessage = `Hi, I need help!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`;
+    return `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Compose the message
-    const whatsappMessage = `Hi, I need help!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`;
-
-    // Open WhatsApp with pre-filled message
-    const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, '_blank');
-
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+    // Form will navigate via the anchor link
     toast.success("Opening WhatsApp to send your message!");
-    setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
-    setIsSubmitting(false);
+    setTimeout(() => {
+      setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
+    }, 500);
   };
 
   return (
@@ -133,21 +134,16 @@ const Contact = () => {
                     className="bg-background/50 border-border/50 focus:border-primary resize-none"
                   />
                 </div>
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full"
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleSubmit}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full h-11 px-8 transition-colors"
                 >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="w-4 h-4 ml-2" />
-                    </>
-                  )}
-                </Button>
+                  Send via WhatsApp
+                  <Send className="w-4 h-4" />
+                </a>
               </form>
             </div>
           </motion.div>
