@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Logo from "@/components/Logo";
+import logoD from "@/assets/logo-d.png";
 import { 
   Home, 
   Briefcase, 
@@ -32,7 +32,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <Logo variant="filled" size="md" className="drop-shadow-lg" />
+              <img src={logoD} alt="Dream It Developer" className="w-10 h-10 drop-shadow-lg rounded-full" />
               <div className="flex flex-col">
                 <span className="font-bold text-foreground text-lg">{siteConfig.company.name}</span>
                 <span className="text-xs text-primary">Quality is Our Strength</span>
