@@ -3,7 +3,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
-import Logo from "@/components/Logo";
+import logoD from "@/assets/logo-d.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +51,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <Logo variant="filled" size="md" className="group-hover:scale-105 transition-transform duration-300 drop-shadow-lg" />
+            <img src={logoD} alt="Dream It Developer" className="w-10 h-10 group-hover:scale-105 transition-transform duration-300 drop-shadow-lg rounded-full" />
             <div className="hidden sm:block">
               <span className="font-extrabold text-lg text-foreground tracking-wide">
                 Dream It Developer
