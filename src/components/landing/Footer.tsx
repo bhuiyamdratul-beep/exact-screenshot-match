@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Logo from "@/components/Logo";
 import { 
   Home, 
   Briefcase, 
@@ -31,9 +32,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-xl shadow-lg shadow-primary/25">
-                D
-              </div>
+              <Logo variant="filled" size="md" className="drop-shadow-lg" />
               <div className="flex flex-col">
                 <span className="font-bold text-foreground text-lg">{siteConfig.company.name}</span>
                 <span className="text-xs text-primary">Quality is Our Strength</span>
