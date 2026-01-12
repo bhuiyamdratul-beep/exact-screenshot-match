@@ -1,43 +1,9 @@
 import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Mail, Phone, MapPin, Send } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { toast } from "sonner";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    phone: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const getWhatsAppUrl = () => {
-    const whatsappMessage = `Hi, I need help!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`;
-    return `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-    // Form will navigate via the anchor link
-    toast.success("Opening WhatsApp to send your message!");
-    setTimeout(() => {
-      setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
-    }, 500);
-  };
-
   return (
     <section id="contact" className="section-padding bg-muted/30">
       <div className="container-custom">
@@ -60,208 +26,119 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="card-dark p-8 relative overflow-hidden">
-              {/* Decorative circles */}
-              <div className="absolute top-4 right-4 w-16 h-16 border-2 border-primary/20 rounded-full" />
-              <div className="absolute bottom-8 left-8 w-12 h-12 border-2 border-primary/20 rounded-full" />
-              
-              <h3 className="text-2xl font-bold mb-6 text-foreground">Send Us a Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <Input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="bg-background/50 border-border/50 focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="bg-background/50 border-border/50 focus:border-primary"
-                    />
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <Input
-                      type="tel"
-                      name="phone"
-                      placeholder="Your Phone (optional)"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="bg-background/50 border-border/50 focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      type="text"
-                      name="subject"
-                      placeholder="Subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="bg-background/50 border-border/50 focus:border-primary"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <Textarea
-                    name="message"
-                    placeholder="Your Message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="bg-background/50 border-border/50 focus:border-primary resize-none"
-                  />
-                </div>
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleSubmit}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full h-11 px-8 transition-colors"
-                >
-                  Send via WhatsApp
-                  <Send className="w-4 h-4" />
-                </a>
-              </form>
-            </div>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="space-y-8"
-          >
-            {/* Contact Details */}
-            <div className="space-y-6">
-              <motion.div 
-                className="flex items-start gap-4 p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Email Us</h4>
-                  <a 
-                    href={`mailto:${siteConfig.contact.email}`}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {siteConfig.contact.email}
-                  </a>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="flex items-start gap-4 p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Call Us</h4>
-                  <a 
-                    href={`tel:${siteConfig.contact.phone}`}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {siteConfig.contact.phone}
-                  </a>
-                  <div className="flex gap-2 mt-3">
-                    <a
-                      href={`https://wa.me/${siteConfig.contact.whatsapp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 transition-colors text-sm font-medium"
-                    >
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                      </svg>
-                      WhatsApp
-                    </a>
-                    <a
-                      href={`https://t.me/${siteConfig.contact.telegram}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0088cc]/10 text-[#0088cc] hover:bg-[#0088cc]/20 transition-colors text-sm font-medium"
-                    >
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                      </svg>
-                      Telegram
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="flex items-start gap-4 p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Visit Us</h4>
-                  <p className="text-muted-foreground">
-                    {siteConfig.contact.address}
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* CTA Card */}
+        {/* Contact Info - Full Width */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl mx-auto space-y-8"
+        >
+          {/* Contact Details Grid */}
+          <div className="grid sm:grid-cols-3 gap-6">
             <motion.div 
-              className="card-dark p-8 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-col items-center text-center gap-4 p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 transition-colors"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
             >
-              <h3 className="text-xl font-bold mb-3 text-foreground">
-                Ready to Get Started?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Book a free consultation and let's discuss your project.
-              </p>
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Book a Free Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Mail className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground mb-1">Email Us</h4>
+                <a 
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {siteConfig.contact.email}
+                </a>
+              </div>
             </motion.div>
+
+            <motion.div 
+              className="flex flex-col items-center text-center gap-4 p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 transition-colors"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Phone className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground mb-1">Call Us</h4>
+                <a 
+                  href={`tel:${siteConfig.contact.phone}`}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {siteConfig.contact.phone}
+                </a>
+                <div className="flex justify-center gap-2 mt-3">
+                  <a
+                    href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 transition-colors text-sm font-medium"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                  </a>
+                  <a
+                    href={`https://t.me/${siteConfig.contact.telegram}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0088cc]/10 text-[#0088cc] hover:bg-[#0088cc]/20 transition-colors text-sm font-medium"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    Telegram
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="flex flex-col items-center text-center gap-4 p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 transition-colors"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground mb-1">Visit Us</h4>
+                <p className="text-muted-foreground">
+                  {siteConfig.contact.address}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* CTA Card */}
+          <motion.div 
+            className="card-dark p-8 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <h3 className="text-xl font-bold mb-3 text-foreground">
+              Ready to Get Started?
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Book a free consultation and let's discuss your project.
+            </p>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Book a Free Consultation
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
