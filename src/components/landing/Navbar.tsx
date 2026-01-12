@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
-
+import Logo from "@/components/Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,9 +51,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-xl shadow-lg shadow-primary/25 group-hover:scale-105 transition-transform duration-300">
-              D
-            </div>
+            <Logo variant="filled" size="md" className="group-hover:scale-105 transition-transform duration-300 drop-shadow-lg" />
             <div className="hidden sm:block">
               <span className="font-extrabold text-lg text-foreground tracking-wide">
                 Dream It Developer
