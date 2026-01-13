@@ -3,9 +3,10 @@ import { siteConfig } from "@/config/siteConfig";
 
 const FloatingWhatsApp = () => {
   const whatsappNumber = siteConfig.contact.whatsapp;
-  const telegramNumber = siteConfig.contact.telegram;
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi I need help")}`;
-  const telegramUrl = `https://t.me/${telegramNumber}`;
+
+  // Force direct Telegram chat deep-link (no redirects)
+  const telegramUrl = "https://t.me/8801866366695";
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
