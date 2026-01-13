@@ -23,6 +23,9 @@ const techIcons = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+  // Row 4 - n8n and Supabase
+  "https://cdn.jsdelivr.net/gh/n8n-io/n8n@master/assets/n8n-logo.png",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
 ];
 
 const PlatformLogos = () => {
@@ -31,31 +34,55 @@ const PlatformLogos = () => {
 
   return (
     <section className="py-12 bg-background overflow-hidden">
-      {/* Platform Logos Marquee with Diagonal White Strip */}
-      <div className="relative py-8 mb-16">
-        {/* Diagonal White Background */}
+      {/* Platform Logos Marquee with Diagonal Premium Strip */}
+      <div className="relative py-10 mb-16">
+        {/* Premium Diagonal Background with Gradient & Texture */}
         <div 
-          className="absolute inset-0 bg-white"
+          className="absolute inset-0"
           style={{ 
-            transform: "skewY(-3deg)",
+            transform: "skewY(-2.5deg)",
             transformOrigin: "center"
           }}
-        />
+        >
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/50" />
+          
+          {/* Subtle Noise Texture Overlay */}
+          <div 
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            }}
+          />
+          
+          {/* Top Edge Shadow */}
+          <div className="absolute -top-4 left-0 right-0 h-8 bg-gradient-to-b from-black/5 to-transparent" />
+          
+          {/* Bottom Edge Shadow */}
+          <div className="absolute -bottom-4 left-0 right-0 h-8 bg-gradient-to-t from-black/5 to-transparent" />
+          
+          {/* Glassmorphism Overlay */}
+          <div className="absolute inset-0 backdrop-blur-[0.5px] bg-white/20" />
+        </div>
         
         {/* Top Row */}
         <div className="relative z-10 mb-4">
           <div className="flex animate-marquee">
             {logos.map((logo, index) => (
-              <div
+              <motion.div
                 key={`top-${index}`}
                 className="flex-shrink-0 mx-6 w-28 h-12 flex items-center justify-center"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
               >
                 <img
                   src={logo}
                   alt="Platform logo"
-                  className="max-w-full max-h-full object-contain"
+                  className="max-w-full max-h-full object-contain filter drop-shadow-sm hover:drop-shadow-md transition-all duration-300 hover:scale-105"
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -64,16 +91,20 @@ const PlatformLogos = () => {
         <div className="relative z-10">
           <div className="flex animate-marquee" style={{ animationDirection: "reverse" }}>
             {logos.map((logo, index) => (
-              <div
+              <motion.div
                 key={`bottom-${index}`}
                 className="flex-shrink-0 mx-6 w-28 h-12 flex items-center justify-center"
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
               >
                 <img
                   src={logo}
                   alt="Platform logo"
-                  className="max-w-full max-h-full object-contain"
+                  className="max-w-full max-h-full object-contain filter drop-shadow-sm hover:drop-shadow-md transition-all duration-300 hover:scale-105"
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
