@@ -149,7 +149,7 @@ export const siteConfig = {
     title: "Ready to Transform Your Digital Presence?",
     subtitle: "Let's Make It Happen Together!",
     description: "Don't miss out on the latest insights and strategies. Get expert guidance to take your business to the next level with our proven solutions.",
-    email: "hello@dreamitdeveloper.com",
+    email: "info@dreamitdeveloper.com",
     phone: "+880 1866-366695",
     whatsapp: "8801866366695",
     telegram: "8801866366695",
