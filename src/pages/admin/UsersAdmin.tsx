@@ -26,11 +26,16 @@ const UsersAdmin = () => {
 
   const updateRoleMutation = useMutation({
     mutationFn: async ({ userId, role }: { userId: string; role: string }) => {
-      const { error } = await supabase.from('user_roles').upsert({ user_id: userId, role }, { onConflict: 'user_id,role' });
+      // Delete existing role then insert new one (since unique is on user_id+role)
+      await supabase.from('user_roles').delete().eq('user_id', userId);
+      const { error } = await supabase.from('user_roles').insert({ 
+        user_id: userId, 
+        role: role as 'admin' | 'moderator' | 'user' 
+      });
       if (error) throw error;
     },
     onSuccess: () => { queryClient.invalidateQueries({ queryKey: ['users-admin'] }); toast({ title: 'Role updated' }); },
-    onError: (error) => { toast({ title: 'Error', description: error.message, variant: 'destructive' }); },
+    onError: (error: Error) => { toast({ title: 'Error', description: error.message, variant: 'destructive' }); },
   });
 
   return (
