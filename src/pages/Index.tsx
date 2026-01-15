@@ -9,7 +9,7 @@ import Process from "@/components/landing/Process";
 import Portfolio from "@/components/landing/Portfolio";
 import Testimonials from "@/components/landing/Testimonials";
 import FAQ from "@/components/landing/FAQ";
-import Contact from "@/components/landing/Contact";
+import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
@@ -26,7 +26,7 @@ const Index = () => {
       <Portfolio />
       <Testimonials />
       <FAQ />
-      <Contact />
+      <ContactSection />
       <Footer />
     </div>
   );
