@@ -26,6 +26,7 @@ interface AdminLayoutProps {
 const menuItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
   { icon: Mail, label: 'Leads', path: '/admin/leads' },
+  { icon: MessageSquare, label: 'Messages', path: '/admin/messages' },
   { icon: FileText, label: 'Blog Posts', path: '/admin/blog' },
   { icon: Briefcase, label: 'Portfolio', path: '/admin/portfolio' },
   { icon: MessageSquare, label: 'Testimonials', path: '/admin/testimonials' },

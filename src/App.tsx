@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Dashboard from "./pages/admin/Dashboard";
 import Leads from "./pages/admin/Leads";
+import MessagesAdmin from "./pages/admin/MessagesAdmin";
 import BlogPosts from "./pages/admin/BlogPosts";
 import PortfolioAdmin from "./pages/admin/PortfolioAdmin";
 import ServicesAdmin from "./pages/admin/ServicesAdmin";
@@ -46,6 +47,7 @@ const App = () => (
               {/* Admin Routes */}
               <Route path="/admin" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
               <Route path="/admin/leads" element={<ProtectedRoute><Leads /></ProtectedRoute>} />
+              <Route path="/admin/messages" element={<ProtectedRoute><MessagesAdmin /></ProtectedRoute>} />
               <Route path="/admin/blog" element={<ProtectedRoute><BlogPosts /></ProtectedRoute>} />
               <Route path="/admin/portfolio" element={<ProtectedRoute><PortfolioAdmin /></ProtectedRoute>} />
               <Route path="/admin/services" element={<ProtectedRoute><ServicesAdmin /></ProtectedRoute>} />
