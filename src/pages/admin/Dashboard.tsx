@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Mail, TrendingUp, FileText, Briefcase, MessageSquare } from 'lucide-react';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
+import { useToast } from '@/hooks/use-toast';
 
 interface Lead {
   id: string;
@@ -18,8 +19,11 @@ interface Lead {
 
 const Dashboard = () => {
   const queryClient = useQueryClient();
+  const { toast } = useToast();
   const [isUpdating, setIsUpdating] = useState(false);
   const [isLive, setIsLive] = useState(false);
+  const wasLiveRef = useRef(false);
+  const hasInitializedRef = useRef(false);
 
   const triggerUpdateAnimation = useCallback(() => {
     setIsUpdating(true);
@@ -52,13 +56,34 @@ const Dashboard = () => {
         triggerUpdateAnimation();
       })
       .subscribe((status) => {
-        setIsLive(status === 'SUBSCRIBED');
+        const nowLive = status === 'SUBSCRIBED';
+        setIsLive(nowLive);
+
+        // Show toast on connection status changes (after initial connection)
+        if (hasInitializedRef.current) {
+          if (nowLive && !wasLiveRef.current) {
+            toast({
+              title: "Reconnected",
+              description: "Real-time updates are back online",
+            });
+          } else if (!nowLive && wasLiveRef.current) {
+            toast({
+              title: "Connection lost",
+              description: "Attempting to reconnect...",
+              variant: "destructive",
+            });
+          }
+        } else if (nowLive) {
+          hasInitializedRef.current = true;
+        }
+
+        wasLiveRef.current = nowLive;
       });
 
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [queryClient, triggerUpdateAnimation]);
+  }, [queryClient, triggerUpdateAnimation, toast]);
   const { data: stats } = useQuery({
     queryKey: ['admin-stats'],
     queryFn: async () => {
