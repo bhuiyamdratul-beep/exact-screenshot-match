@@ -20,13 +20,14 @@ const Dashboard = () => {
   const { data: stats } = useQuery({
     queryKey: ['admin-stats'],
     queryFn: async () => {
-      const [leadsRes, newLeadsRes, blogRes, portfolioRes, testimonialsRes] = await Promise.all([
+      const [leadsRes, newLeadsRes, blogRes, portfolioRes, testimonialsRes, unreadMessagesRes] = await Promise.all([
         supabase.from('leads').select('id', { count: 'exact', head: true }),
         supabase.from('leads').select('id', { count: 'exact', head: true })
           .gte('created_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()),
         supabase.from('blog_posts').select('id', { count: 'exact', head: true }),
         supabase.from('portfolio').select('id', { count: 'exact', head: true }),
         supabase.from('testimonials').select('id', { count: 'exact', head: true }),
+        supabase.from('contact_messages').select('id', { count: 'exact', head: true }).eq('status', 'new'),
       ]);
 
       return {
@@ -35,6 +36,7 @@ const Dashboard = () => {
         blogPosts: blogRes.count || 0,
         portfolio: portfolioRes.count || 0,
         testimonials: testimonialsRes.count || 0,
+        unreadMessages: unreadMessagesRes.count || 0,
       };
     },
   });
@@ -68,6 +70,12 @@ const Dashboard = () => {
       color: 'bg-emerald-50 text-emerald-600' 
     },
     { 
+      label: 'Unread Messages', 
+      value: stats?.unreadMessages || 0, 
+      icon: MessageSquare, 
+      color: 'bg-amber-50 text-amber-600' 
+    },
+    { 
       label: 'Blog Posts', 
       value: stats?.blogPosts || 0, 
       icon: FileText, 
@@ -97,7 +105,7 @@ const Dashboard = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {statCards.map((stat) => (
             <Card key={stat.label} className="bg-white">
               <CardContent className="p-5">
