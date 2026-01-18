@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -6,6 +6,7 @@ import { AdminLayout } from '@/components/admin/AdminLayout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Mail, TrendingUp, FileText, Briefcase, MessageSquare } from 'lucide-react';
 import { format } from 'date-fns';
+import { cn } from '@/lib/utils';
 
 interface Lead {
   id: string;
@@ -17,6 +18,12 @@ interface Lead {
 
 const Dashboard = () => {
   const queryClient = useQueryClient();
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  const triggerUpdateAnimation = useCallback(() => {
+    setIsUpdating(true);
+    setTimeout(() => setIsUpdating(false), 1500);
+  }, []);
 
   // Set up realtime subscriptions for dashboard stats
   useEffect(() => {
@@ -25,25 +32,30 @@ const Dashboard = () => {
       .on('postgres_changes', { event: '*', schema: 'public', table: 'leads' }, () => {
         queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
         queryClient.invalidateQueries({ queryKey: ['recent-leads'] });
+        triggerUpdateAnimation();
       })
       .on('postgres_changes', { event: '*', schema: 'public', table: 'blog_posts' }, () => {
         queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+        triggerUpdateAnimation();
       })
       .on('postgres_changes', { event: '*', schema: 'public', table: 'portfolio' }, () => {
         queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+        triggerUpdateAnimation();
       })
       .on('postgres_changes', { event: '*', schema: 'public', table: 'testimonials' }, () => {
         queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+        triggerUpdateAnimation();
       })
       .on('postgres_changes', { event: '*', schema: 'public', table: 'contact_messages' }, () => {
         queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+        triggerUpdateAnimation();
       })
       .subscribe();
 
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [queryClient]);
+  }, [queryClient, triggerUpdateAnimation]);
   const { data: stats } = useQuery({
     queryKey: ['admin-stats'],
     queryFn: async () => {
@@ -134,15 +146,28 @@ const Dashboard = () => {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {statCards.map((stat) => (
-            <Card key={stat.label} className="bg-white">
+            <Card 
+              key={stat.label} 
+              className={cn(
+                "bg-white transition-all duration-300",
+                isUpdating && "animate-pulse ring-2 ring-emerald-400 ring-opacity-50"
+              )}
+            >
               <CardContent className="p-5">
                 <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-xl ${stat.color}`}>
+                  <div className={cn(
+                    "p-3 rounded-xl transition-transform duration-300",
+                    stat.color,
+                    isUpdating && "scale-110"
+                  )}>
                     <stat.icon className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">{stat.label}</p>
-                    <p className="text-2xl font-bold text-gray-800">{stat.value}</p>
+                    <p className={cn(
+                      "text-2xl font-bold text-gray-800 transition-colors duration-300",
+                      isUpdating && "text-emerald-600"
+                    )}>{stat.value}</p>
                   </div>
                 </div>
               </CardContent>
