@@ -19,6 +19,7 @@ interface Lead {
 const Dashboard = () => {
   const queryClient = useQueryClient();
   const [isUpdating, setIsUpdating] = useState(false);
+  const [isLive, setIsLive] = useState(false);
 
   const triggerUpdateAnimation = useCallback(() => {
     setIsUpdating(true);
@@ -50,7 +51,9 @@ const Dashboard = () => {
         queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
         triggerUpdateAnimation();
       })
-      .subscribe();
+      .subscribe((status) => {
+        setIsLive(status === 'SUBSCRIBED');
+      });
 
     return () => {
       supabase.removeChannel(channel);
@@ -138,9 +141,23 @@ const Dashboard = () => {
     <AdminLayout>
       <div className="space-y-6">
         {/* Header */}
-        <div>
-          <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
-          <p className="text-gray-600">Welcome to the Dream It Developer admin panel</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
+            <p className="text-gray-600">Welcome to the Dream It Developer admin panel</p>
+          </div>
+          <div className={cn(
+            "flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300",
+            isLive 
+              ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
+              : "bg-gray-100 text-gray-500 border border-gray-200"
+          )}>
+            <span className={cn(
+              "w-2 h-2 rounded-full",
+              isLive ? "bg-emerald-500 animate-pulse" : "bg-gray-400"
+            )} />
+            {isLive ? "Live" : "Connecting..."}
+          </div>
         </div>
 
         {/* Stats Cards */}
