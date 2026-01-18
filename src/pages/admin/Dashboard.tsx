@@ -1,5 +1,5 @@
-import React from 'react';
-import { useQuery } from '@tanstack/react-query';
+import React, { useEffect } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { AdminLayout } from '@/components/admin/AdminLayout';
@@ -16,7 +16,34 @@ interface Lead {
 }
 
 const Dashboard = () => {
-  // Fetch stats
+  const queryClient = useQueryClient();
+
+  // Set up realtime subscriptions for dashboard stats
+  useEffect(() => {
+    const channel = supabase
+      .channel('dashboard-realtime')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'leads' }, () => {
+        queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+        queryClient.invalidateQueries({ queryKey: ['recent-leads'] });
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'blog_posts' }, () => {
+        queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'portfolio' }, () => {
+        queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'testimonials' }, () => {
+        queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'contact_messages' }, () => {
+        queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [queryClient]);
   const { data: stats } = useQuery({
     queryKey: ['admin-stats'],
     queryFn: async () => {
