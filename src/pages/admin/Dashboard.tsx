@@ -128,37 +128,43 @@ const Dashboard = () => {
       label: 'Total Leads', 
       value: stats?.totalLeads || 0, 
       icon: Mail, 
-      color: 'bg-blue-50 text-blue-600' 
+      color: 'bg-blue-50 text-blue-600',
+      href: '/admin/leads'
     },
     { 
       label: 'New Leads', 
       value: stats?.newLeads || 0, 
       icon: TrendingUp, 
-      color: 'bg-emerald-50 text-emerald-600' 
+      color: 'bg-emerald-50 text-emerald-600',
+      href: '/admin/leads'
     },
     { 
       label: 'Unread Messages', 
       value: stats?.unreadMessages || 0, 
       icon: MessageSquare, 
-      color: 'bg-amber-50 text-amber-600' 
+      color: 'bg-amber-50 text-amber-600',
+      href: '/admin/messages'
     },
     { 
       label: 'Blog Posts', 
       value: stats?.blogPosts || 0, 
       icon: FileText, 
-      color: 'bg-orange-50 text-orange-600' 
+      color: 'bg-orange-50 text-orange-600',
+      href: '/admin/blog'
     },
     { 
       label: 'Portfolio', 
       value: stats?.portfolio || 0, 
       icon: Briefcase, 
-      color: 'bg-purple-50 text-purple-600' 
+      color: 'bg-purple-50 text-purple-600',
+      href: '/admin/portfolio'
     },
     { 
       label: 'Testimonials', 
       value: stats?.testimonials || 0, 
       icon: MessageSquare, 
-      color: 'bg-pink-50 text-pink-600' 
+      color: 'bg-pink-50 text-pink-600',
+      href: '/admin/testimonials'
     },
   ];
 
@@ -188,32 +194,33 @@ const Dashboard = () => {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {statCards.map((stat) => (
-            <Card 
-              key={stat.label} 
-              className={cn(
-                "bg-white transition-all duration-300",
-                isUpdating && "animate-pulse ring-2 ring-emerald-400 ring-opacity-50"
-              )}
-            >
-              <CardContent className="p-5">
-                <div className="flex items-center gap-4">
-                  <div className={cn(
-                    "p-3 rounded-xl transition-transform duration-300",
-                    stat.color,
-                    isUpdating && "scale-110"
-                  )}>
-                    <stat.icon className="h-5 w-5" />
+            <Link key={stat.label} to={stat.href}>
+              <Card 
+                className={cn(
+                  "bg-white transition-all duration-300 hover:shadow-md hover:scale-[1.02] cursor-pointer",
+                  isUpdating && "animate-pulse ring-2 ring-emerald-400 ring-opacity-50"
+                )}
+              >
+                <CardContent className="p-5">
+                  <div className="flex items-center gap-4">
+                    <div className={cn(
+                      "p-3 rounded-xl transition-transform duration-300",
+                      stat.color,
+                      isUpdating && "scale-110"
+                    )}>
+                      <stat.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">{stat.label}</p>
+                      <p className={cn(
+                        "text-2xl font-bold text-gray-800 transition-colors duration-300",
+                        isUpdating && "text-emerald-600"
+                      )}>{stat.value}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500">{stat.label}</p>
-                    <p className={cn(
-                      "text-2xl font-bold text-gray-800 transition-colors duration-300",
-                      isUpdating && "text-emerald-600"
-                    )}>{stat.value}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
