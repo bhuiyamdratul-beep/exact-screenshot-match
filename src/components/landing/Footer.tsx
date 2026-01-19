@@ -3,6 +3,8 @@ import { siteConfig } from "@/config/siteConfig";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import logoD from "@/assets/logo-d.png";
 import { 
   Home, 
@@ -12,17 +14,51 @@ import {
   FileText, 
   Phone,
   Mail,
-  MapPin
+  MapPin,
+  Loader2
 } from "lucide-react";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    console.log("Subscribe:", email);
-    setEmail("");
+    
+    if (!email) {
+      toast({
+        title: "Email required",
+        description: "Please enter your email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke("newsletter-subscribe", {
+        body: { email },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Subscribed! 🎉",
+        description: data.message || "Thank you for subscribing to our newsletter!",
+      });
+      setEmail("");
+    } catch (error: any) {
+      console.error("Subscription error:", error);
+      toast({
+        title: "Subscription failed",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -121,9 +157,15 @@ const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="bg-secondary/50 border-border text-sm"
+                  disabled={isLoading}
                 />
-                <Button type="submit" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Subscribe
+                <Button 
+                  type="submit" 
+                  size="sm" 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  disabled={isLoading}
+                >
+                  {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Subscribe"}
                 </Button>
               </form>
             </div>
