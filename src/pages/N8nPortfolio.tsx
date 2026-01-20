@@ -1,10 +1,11 @@
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { useInView } from "@/hooks/useInView";
-import { ArrowRight, Zap, RefreshCw, Database, Mail, ShoppingCart, Users } from "lucide-react";
+import { ArrowRight, Zap, RefreshCw, Database, Mail, ShoppingCart, Users, Play, Quote, Bot, Webhook, FileText, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const n8nCaseStudies = [
   {
@@ -22,6 +23,14 @@ const n8nCaseStudies = [
     technologies: ["n8n", "Shopify", "Airtable", "SendGrid", "ShipStation"],
     icon: ShoppingCart,
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "Dream It Developer transformed our operations. What used to take our team 8 hours now happens automatically in minutes. Our customers love the instant updates!",
+      name: "Sarah Chen",
+      role: "Operations Director",
+      company: "StyleHub Fashion",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+    },
   },
   {
     title: "Lead Qualification & CRM Sync",
@@ -38,6 +47,14 @@ const n8nCaseStudies = [
     technologies: ["n8n", "HubSpot", "Clearbit", "Typeform", "Slack"],
     icon: Users,
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "Our sales team can now focus on selling instead of data entry. The automated lead scoring has been a game-changer for prioritizing our outreach.",
+      name: "Michael Rodriguez",
+      role: "Sales Manager",
+      company: "TechGrowth Solutions",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+    },
   },
   {
     title: "Automated Reporting Dashboard",
@@ -54,6 +71,14 @@ const n8nCaseStudies = [
     technologies: ["n8n", "Google Sheets", "PostgreSQL", "Slack", "Gmail"],
     icon: Database,
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "I used to dread Monday mornings preparing reports. Now they're automatically ready before I even get my coffee. This automation has been invaluable.",
+      name: "Emily Watson",
+      role: "Business Analyst",
+      company: "DataDriven Corp",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+    },
   },
   {
     title: "Customer Onboarding Automation",
@@ -70,6 +95,14 @@ const n8nCaseStudies = [
     technologies: ["n8n", "Intercom", "Calendly", "Notion", "Stripe"],
     icon: Mail,
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "Our customer satisfaction scores jumped 40% after implementing the automated onboarding. Every customer now gets the same premium experience.",
+      name: "David Kim",
+      role: "Customer Success Lead",
+      company: "SaaSPro Platform",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    },
   },
   {
     title: "Multi-Platform Content Syndication",
@@ -86,6 +119,14 @@ const n8nCaseStudies = [
     technologies: ["n8n", "Buffer", "WordPress", "LinkedIn API", "Twitter API"],
     icon: RefreshCw,
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "We went from struggling to post twice a week to consistently publishing across all platforms daily. Our engagement has never been higher!",
+      name: "Jessica Martinez",
+      role: "Content Director",
+      company: "MediaFlow Agency",
+      avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop",
+    },
   },
   {
     title: "Invoice & Payment Processing",
@@ -102,6 +143,110 @@ const n8nCaseStudies = [
     technologies: ["n8n", "QuickBooks", "Stripe", "Notion", "Slack"],
     icon: Zap,
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "Cash flow improved dramatically once we automated our invoicing. Late payments dropped by 60% thanks to the automated reminder sequences.",
+      name: "Robert Anderson",
+      role: "CFO",
+      company: "ConsultPro Services",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+    },
+  },
+  {
+    title: "AI-Powered Support Ticket Routing",
+    category: "Customer Support",
+    description: "Implemented intelligent ticket routing using AI classification to automatically assign support tickets to the right team members.",
+    challenge: "Support tickets were manually triaged, causing delays and frequent misrouting that frustrated both customers and support staff.",
+    solution: "Built an n8n workflow that uses AI to analyze incoming tickets, classify urgency and category, and automatically route to the appropriate specialist.",
+    results: [
+      "First response time reduced by 70%",
+      "Ticket misrouting dropped to 2%",
+      "Customer satisfaction up 35%",
+      "Support team productivity doubled",
+    ],
+    technologies: ["n8n", "OpenAI", "Zendesk", "Slack", "PagerDuty"],
+    icon: Bot,
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "The AI routing is incredibly accurate. Complex issues go straight to senior engineers while simple queries are handled instantly. It's like magic!",
+      name: "Amanda Foster",
+      role: "Support Team Lead",
+      company: "CloudTech Solutions",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
+    },
+  },
+  {
+    title: "Webhook-Based Event Processing",
+    category: "Developer Tools",
+    description: "Created a centralized webhook processing system that handles events from multiple third-party services and triggers appropriate actions.",
+    challenge: "Developers were building custom integrations for each service, leading to maintenance nightmares and inconsistent error handling.",
+    solution: "Developed a unified n8n webhook hub that receives events, validates payloads, transforms data, and triggers downstream workflows with proper error handling and logging.",
+    results: [
+      "Integration development time cut by 80%",
+      "99.9% webhook processing reliability",
+      "Centralized monitoring and logging",
+      "Reusable integration patterns",
+    ],
+    technologies: ["n8n", "GitHub", "Stripe", "AWS SNS", "Datadog"],
+    icon: Webhook,
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "Our developers now focus on building features instead of maintaining integrations. The webhook hub handles everything reliably.",
+      name: "Alex Thompson",
+      role: "Engineering Manager",
+      company: "DevOps Innovations",
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop",
+    },
+  },
+  {
+    title: "Document Processing Pipeline",
+    category: "Operations",
+    description: "Automated document intake, OCR processing, data extraction, and filing for a legal services firm handling thousands of documents monthly.",
+    challenge: "Staff spent countless hours manually processing incoming documents, extracting key information, and organizing files correctly.",
+    solution: "Built an n8n pipeline that automatically receives documents, extracts text using OCR, identifies document types, extracts key data fields, and files everything in the correct locations.",
+    results: [
+      "Document processing time reduced by 90%",
+      "Data extraction accuracy at 98%",
+      "Automatic categorization and filing",
+      "Full audit trail for compliance",
+    ],
+    technologies: ["n8n", "Google Vision AI", "DocuSign", "Box", "Airtable"],
+    icon: FileText,
+    image: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "We process 10x more documents now with half the staff. The accuracy is better than manual processing, and we have complete audit trails for compliance.",
+      name: "Jennifer Blake",
+      role: "Operations Manager",
+      company: "LegalEase Partners",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop",
+    },
+  },
+  {
+    title: "Appointment Scheduling Automation",
+    category: "Healthcare",
+    description: "Streamlined patient appointment scheduling with automated reminders, rescheduling workflows, and calendar synchronization for a multi-location clinic.",
+    challenge: "No-show rates were high, staff spent hours on phone calls, and scheduling conflicts between locations were common.",
+    solution: "Created an n8n system that handles online booking, sends personalized reminders via SMS and email, manages rescheduling requests, and syncs across all location calendars.",
+    results: [
+      "No-show rate reduced from 25% to 5%",
+      "Staff phone time reduced by 60%",
+      "Zero double-bookings",
+      "Patient satisfaction up 45%",
+    ],
+    technologies: ["n8n", "Calendly", "Twilio", "Google Calendar", "Practice Fusion"],
+    icon: Calendar,
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    testimonial: {
+      quote: "Our front desk staff can now focus on patient care instead of playing phone tag. The automated reminders have practically eliminated no-shows.",
+      name: "Dr. Lisa Chang",
+      role: "Medical Director",
+      company: "WellCare Clinics",
+      avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop",
+    },
   },
 ];
 
@@ -141,10 +286,10 @@ const N8nPortfolio = () => {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "50+", label: "Workflows Built" },
-              { value: "1000+", label: "Hours Saved Monthly" },
+              { value: "100+", label: "Workflows Built" },
+              { value: "2500+", label: "Hours Saved Monthly" },
               { value: "100%", label: "Client Satisfaction" },
-              { value: "15+", label: "Industries Served" },
+              { value: "20+", label: "Industries Served" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -213,30 +358,74 @@ const N8nPortfolio = () => {
 
 const CaseStudySection = ({ study, index }: { study: typeof n8nCaseStudies[0]; index: number }) => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [showVideo, setShowVideo] = useState(false);
   const isEven = index % 2 === 0;
   const Icon = study.icon;
 
   return (
     <motion.div
       ref={ref}
-      className={`grid lg:grid-cols-2 gap-12 items-center ${
+      className={`grid lg:grid-cols-2 gap-12 items-start ${
         isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{ transition: "all 0.7s ease" }}
     >
-      {/* Image */}
+      {/* Image/Video */}
       <div className={`${!isEven ? "lg:order-2" : ""}`}>
         <div className="relative rounded-2xl overflow-hidden group">
-          <img
-            src={study.image}
-            alt={study.title}
-            className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-          <div className="absolute bottom-4 left-4">
-            <span className="px-3 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full">
-              {study.category}
-            </span>
+          {showVideo ? (
+            <div className="aspect-video">
+              <iframe
+                src={study.videoUrl}
+                title={study.title}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ) : (
+            <>
+              <img
+                src={study.image}
+                alt={study.title}
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <button
+                onClick={() => setShowVideo(true)}
+                className="absolute inset-0 flex items-center justify-center group/play"
+              >
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg group-hover/play:scale-110 transition-transform">
+                  <Play className="w-6 h-6 text-primary-foreground ml-1" fill="currentColor" />
+                </div>
+              </button>
+              <div className="absolute bottom-4 left-4">
+                <span className="px-3 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full">
+                  {study.category}
+                </span>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Testimonial Card */}
+        <div className="mt-6 bg-card border border-border rounded-xl p-6">
+          <Quote className="w-8 h-8 text-primary/30 mb-3" />
+          <p className="text-muted-foreground italic mb-4 leading-relaxed">
+            "{study.testimonial.quote}"
+          </p>
+          <div className="flex items-center gap-3">
+            <img
+              src={study.testimonial.avatar}
+              alt={study.testimonial.name}
+              className="w-12 h-12 rounded-full object-cover"
+            />
+            <div>
+              <p className="font-semibold text-foreground">{study.testimonial.name}</p>
+              <p className="text-sm text-muted-foreground">
+                {study.testimonial.role}, {study.testimonial.company}
+              </p>
+            </div>
           </div>
         </div>
       </div>
