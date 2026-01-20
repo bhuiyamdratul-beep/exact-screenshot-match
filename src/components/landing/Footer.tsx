@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { z } from "zod";
 import { siteConfig } from "@/config/siteConfig";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import logoD from "@/assets/logo-d.png";
 import { 
-  Home, 
+  Home,
   Briefcase, 
   FolderOpen, 
   Info, 
@@ -18,20 +19,22 @@ import {
   Loader2
 } from "lucide-react";
 
+const emailSchema = z.string().trim().email("Please enter a valid email address").max(255, "Email is too long");
+
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
+    setEmailError("");
     
-    if (!email) {
-      toast({
-        title: "Email required",
-        description: "Please enter your email address.",
-        variant: "destructive",
-      });
+    // Validate email with zod
+    const result = emailSchema.safeParse(email);
+    if (!result.success) {
+      setEmailError(result.error.errors[0].message);
       return;
     }
 
@@ -51,9 +54,12 @@ const Footer = () => {
       setEmail("");
     } catch (error: any) {
       console.error("Subscription error:", error);
+      const errorMessage = error?.message?.includes("rate limit") 
+        ? "Too many attempts. Please try again later."
+        : "Something went wrong. Please try again.";
       toast({
         title: "Subscription failed",
-        description: "Something went wrong. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
@@ -150,23 +156,29 @@ const Footer = () => {
             {/* Newsletter */}
             <div className="mt-6">
               <p className="text-sm text-muted-foreground mb-3">Subscribe to our newsletter</p>
-              <form onSubmit={handleSubscribe} className="flex gap-2">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-secondary/50 border-border text-sm"
-                  disabled={isLoading}
-                />
-                <Button 
-                  type="submit" 
-                  size="sm" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              <form onSubmit={handleSubscribe} className="space-y-2">
+                <div className="flex gap-2">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (emailError) setEmailError("");
+                    }}
+                    className={`bg-secondary/50 border-border text-sm ${emailError ? "border-destructive" : ""}`}
+                    disabled={isLoading}
+                  />
+                  <Button 
+                    type="submit" 
+                    size="sm" 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
                   disabled={isLoading}
                 >
-                  {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Subscribe"}
-                </Button>
+                    {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Subscribe"}
+                  </Button>
+                </div>
+                {emailError && <p className="text-xs text-destructive">{emailError}</p>}
               </form>
             </div>
           </div>
