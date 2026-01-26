@@ -23,9 +23,13 @@ const techIcons = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
-  // Row 4 - n8n and Supabase
-  "https://cdn.jsdelivr.net/gh/n8n-io/n8n@master/assets/n8n-logo.png",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+  // Row 4
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
 ];
 
 const PlatformLogos = () => {
