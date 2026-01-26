@@ -4,7 +4,7 @@ import Footer from "@/components/landing/Footer";
 import { useInView } from "@/hooks/useInView";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Users, Award, Clock, Target, Linkedin, Twitter, Github } from "lucide-react";
+import { Users, Award, Clock, Target } from "lucide-react";
 import founderImage from "@/assets/founder-ratul.jpg";
 import teamLeadImage from "@/assets/team-lead-yeasin.png";
 import teamAbirImage from "@/assets/team-abir.jpg";
@@ -47,35 +47,30 @@ const team = [
     role: "Founder & CEO",
     image: founderImage,
     bio: "Focuses on company vision, business growth, and AI-driven system architecture, ensuring every solution is aligned with long-term scalability and strong ROI.",
-    socials: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
     name: "Yeasin Arafat Mollik",
     role: "Lead & Automation Expert",
     image: teamLeadImage,
     bio: "Leads development and execution, turning complex ideas into reliable, high-performance systems that work seamlessly in real-world operations.",
-    socials: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
     name: "Md Abir Mahmud",
     role: "Graphic Designer",
     image: teamAbirImage,
     bio: "Creates stunning visual designs and brand identities that captivate audiences and communicate brand values effectively.",
-    socials: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
     name: "Labonno Akter",
     role: "Python Developer",
     image: teamLabonnoImage,
     bio: "Specializes in Python development, building robust backend solutions and automation scripts that power efficient business operations.",
-    socials: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
     name: "Ibn Ahsan Zihad",
     role: "Digital Marketing Expert",
     image: teamZihadImage,
     bio: "Drives online growth through strategic SEO, social media marketing, paid advertising, and content strategies that deliver measurable results.",
-    socials: { linkedin: "#", twitter: "#", github: "#" },
   },
 ];
 
@@ -208,24 +203,7 @@ const About = () => {
                 </div>
                 <h3 className="font-semibold text-foreground">{member.name}</h3>
                 <p className="text-sm text-primary mb-2">{member.role}</p>
-                <p className="text-xs text-muted-foreground mb-4">{member.bio}</p>
-                <div className="flex justify-center gap-3">
-                  {member.socials.linkedin && (
-                    <a href={member.socials.linkedin} className="text-muted-foreground hover:text-primary transition-colors">
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.socials.twitter && (
-                    <a href={member.socials.twitter} className="text-muted-foreground hover:text-primary transition-colors">
-                      <Twitter className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.socials.github && (
-                    <a href={member.socials.github} className="text-muted-foreground hover:text-primary transition-colors">
-                      <Github className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
+                <p className="text-xs text-muted-foreground">{member.bio}</p>
               </div>
             ))}
           </div>
