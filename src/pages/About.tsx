@@ -51,7 +51,7 @@ const team = [
   },
   {
     name: "Yeasin Arafat Mollik",
-    role: "Lead",
+    role: "Lead & Automation Expert",
     image: teamLeadImage,
     bio: "Leads development and execution, turning complex ideas into reliable, high-performance systems that work seamlessly in real-world operations.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
