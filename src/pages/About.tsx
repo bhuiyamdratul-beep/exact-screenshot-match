@@ -72,9 +72,9 @@ const team = [
   },
   {
     name: "Ibn Ahsan Zihad",
-    role: "Mobile Apps Developer",
+    role: "Digital Marketing Expert",
     image: teamZihadImage,
-    bio: "Expert in building cross-platform mobile applications that deliver seamless user experiences and drive engagement on iOS and Android.",
+    bio: "Drives online growth through strategic SEO, social media marketing, paid advertising, and content strategies that deliver measurable results.",
     socials: { linkedin: "#", twitter: "#", github: "#" },
   },
 ];
