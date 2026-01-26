@@ -35,10 +35,10 @@ const PlatformLogos = () => {
   return (
     <section className="py-12 bg-background overflow-hidden">
       {/* Platform Logos Marquee with Diagonal Premium Strip */}
-      <div className="relative py-10 mb-16">
+      <div className="relative py-10 mb-16 overflow-hidden">
         {/* Premium Diagonal Background with Gradient & Texture */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 overflow-hidden"
           style={{ 
             transform: "skewY(-2.5deg)",
             transformOrigin: "center"
@@ -55,57 +55,60 @@ const PlatformLogos = () => {
             }}
           />
           
-          {/* Top Edge Shadow */}
-          <div className="absolute -top-4 left-0 right-0 h-8 bg-gradient-to-b from-black/5 to-transparent" />
-          
-          {/* Bottom Edge Shadow */}
-          <div className="absolute -bottom-4 left-0 right-0 h-8 bg-gradient-to-t from-black/5 to-transparent" />
-          
           {/* Glassmorphism Overlay */}
           <div className="absolute inset-0 backdrop-blur-[0.5px] bg-white/20" />
         </div>
         
-        {/* Top Row */}
-        <div className="relative z-10 mb-4">
-          <div className="flex animate-marquee">
-            {logos.map((logo, index) => (
-              <motion.div
-                key={`top-${index}`}
-                className="flex-shrink-0 mx-6 w-28 h-12 flex items-center justify-center"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-              >
-                <img
-                  src={logo}
-                  alt="Platform logo"
-                  className="max-w-full max-h-full object-contain filter drop-shadow-sm hover:drop-shadow-md transition-all duration-300 hover:scale-105"
-                />
-              </motion.div>
-            ))}
+        {/* Logos Container with Mask */}
+        <div 
+          className="relative z-10"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)"
+          }}
+        >
+          {/* Top Row */}
+          <div className="mb-4 overflow-hidden">
+            <div className="flex animate-marquee">
+              {logos.map((logo, index) => (
+                <motion.div
+                  key={`top-${index}`}
+                  className="flex-shrink-0 mx-6 w-28 h-12 flex items-center justify-center"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                >
+                  <img
+                    src={logo}
+                    alt="Platform logo"
+                    className="max-w-full max-h-full object-contain filter drop-shadow-sm hover:drop-shadow-md transition-all duration-300 hover:scale-105"
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Bottom Row - Reverse Direction */}
-        <div className="relative z-10">
-          <div className="flex animate-marquee" style={{ animationDirection: "reverse" }}>
-            {logos.map((logo, index) => (
-              <motion.div
-                key={`bottom-${index}`}
-                className="flex-shrink-0 mx-6 w-28 h-12 flex items-center justify-center"
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-              >
-                <img
-                  src={logo}
-                  alt="Platform logo"
-                  className="max-w-full max-h-full object-contain filter drop-shadow-sm hover:drop-shadow-md transition-all duration-300 hover:scale-105"
-                />
-              </motion.div>
-            ))}
+          {/* Bottom Row - Reverse Direction */}
+          <div className="overflow-hidden">
+            <div className="flex animate-marquee" style={{ animationDirection: "reverse" }}>
+              {logos.map((logo, index) => (
+                <motion.div
+                  key={`bottom-${index}`}
+                  className="flex-shrink-0 mx-6 w-28 h-12 flex items-center justify-center"
+                  initial={{ opacity: 0, y: -10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                >
+                  <img
+                    src={logo}
+                    alt="Platform logo"
+                    className="max-w-full max-h-full object-contain filter drop-shadow-sm hover:drop-shadow-md transition-all duration-300 hover:scale-105"
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
