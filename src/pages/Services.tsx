@@ -215,15 +215,6 @@ const ServiceSection = ({ service, index }: { service: typeof serviceDetails[0];
               ))}
             </div>
 
-            {/* n8n Case Studies Link */}
-            {isN8n && (
-              <Link to="/n8n-portfolio">
-                <Button variant="outline" className="rounded-full">
-                  View Case Studies
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            )}
           </div>
         </div>
       </div>
