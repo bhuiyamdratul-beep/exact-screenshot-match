@@ -76,6 +76,12 @@ export const siteConfig = {
       description: "Create visual designs, branding materials, and creative assets that communicate your message effectively and leave lasting impressions.",
       image: "https://www.techwebninja.com/assets/graphic%20design-Bg9ErkSc.png",
     },
+    {
+      icon: "📈",
+      title: "Digital Marketing",
+      description: "Boost your online presence with SEO, social media marketing, content creation, and paid advertising that drives real traffic and conversions.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+    },
   ],
 
   // Technology Stack
