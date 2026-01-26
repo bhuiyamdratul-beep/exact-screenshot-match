@@ -28,11 +28,12 @@ export const siteConfig = {
   about: {
     title: "Who We Are?",
     paragraphs: [
-      "At Dream It Developer, we specialize in building high-converting sales funnels, marketing automation, and AI-powered business systems. We work with platforms like GoHighLevel, ClickFunnels, Zapier, ActiveCampaign, and custom AI integrations to help businesses grow faster and operate smarter.",
-      "We design automation-first solutions using n8n, build modern and scalable interfaces with Lovable, and deploy production-ready applications on Vercel. For rapid and efficient development, we also leverage Bolt to deliver high-quality solutions at speed.",
-      "Led by Md Ahoshan Hasan Ratul (Founder & CEO) and Yeasin Arafat Mollik (Lead), our team combines strategic leadership with hands-on technical expertise to deliver full-stack digital solutions that drive real, measurable results.",
-      "Md Ahoshan Hasan Ratul focuses on company vision, business growth, and AI-driven system architecture, ensuring every solution is aligned with long-term scalability and strong ROI. Yeasin Arafat Mollik leads development and execution, turning complex ideas into reliable, high-performance systems that work seamlessly in real-world operations.",
-      "From AI chatbots and automation workflows to sales funnels, mobile apps, cloud infrastructure, and API-driven platforms—we build technology that integrates smoothly with your business and scales as you grow.",
+      "At Dream It Developer, we're not just another digital agency - we're your complete tech partner. We have an expert team that specializes in Python Development, AI Solutions, Shopify E-commerce, Graphic Design, and Digital Marketing. Whatever your business needs, we've got the skills and experience to make it happen.",
+      "Our Python developers are really good at what they do. They build custom applications, automation systems, and backend solutions that actually work for your business. Need a Shopify store? We create ones that don't just look good but actually convert visitors into paying customers. We also develop AI-powered websites and chatbots that make your customer interactions smooth and automated.",
+      "When it comes to visuals, our graphic design team creates everything - logos, brand identity, social media posts, website designs, you name it. We make sure your brand looks professional and stands out from the competition. Plus, our digital marketing experts know how to get your business noticed online through SEO, social media marketing, content creation, and paid ads that actually bring results.",
+      "We're really strong in automation. Our team works with platforms like GoHighLevel, ClickFunnels, Zapier, ActiveCampaign, and n8n to automate your sales funnels and make your business run smoother. We build modern websites using the latest technologies and deploy everything properly so it works fast and efficiently.",
+      "Led by Md Ahoshan Hasan Ratul (Founder & CEO), we've built a team of skilled Python developers, AI specialists, creative graphic designers, and experienced digital marketers who genuinely care about delivering results. We're not just about completing projects - we're about helping your business grow.",
+      "Whether you need custom Python solutions, AI integrations, professional design work, or complete digital marketing - our expert team has got you covered. We build solutions that work with your business and grow as you grow.",
     ],
     image: "https://www.techwebninja.com/assets/who%20we%20are-tnakWEtQ.png",
   },
