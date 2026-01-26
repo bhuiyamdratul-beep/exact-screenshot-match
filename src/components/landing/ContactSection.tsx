@@ -140,7 +140,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <Input
-                    type="email"
+                    type="text"
                     placeholder="Email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
