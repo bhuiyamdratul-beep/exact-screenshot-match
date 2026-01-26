@@ -9,7 +9,6 @@ import { ProtectedRoute } from "./components/admin/ProtectedRoute";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
-import N8nPortfolio from "./pages/N8nPortfolio";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
@@ -40,7 +39,6 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<Services />} />
               <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/n8n-portfolio" element={<N8nPortfolio />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/login" element={<Login />} />
