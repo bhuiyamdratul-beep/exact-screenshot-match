@@ -68,8 +68,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-card border-t border-border py-12">
-      <div className="container-custom">
+    <footer className="bg-gradient-to-br from-[#0B0F1A] via-[#131B2E] to-[#1a1f35] border-t border-primary/20 py-12 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="container-custom relative z-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
