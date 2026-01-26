@@ -5,7 +5,6 @@ import { useToast } from '@/hooks/use-toast';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 import { ArrowRight, Phone, Mail, Globe, MessageSquare, Send } from 'lucide-react';
 
 const contactSchema = z.object({
@@ -39,7 +38,6 @@ const ContactSection = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [honeypot, setHoneypot] = useState('');
-  const [isRobot, setIsRobot] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -53,11 +51,6 @@ const ContactSection = () => {
       return;
     }
 
-    // Robot checkbox check
-    if (!isRobot) {
-      setErrors({ robot: 'Please confirm you are not a robot' });
-      return;
-    }
 
     // Rate limit check
     if (!checkRateLimit()) {
@@ -93,7 +86,6 @@ const ContactSection = () => {
 
       recordSubmission();
       setFormData({ name: '', email: '', message: '' });
-      setIsRobot(false);
       toast({ title: 'Message sent successfully!', description: 'We will get back to you soon.' });
     } catch (error: any) {
       toast({
@@ -168,25 +160,6 @@ const ContactSection = () => {
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
 
-              {/* Custom reCAPTCHA style checkbox */}
-              <div className="bg-[#1e1e28] border border-gray-700 rounded-lg p-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Checkbox
-                    id="robot-check"
-                    checked={isRobot}
-                    onCheckedChange={(checked) => setIsRobot(checked as boolean)}
-                    className="h-6 w-6 border-2 border-gray-500 data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
-                  />
-                  <label htmlFor="robot-check" className="text-gray-300 cursor-pointer">
-                    I'm not a robot
-                  </label>
-                </div>
-                <div className="text-right">
-                  <div className="text-xs text-gray-500">reCAPTCHA</div>
-                  <div className="text-[10px] text-gray-600">Privacy · Terms</div>
-                </div>
-              </div>
-              {errors.robot && <p className="text-red-500 text-sm">{errors.robot}</p>}
 
               <Button
                 type="submit"
