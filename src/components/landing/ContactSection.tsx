@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
-import { ArrowRight, Phone, Mail, Globe, MessageSquare } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Globe, MessageSquare, Send } from 'lucide-react';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(100, 'Name too long'),
@@ -251,6 +251,28 @@ const ContactSection = () => {
                 Hi there! 👋
               </div>
             </div>
+          </div>
+
+          {/* Direct Contact Options */}
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href="https://t.me/+880186636695"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#0088cc] hover:bg-[#0077b5] text-white px-6 py-3 rounded-xl transition-colors"
+            >
+              <Send className="w-5 h-5" />
+              <span className="font-medium">Chat on Telegram</span>
+            </a>
+            <a
+              href="https://wa.me/8801866366695?text=Hi%20I%20need%20help"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-3 rounded-xl transition-colors"
+            >
+              <MessageSquare className="w-5 h-5" />
+              <span className="font-medium">Chat on WhatsApp</span>
+            </a>
           </div>
         </div>
       </div>
