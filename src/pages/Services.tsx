@@ -134,22 +134,6 @@ const Services = () => {
         <ServiceSection key={service.title} service={service} index={index} />
       ))}
 
-      {/* CTA Section */}
-      <section className="section-padding bg-background">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
-            Ready to Get Started?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Let's discuss how we can help transform your business with our digital solutions.
-          </p>
-          <Link to="/#contact">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 rounded-full px-8">
-              Book a Free Consultation
-            </Button>
-          </Link>
-        </div>
-      </section>
 
       <Footer />
     </div>
