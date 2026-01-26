@@ -41,6 +41,12 @@ export const siteConfig = {
   // Services Section
   services: [
     {
+      icon: "🐍",
+      title: "Python Development",
+      description: "Build custom applications, automation systems, and robust backend solutions with Python that streamline your business operations and scale effortlessly.",
+      image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=300&fit=crop",
+    },
+    {
       icon: "🌐",
       title: "Web Development",
       description: "Build responsive, scalable, and high-performance websites tailored to your business needs using modern technologies and industry best practices.",
