@@ -113,12 +113,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/n8n-portfolio" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
-                  <Briefcase className="w-4 h-4" />
-                  n8n Automation Portfolio
-                </Link>
-              </li>
-              <li>
                 <Link to="/about" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
                   <Info className="w-4 h-4" />
                   About Us
