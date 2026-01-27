@@ -46,7 +46,7 @@ const team = [
     name: "Md Ahoshan Hasan Ratul",
     role: "Founder & CEO",
     image: founderImage,
-    bio: "Focuses on company vision, business growth, and AI-driven system architecture, ensuring every solution is aligned with long-term scalability and strong ROI.",
+    bio: "Expert in everything – from company vision and business growth to AI-driven systems, automation, development, and strategic leadership.",
   },
   {
     name: "Yeasin Arafat Mollik",
