@@ -16,13 +16,11 @@ const loginSchema = z.object({
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signIn, signUp, user, isAdmin, isLoading: authLoading } = useAuth();
+  const { signIn, user, isAdmin, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
 
-  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [fullName, setFullName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
@@ -59,45 +57,20 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      if (isLogin) {
-        const { error } = await signIn(email, password);
-        if (error) {
-          toast({
-            title: 'Login Failed',
-            description: error.message === 'Invalid login credentials' 
-              ? 'Invalid email or password. Please try again.'
-              : error.message,
-            variant: 'destructive',
-          });
-        } else {
-          toast({
-            title: 'Welcome back!',
-            description: 'You have successfully signed in.',
-          });
-        }
+      const { error } = await signIn(email, password);
+      if (error) {
+        toast({
+          title: 'Login Failed',
+          description: error.message === 'Invalid login credentials' 
+            ? 'Invalid email or password. Please try again.'
+            : 'Access denied. Only authorized administrators can sign in.',
+          variant: 'destructive',
+        });
       } else {
-        const { error } = await signUp(email, password, fullName);
-        if (error) {
-          if (error.message.includes('already registered')) {
-            toast({
-              title: 'Account Exists',
-              description: 'An account with this email already exists. Please sign in instead.',
-              variant: 'destructive',
-            });
-          } else {
-            toast({
-              title: 'Sign Up Failed',
-              description: error.message,
-              variant: 'destructive',
-            });
-          }
-        } else {
-          toast({
-            title: 'Account Created',
-            description: 'Your account has been created. You can now sign in.',
-          });
-          setIsLogin(true);
-        }
+        toast({
+          title: 'Welcome back!',
+          description: 'You have successfully signed in.',
+        });
       }
     } catch (err) {
       toast({
@@ -123,29 +96,14 @@ const Login = () => {
       <Card className="w-full max-w-md shadow-lg">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl font-bold text-gray-800">
-            {isLogin ? 'Admin Login' : 'Create Account'}
+            Admin Login
           </CardTitle>
           <CardDescription>
-            {isLogin 
-              ? 'Sign in to access the admin panel' 
-              : 'Create a new account to get started'}
+            Sign in with your authorized admin credentials
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            {!isLogin && (
-              <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
-                <Input
-                  id="fullName"
-                  type="text"
-                  placeholder="John Doe"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                />
-              </div>
-            )}
-
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -193,23 +151,18 @@ const Login = () => {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  {isLogin ? 'Signing in...' : 'Creating account...'}
+                  Signing in...
                 </>
               ) : (
-                isLogin ? 'Sign In' : 'Create Account'
+                'Sign In'
               )}
             </Button>
           </form>
 
           <div className="mt-6 text-center">
-            <button
-              onClick={() => setIsLogin(!isLogin)}
-              className="text-sm text-emerald-600 hover:text-emerald-700 hover:underline"
-            >
-              {isLogin 
-                ? "Don't have an account? Sign up" 
-                : 'Already have an account? Sign in'}
-            </button>
+            <p className="text-xs text-gray-500">
+              Only authorized administrators can access this panel.
+            </p>
           </div>
         </CardContent>
       </Card>
