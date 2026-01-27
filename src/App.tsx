@@ -22,6 +22,7 @@ import ServicesAdmin from "./pages/admin/ServicesAdmin";
 import TestimonialsAdmin from "./pages/admin/TestimonialsAdmin";
 import FAQsAdmin from "./pages/admin/FAQsAdmin";
 import UsersAdmin from "./pages/admin/UsersAdmin";
+import NewsletterAdmin from "./pages/admin/NewsletterAdmin";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ const App = () => (
               <Route path="/admin/testimonials" element={<ProtectedRoute><TestimonialsAdmin /></ProtectedRoute>} />
               <Route path="/admin/faqs" element={<ProtectedRoute><FAQsAdmin /></ProtectedRoute>} />
               <Route path="/admin/users" element={<ProtectedRoute><UsersAdmin /></ProtectedRoute>} />
+              <Route path="/admin/newsletter" element={<ProtectedRoute><NewsletterAdmin /></ProtectedRoute>} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
