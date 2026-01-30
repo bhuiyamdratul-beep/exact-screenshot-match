@@ -185,17 +185,21 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">{siteConfig.footer.copyright}</p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <Link to="/privacy-policy" className="text-muted-foreground text-sm hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <span className="text-muted-foreground">•</span>
+            <span className="text-muted-foreground hidden sm:inline">•</span>
             <Link to="/terms-of-service" className="text-muted-foreground text-sm hover:text-primary transition-colors">
               Terms of Service
             </Link>
-            <span className="text-muted-foreground">•</span>
+            <span className="text-muted-foreground hidden sm:inline">•</span>
             <Link to="/data-deletion" className="text-muted-foreground text-sm hover:text-primary transition-colors">
               Data Deletion
+            </Link>
+            <span className="text-muted-foreground hidden sm:inline">•</span>
+            <Link to="/cookie-policy" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+              Cookie Policy
             </Link>
           </div>
         </div>

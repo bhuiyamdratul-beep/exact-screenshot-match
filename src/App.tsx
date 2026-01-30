@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import DataDeletion from "./pages/DataDeletion";
+import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -48,6 +49,7 @@ const App = () => (
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/data-deletion" element={<DataDeletion />} />
+              <Route path="/cookie-policy" element={<CookiePolicy />} />
               <Route path="/login" element={<Login />} />
               {/* Admin Routes */}
               <Route path="/admin" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
