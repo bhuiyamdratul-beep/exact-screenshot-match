@@ -183,8 +183,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border text-center">
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">{siteConfig.footer.copyright}</p>
+          <Link to="/privacy-policy" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>
