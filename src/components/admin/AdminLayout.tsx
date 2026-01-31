@@ -48,24 +48,24 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-muted flex">
       {/* Sidebar */}
       <aside 
         className={cn(
-          "bg-white border-r border-gray-200 flex flex-col transition-all duration-300",
+          "bg-card border-r border-border flex flex-col transition-all duration-300",
           sidebarOpen ? "w-64" : "w-16"
         )}
       >
         {/* Sidebar Header */}
-        <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+        <div className="p-4 border-b border-border flex items-center justify-between">
           {sidebarOpen && (
-            <span className="font-semibold text-gray-800">Admin</span>
+            <span className="font-semibold text-foreground">Admin</span>
           )}
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-gray-500 hover:text-gray-700"
+            className="text-muted-foreground hover:text-foreground"
           >
             {sidebarOpen ? <ChevronLeft className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
@@ -82,11 +82,11 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                   isActive
-                    ? "bg-emerald-50 text-emerald-700"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
-                <item.icon className={cn("h-5 w-5", isActive && "text-emerald-600")} />
+                <item.icon className={cn("h-5 w-5", isActive && "text-primary")} />
                 {sidebarOpen && <span>{item.label}</span>}
               </Link>
             );
@@ -94,16 +94,16 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
         </nav>
 
         {/* User Section */}
-        <div className="p-3 border-t border-gray-200">
+        <div className="p-3 border-t border-border">
           {sidebarOpen && user && (
             <div className="px-3 py-2 mb-2">
-              <p className="text-sm font-medium text-gray-800 truncate">{user.email}</p>
-              <p className="text-xs text-gray-500">Administrator</p>
+              <p className="text-sm font-medium text-foreground truncate">{user.email}</p>
+              <p className="text-xs text-muted-foreground">Administrator</p>
             </div>
           )}
           <button
             onClick={handleSignOut}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 w-full transition-colors"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground w-full transition-colors"
           >
             <LogOut className="h-5 w-5" />
             {sidebarOpen && <span>Sign Out</span>}
@@ -114,11 +114,11 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Top Header */}
-        <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-end">
+        <header className="bg-card border-b border-border px-6 py-4 flex items-center justify-end">
           <Link 
             to="/" 
             target="_blank"
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             View Site
             <ExternalLink className="h-4 w-4" />
