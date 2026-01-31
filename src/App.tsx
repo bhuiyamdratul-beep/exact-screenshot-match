@@ -28,6 +28,7 @@ import FAQsAdmin from "./pages/admin/FAQsAdmin";
 import UsersAdmin from "./pages/admin/UsersAdmin";
 import NewsletterAdmin from "./pages/admin/NewsletterAdmin";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import ScrollToHash from "./components/ScrollToHash";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToHash />
             <FloatingWhatsApp />
             <Routes>
               <Route path="/" element={<Index />} />
