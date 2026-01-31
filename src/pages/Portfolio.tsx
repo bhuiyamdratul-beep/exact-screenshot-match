@@ -72,9 +72,57 @@ const portfolioDetails = [
     technologies: ["Flutter", "Firebase", "HealthKit", "Google Fit"],
     results: ["50K+ active users", "4.7 star rating", "Wearable integration"],
   },
+  {
+    title: "Luxury Fashion Store",
+    category: "Shopify",
+    description: "High-end Shopify store with custom theme, advanced product filtering, and seamless checkout experience for a premium fashion brand.",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800",
+    technologies: ["Shopify", "Liquid", "JavaScript", "Klaviyo"],
+    results: ["150% increase in sales", "Custom theme development", "Integrated email marketing"],
+  },
+  {
+    title: "Organic Skincare E-commerce",
+    category: "Shopify",
+    description: "Beautiful Shopify store for organic skincare products with subscription boxes, loyalty program, and customer reviews integration.",
+    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800",
+    technologies: ["Shopify Plus", "ReCharge", "Yotpo", "Gorgias"],
+    results: ["40% subscription retention", "4.9 customer rating", "Automated fulfillment"],
+  },
+  {
+    title: "Home Decor Marketplace",
+    category: "Shopify",
+    description: "Multi-vendor Shopify marketplace for artisan home decor with custom vendor dashboard and inventory management.",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+    technologies: ["Shopify", "Multi-vendor App", "Stripe Connect", "ShipStation"],
+    results: ["200+ vendors onboarded", "Cross-border shipping", "Real-time inventory sync"],
+  },
+  {
+    title: "SaaS Growth Campaign",
+    category: "Digital Marketing",
+    description: "Comprehensive digital marketing campaign for a B2B SaaS company including SEO, PPC, content marketing, and lead nurturing.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+    technologies: ["Google Ads", "SEMrush", "HubSpot", "LinkedIn Ads"],
+    results: ["300% increase in MQLs", "50% lower CAC", "First page rankings for 20+ keywords"],
+  },
+  {
+    title: "Restaurant Chain Social Media",
+    category: "Digital Marketing",
+    description: "Social media marketing and local SEO strategy for a restaurant chain, including influencer partnerships and user-generated content campaigns.",
+    image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800",
+    technologies: ["Meta Ads", "Google My Business", "Hootsuite", "Canva"],
+    results: ["500K+ social reach", "45% increase in foot traffic", "200+ positive reviews"],
+  },
+  {
+    title: "E-commerce Performance Marketing",
+    category: "Digital Marketing",
+    description: "Full-funnel digital marketing for an e-commerce brand with Facebook/Instagram ads, Google Shopping, and retargeting campaigns.",
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800",
+    technologies: ["Meta Ads", "Google Shopping", "Criteo", "Triple Whale"],
+    results: ["4.5x ROAS", "60% lower CPA", "2M+ monthly impressions"],
+  },
 ];
 
-const categories = ["All", "Web Development", "App Development", "AI Integration", "CRM", "UI/UX Design"];
+const categories = ["All", "Web Development", "App Development", "AI Integration", "Shopify", "Digital Marketing", "CRM", "UI/UX Design"];
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
