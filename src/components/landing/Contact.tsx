@@ -1,8 +1,15 @@
 import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Facebook, Instagram, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
+const socialLinks = [
+  { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/14V4UgX32io" },
+  { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/dreamitdeveloper?igsh=MTd6Z2hya3ptN3ow" },
+  { name: "GitHub", icon: Github, url: "https://github.com/dreamitdeveloper" },
+  { name: "Upwork", url: "https://www.upwork.com/freelancers/mdahoshanhasanr?mp_source=share" },
+  { name: "Fiverr", url: "https://www.fiverr.com/s/yvQp2D0" },
+];
 const Contact = () => {
   return (
     <section id="contact" className="section-padding bg-muted/30">
@@ -115,7 +122,7 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          {/* CTA Card */}
+          {/* Social Links & CTA Card */}
           <motion.div 
             className="card-dark p-8 text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -124,11 +131,34 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h3 className="text-xl font-bold mb-3 text-foreground">
-              Ready to Get Started?
+              Follow Us & Get Started
             </h3>
             <p className="text-muted-foreground mb-6">
-              Book a free consultation and let's discuss your project.
+              Connect with us on social media or book a free consultation.
             </p>
+            
+            {/* Social Icons */}
+            <div className="flex justify-center gap-4 mb-6">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 border border-border/50 hover:border-primary/50"
+                  title={social.name}
+                >
+                  {social.icon ? (
+                    <social.icon className="w-5 h-5" />
+                  ) : (
+                    <span className="text-xs font-bold">
+                      {social.name === "Upwork" ? "Up" : "Fi"}
+                    </span>
+                  )}
+                </a>
+              ))}
+            </div>
+
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8"
