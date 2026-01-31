@@ -1,15 +1,22 @@
 import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Phone, MapPin, Facebook, Instagram, Github } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Facebook, Instagram, Github, LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
-const socialLinks = [
+interface SocialLink {
+  name: string;
+  icon?: LucideIcon;
+  url: string;
+}
+
+const socialLinks: SocialLink[] = [
   { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/14V4UgX32io" },
   { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/dreamitdeveloper?igsh=MTd6Z2hya3ptN3ow" },
   { name: "GitHub", icon: Github, url: "https://github.com/dreamitdeveloper" },
   { name: "Upwork", url: "https://www.upwork.com/freelancers/mdahoshanhasanr?mp_source=share" },
   { name: "Fiverr", url: "https://www.fiverr.com/s/yvQp2D0" },
 ];
+
 const Contact = () => {
   return (
     <section id="contact" className="section-padding bg-muted/30">
@@ -139,24 +146,27 @@ const Contact = () => {
             
             {/* Social Icons */}
             <div className="flex justify-center gap-4 mb-6">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-11 h-11 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 border border-border/50 hover:border-primary/50"
-                  title={social.name}
-                >
-                  {social.icon ? (
-                    <social.icon className="w-5 h-5" />
-                  ) : (
-                    <span className="text-xs font-bold">
-                      {social.name === "Upwork" ? "Up" : "Fi"}
-                    </span>
-                  )}
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 border border-border/50 hover:border-primary/50"
+                    title={social.name}
+                  >
+                    {IconComponent ? (
+                      <IconComponent className="w-5 h-5" />
+                    ) : (
+                      <span className="text-xs font-bold">
+                        {social.name === "Upwork" ? "Up" : "Fi"}
+                      </span>
+                    )}
+                  </a>
+                );
+              })}
             </div>
 
             <Button

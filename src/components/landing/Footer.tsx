@@ -19,10 +19,18 @@ import {
   Loader2,
   Facebook,
   Instagram,
-  Github
+  Github,
+  LucideIcon
 } from "lucide-react";
 
-const socialLinks = [
+interface SocialLink {
+  name: string;
+  icon?: LucideIcon;
+  url: string;
+  customIcon?: boolean;
+}
+
+const socialLinks: SocialLink[] = [
   { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/14V4UgX32io" },
   { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/dreamitdeveloper?igsh=MTd6Z2hya3ptN3ow" },
   { name: "GitHub", icon: Github, url: "https://github.com/dreamitdeveloper" },
@@ -99,24 +107,27 @@ const Footer = () => {
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 bg-white/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-all duration-300"
-                  title={social.name}
-                >
-                  {social.customIcon ? (
-                    <span className="text-xs font-bold">
-                      {social.name === "Upwork" ? "Up" : "Fi"}
-                    </span>
-                  ) : (
-                    social.icon && <social.icon className="w-4 h-4" />
-                  )}
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 bg-white/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-all duration-300"
+                    title={social.name}
+                  >
+                    {social.customIcon ? (
+                      <span className="text-xs font-bold">
+                        {social.name === "Upwork" ? "Up" : "Fi"}
+                      </span>
+                    ) : IconComponent ? (
+                      <IconComponent className="w-4 h-4" />
+                    ) : null}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
