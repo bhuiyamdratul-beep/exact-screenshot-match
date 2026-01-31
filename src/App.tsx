@@ -32,7 +32,7 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="dreamit-theme">
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <TooltipProvider>
