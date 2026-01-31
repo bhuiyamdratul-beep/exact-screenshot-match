@@ -16,8 +16,19 @@ import {
   Phone,
   Mail,
   MapPin,
-  Loader2
+  Loader2,
+  Facebook,
+  Instagram,
+  Github
 } from "lucide-react";
+
+const socialLinks = [
+  { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/14V4UgX32io" },
+  { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/dreamitdeveloper?igsh=MTd6Z2hya3ptN3ow" },
+  { name: "GitHub", icon: Github, url: "https://github.com/dreamitdeveloper" },
+  { name: "Upwork", url: "https://www.upwork.com/freelancers/mdahoshanhasanr?mp_source=share", customIcon: true },
+  { name: "Fiverr", url: "https://www.fiverr.com/s/yvQp2D0", customIcon: true },
+];
 
 const emailSchema = z.string().trim().email("Please enter a valid email address").max(255, "Email is too long");
 
@@ -86,10 +97,26 @@ const Footer = () => {
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               {siteConfig.company.tagline}. We help businesses elevate their online presence and drive real growth. Your trusted partner for digital transformation and success.
             </p>
-            {/* Trust Badges */}
-            <div className="flex gap-2">
-              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-xs">🏆</div>
-              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-xs">🔒</div>
+            {/* Social Links */}
+            <div className="flex gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 bg-white/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-all duration-300"
+                  title={social.name}
+                >
+                  {social.customIcon ? (
+                    <span className="text-xs font-bold">
+                      {social.name === "Upwork" ? "Up" : "Fi"}
+                    </span>
+                  ) : (
+                    social.icon && <social.icon className="w-4 h-4" />
+                  )}
+                </a>
+              ))}
             </div>
           </div>
 
