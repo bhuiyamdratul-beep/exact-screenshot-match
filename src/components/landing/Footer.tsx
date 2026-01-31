@@ -79,56 +79,56 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-3 mb-4">
               <img src={logoD} alt="Dream It Developer" className="w-10 h-10 drop-shadow-lg rounded-full" />
               <div className="flex flex-col">
-                <span className="font-bold text-foreground text-lg">{siteConfig.company.name}</span>
+                <span className="font-bold text-white text-lg">{siteConfig.company.name}</span>
                 <span className="text-xs text-primary">Quality is Our Strength</span>
               </div>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
               {siteConfig.company.tagline}. We help businesses elevate their online presence and drive real growth. Your trusted partner for digital transformation and success.
             </p>
             {/* Trust Badges */}
             <div className="flex gap-2">
-              <div className="w-10 h-10 bg-secondary/50 rounded-full flex items-center justify-center text-xs">🏆</div>
-              <div className="w-10 h-10 bg-secondary/50 rounded-full flex items-center justify-center text-xs">🔒</div>
+              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-xs">🏆</div>
+              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-xs">🔒</div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <Link to="/" className="text-gray-400 text-sm hover:text-primary transition-colors flex items-center gap-2">
                   <Home className="w-4 h-4" />
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <Link to="/services" className="text-gray-400 text-sm hover:text-primary transition-colors flex items-center gap-2">
                   <Briefcase className="w-4 h-4" />
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <Link to="/portfolio" className="text-gray-400 text-sm hover:text-primary transition-colors flex items-center gap-2">
                   <FolderOpen className="w-4 h-4" />
                   Our Previous Work
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <Link to="/about" className="text-gray-400 text-sm hover:text-primary transition-colors flex items-center gap-2">
                   <Info className="w-4 h-4" />
                   About Us
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <a href="#" className="text-gray-400 text-sm hover:text-primary transition-colors flex items-center gap-2">
                   <FileText className="w-4 h-4" />
                   Our Blogs
                 </a>
               </li>
               <li>
-                <Link to="/#contact" className="text-muted-foreground text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <Link to="/#contact" className="text-gray-400 text-sm hover:text-primary transition-colors flex items-center gap-2">
                   <Phone className="w-4 h-4" />
                   Book a Free Call With Us
                 </Link>
@@ -138,21 +138,21 @@ const Footer = () => {
 
           {/* Contact Us */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Contact Us</h4>
+            <h4 className="font-semibold text-white mb-4">Contact Us</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 text-primary mt-0.5" />
-                <span className="text-muted-foreground text-sm">info@dreamitdeveloper.com</span>
+                <span className="text-gray-400 text-sm">info@dreamitdeveloper.com</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                <span className="text-muted-foreground text-sm">Magura Sadar, Magura, PO: 7600, Dhaka, Bangladesh</span>
+                <span className="text-gray-400 text-sm">Magura Sadar, Magura, PO: 7600, Dhaka, Bangladesh</span>
               </li>
             </ul>
             
             {/* Newsletter */}
             <div className="mt-6">
-              <p className="text-sm text-muted-foreground mb-3">Subscribe to our newsletter</p>
+              <p className="text-sm text-gray-400 mb-3">Subscribe to our newsletter</p>
               <form onSubmit={handleSubscribe} className="space-y-2">
                 <div className="flex gap-2">
                   <Input
@@ -163,7 +163,7 @@ const Footer = () => {
                       setEmail(e.target.value);
                       if (emailError) setEmailError("");
                     }}
-                    className={`bg-secondary/50 border-border text-sm ${emailError ? "border-destructive" : ""}`}
+                    className={`bg-white/10 border-white/20 text-white placeholder:text-gray-500 text-sm ${emailError ? "border-destructive" : ""}`}
                     disabled={isLoading}
                   />
                   <Button 
@@ -183,22 +183,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">{siteConfig.footer.copyright}</p>
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-gray-400 text-sm">{siteConfig.footer.copyright}</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-            <Link to="/privacy-policy" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+            <Link to="/privacy-policy" className="text-gray-400 text-sm hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <span className="text-muted-foreground hidden sm:inline">•</span>
-            <Link to="/terms-of-service" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+            <span className="text-gray-500 hidden sm:inline">•</span>
+            <Link to="/terms-of-service" className="text-gray-400 text-sm hover:text-primary transition-colors">
               Terms of Service
             </Link>
-            <span className="text-muted-foreground hidden sm:inline">•</span>
-            <Link to="/data-deletion" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+            <span className="text-gray-500 hidden sm:inline">•</span>
+            <Link to="/data-deletion" className="text-gray-400 text-sm hover:text-primary transition-colors">
               Data Deletion
             </Link>
-            <span className="text-muted-foreground hidden sm:inline">•</span>
-            <Link to="/cookie-policy" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+            <span className="text-gray-500 hidden sm:inline">•</span>
+            <Link to="/cookie-policy" className="text-gray-400 text-sm hover:text-primary transition-colors">
               Cookie Policy
             </Link>
           </div>
