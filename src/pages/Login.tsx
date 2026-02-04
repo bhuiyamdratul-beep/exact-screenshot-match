@@ -16,7 +16,7 @@ const loginSchema = z.object({
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signIn, user, isAdmin, isLoading: authLoading } = useAuth();
+  const { signIn, resetPassword, user, isAdmin, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
 
   const [email, setEmail] = useState('');
@@ -24,6 +24,8 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [isResetMode, setIsResetMode] = useState(false);
+  const [resetSent, setResetSent] = useState(false);
 
   useEffect(() => {
     if (user && isAdmin && !authLoading) {
@@ -83,10 +85,136 @@ const Login = () => {
     }
   };
 
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      z.string().email('Please enter a valid email address').parse(email);
+      setErrors({});
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        setErrors({ email: err.errors[0].message });
+      }
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const { error } = await resetPassword(email);
+      if (error) {
+        toast({
+          title: 'Reset Failed',
+          description: error.message,
+          variant: 'destructive',
+        });
+      } else {
+        setResetSent(true);
+        toast({
+          title: 'Check your email',
+          description: 'Password reset link has been sent to your email.',
+        });
+      }
+    } catch (err) {
+      toast({
+        title: 'Error',
+        description: 'An unexpected error occurred. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  // Reset password mode
+  if (isResetMode) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted p-4">
+        <Card className="w-full max-w-md shadow-lg">
+          <CardHeader className="space-y-1 text-center">
+            <CardTitle className="text-2xl font-bold text-foreground">
+              Reset Password
+            </CardTitle>
+            <CardDescription>
+              {resetSent 
+                ? 'Check your email for the reset link'
+                : 'Enter your email to receive a password reset link'
+              }
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {resetSent ? (
+              <div className="space-y-4 text-center">
+                <p className="text-sm text-muted-foreground">
+                  We've sent a password reset link to <strong>{email}</strong>
+                </p>
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => {
+                    setIsResetMode(false);
+                    setResetSent(false);
+                    setEmail('');
+                  }}
+                >
+                  Back to Login
+                </Button>
+              </div>
+            ) : (
+              <form onSubmit={handleResetPassword} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="reset-email">Email</Label>
+                  <Input
+                    id="reset-email"
+                    type="email"
+                    placeholder="admin@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className={errors.email ? 'border-destructive' : ''}
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-destructive">{errors.email}</p>
+                  )}
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Reset Link'
+                  )}
+                </Button>
+
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="w-full"
+                  onClick={() => {
+                    setIsResetMode(false);
+                    setErrors({});
+                  }}
+                >
+                  Back to Login
+                </Button>
+              </form>
+            )}
+          </CardContent>
+        </Card>
       </div>
     );
   }
@@ -120,7 +248,19 @@ const Login = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="password">Password</Label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsResetMode(true);
+                    setErrors({});
+                  }}
+                  className="text-xs text-primary hover:underline"
+                >
+                  Forgot password?
+                </button>
+              </div>
               <div className="relative">
                 <Input
                   id="password"
