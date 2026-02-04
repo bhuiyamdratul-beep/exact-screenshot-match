@@ -16,7 +16,7 @@ const loginSchema = z.object({
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signIn, resetPassword, user, isAdmin, isLoading: authLoading } = useAuth();
+  const { signIn, signUp, resetPassword, user, isAdmin, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
 
   const [email, setEmail] = useState('');
@@ -26,6 +26,7 @@ const Login = () => {
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   const [isResetMode, setIsResetMode] = useState(false);
   const [resetSent, setResetSent] = useState(false);
+  const [isSignupMode, setIsSignupMode] = useState(false);
 
   useEffect(() => {
     if (user && isAdmin && !authLoading) {
@@ -59,20 +60,49 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const { error } = await signIn(email, password);
-      if (error) {
-        toast({
-          title: 'Login Failed',
-          description: error.message === 'Invalid login credentials' 
-            ? 'Invalid email or password. Please try again.'
-            : 'Access denied. Only authorized administrators can sign in.',
-          variant: 'destructive',
-        });
+      if (isSignupMode) {
+        // Check if email is authorized
+        const authorizedEmails = ['info@dreamitdeveloper.com', 'bhuiyamdratul@gmail.com'];
+        if (!authorizedEmails.includes(email.toLowerCase())) {
+          toast({
+            title: 'Access Denied',
+            description: 'Only authorized administrators can create an account.',
+            variant: 'destructive',
+          });
+          setIsLoading(false);
+          return;
+        }
+
+        const { error } = await signUp(email, password);
+        if (error) {
+          toast({
+            title: 'Signup Failed',
+            description: error.message,
+            variant: 'destructive',
+          });
+        } else {
+          toast({
+            title: 'Account Created!',
+            description: 'Please check your email to confirm your account, then sign in.',
+          });
+          setIsSignupMode(false);
+        }
       } else {
-        toast({
-          title: 'Welcome back!',
-          description: 'You have successfully signed in.',
-        });
+        const { error } = await signIn(email, password);
+        if (error) {
+          toast({
+            title: 'Login Failed',
+            description: error.message === 'Invalid login credentials' 
+              ? 'Invalid email or password. Please try again.'
+              : 'Access denied. Only authorized administrators can sign in.',
+            variant: 'destructive',
+          });
+        } else {
+          toast({
+            title: 'Welcome back!',
+            description: 'You have successfully signed in.',
+          });
+        }
       }
     } catch (err) {
       toast({
@@ -224,10 +254,13 @@ const Login = () => {
       <Card className="w-full max-w-md shadow-lg">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl font-bold text-foreground">
-            Admin Login
+            {isSignupMode ? 'Create Admin Account' : 'Admin Login'}
           </CardTitle>
           <CardDescription>
-            Sign in with your authorized admin credentials
+            {isSignupMode 
+              ? 'Create your admin account with authorized email'
+              : 'Sign in with your authorized admin credentials'
+            }
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -250,16 +283,18 @@ const Login = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsResetMode(true);
-                    setErrors({});
-                  }}
-                  className="text-xs text-primary hover:underline"
-                >
-                  Forgot password?
-                </button>
+                {!isSignupMode && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsResetMode(true);
+                      setErrors({});
+                    }}
+                    className="text-xs text-primary hover:underline"
+                  >
+                    Forgot password?
+                  </button>
+                )}
               </div>
               <div className="relative">
                 <Input
@@ -291,15 +326,28 @@ const Login = () => {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Signing in...
+                  {isSignupMode ? 'Creating account...' : 'Signing in...'}
                 </>
               ) : (
-                'Sign In'
+                isSignupMode ? 'Create Account' : 'Sign In'
               )}
             </Button>
           </form>
 
-          <div className="mt-6 text-center">
+          <div className="mt-6 text-center space-y-2">
+            <button
+              type="button"
+              onClick={() => {
+                setIsSignupMode(!isSignupMode);
+                setErrors({});
+              }}
+              className="text-sm text-primary hover:underline"
+            >
+              {isSignupMode 
+                ? 'Already have an account? Sign in'
+                : "Don't have an account? Create one"
+              }
+            </button>
             <p className="text-xs text-muted-foreground">
               Only authorized administrators can access this panel.
             </p>
