@@ -87,29 +87,13 @@ const ContactSection = () => {
       return;
     }
 
-    setIsSubmitting(true);
+    recordSubmission();
 
-    try {
-      const { error } = await supabase.from('contact_messages').insert({
-        name: result.data.name,
-        email: result.data.email,
-        message: result.data.message,
-      });
-
-      if (error) throw error;
-
-      recordSubmission();
-      setFormData({ name: '', email: '', message: '' });
-      toast({ title: 'Message sent successfully!', description: 'We will get back to you soon.' });
-    } catch (error: any) {
-      toast({
-        title: 'Failed to send message',
-        description: error.message || 'Please try again later.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    const whatsappMessage = `Hi, I'm ${result.data.name}.%0AEmail: ${encodeURIComponent(result.data.email)}%0A%0A${encodeURIComponent(result.data.message)}`;
+    const whatsappUrl = `https://wa.me/8801866366695?text=${whatsappMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
