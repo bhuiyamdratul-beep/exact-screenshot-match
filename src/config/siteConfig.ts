@@ -127,6 +127,7 @@ export const siteConfig = {
     { title: "E-commerce Platform", image: "https://www.techwebninja.com/assets/Homepage-V3-new-edits-1-CcJpCTAV.webp" },
     { title: "Corporate Web Solution", image: "https://www.techwebninja.com/assets/web1-DqMBi1Q2.png" },
     { title: "n8n Workflow Automation", image: "https://www.techwebninja.com/assets/ai-C1sOCY56.png" },
+    { title: "WordPress Website", image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=450&fit=crop" },
   ],
 
   // FAQ
