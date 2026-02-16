@@ -116,24 +116,38 @@ const About = () => {
         </div>
       </section>
 
-      {/* Marquee Banner - LET'S WORK TOGETHER */}
-      <section className="py-8 overflow-hidden" style={{ backgroundColor: '#000000' }}>
-        <div className="relative">
+      {/* Marquee Banner - LET'S WORK TOGETHER - Diagonal style */}
+      <section className="py-4 overflow-hidden" style={{ backgroundColor: '#000000' }}>
+        <div className="relative" style={{ transform: 'rotate(-3deg)', margin: '20px -20px' }}>
           {/* Line 1 - scrolling right */}
-          <div className="flex whitespace-nowrap animate-marquee mb-2">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <span key={`r1-${i}`} className="text-2xl sm:text-3xl font-bold uppercase tracking-widest mx-4" style={{ color: '#1f2937' }}>
-                LET'S WORK TOGETHER <span style={{ color: '#ef4444' }}>-</span>
+          <div className="flex whitespace-nowrap animate-marquee">
+            {Array.from({ length: 15 }).map((_, i) => (
+              <span
+                key={`r1-${i}`}
+                className="text-2xl sm:text-3xl font-bold uppercase tracking-[0.2em] mx-6"
+                style={{
+                  color: 'transparent',
+                  WebkitTextStroke: '1px #374151',
+                }}
+              >
+                LET'S WORK TOGETHER <span style={{ WebkitTextStroke: '1px #ef4444' }}>-</span>{" "}
               </span>
             ))}
           </div>
-          {/* Line 2 - red line accent */}
-          <div className="w-full h-[2px] my-2" style={{ backgroundColor: '#ef4444' }} />
-          {/* Line 3 - scrolling left */}
+          {/* Red line accent */}
+          <div className="w-full h-[1px] my-3" style={{ backgroundColor: '#ef4444' }} />
+          {/* Line 2 - scrolling left */}
           <div className="flex whitespace-nowrap" style={{ animation: 'marquee-reverse 30s linear infinite' }}>
-            {Array.from({ length: 10 }).map((_, i) => (
-              <span key={`r2-${i}`} className="text-2xl sm:text-3xl font-bold uppercase tracking-widest mx-4" style={{ color: '#1f2937' }}>
-                LET'S WORK TOGETHER <span style={{ color: '#ef4444' }}>-</span>
+            {Array.from({ length: 15 }).map((_, i) => (
+              <span
+                key={`r2-${i}`}
+                className="text-2xl sm:text-3xl font-bold uppercase tracking-[0.2em] mx-6"
+                style={{
+                  color: 'transparent',
+                  WebkitTextStroke: '1px #374151',
+                }}
+              >
+                LET'S WORK TOGETHER <span style={{ WebkitTextStroke: '1px #ef4444' }}>-</span>{" "}
               </span>
             ))}
           </div>
