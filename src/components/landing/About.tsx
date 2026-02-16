@@ -2,15 +2,9 @@ import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import founderImg from "@/assets/founder-ratul.jpg";
 
 const About = () => {
-  const handleScroll = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section id="about" className="section-padding bg-background relative overflow-hidden">
       {/* Subtle background glow */}
@@ -48,7 +42,8 @@ const About = () => {
             <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground">
               {siteConfig.about.title}
             </h2>
-            {siteConfig.about.paragraphs.slice(0, 2).map((paragraph, index) => (
+            
+            {siteConfig.about.paragraphs.map((paragraph, index) => (
               <motion.p 
                 key={index} 
                 className="text-muted-foreground leading-relaxed mb-4"
@@ -60,6 +55,26 @@ const About = () => {
                 {paragraph}
               </motion.p>
             ))}
+
+            {/* Founder Card */}
+            <motion.div
+              className="flex items-center gap-4 mt-6 mb-6 p-4 rounded-2xl bg-muted/50 border border-border"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <img
+                src={founderImg}
+                alt={siteConfig.about.founder.name}
+                className="w-14 h-14 rounded-full object-cover border-2 border-primary"
+              />
+              <div>
+                <p className="font-semibold text-foreground">{siteConfig.about.founder.name}</p>
+                <p className="text-sm text-primary font-medium">{siteConfig.about.founder.role}</p>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -68,7 +83,7 @@ const About = () => {
             >
               <Button
                 asChild
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 font-semibold hover:scale-105 transition-transform mt-2"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 font-semibold hover:scale-105 transition-transform"
               >
                 <a href="/about" className="inline-flex items-center gap-2">
                   Learn More About Us
