@@ -56,25 +56,6 @@ const About = () => {
               </motion.p>
             ))}
 
-            {/* Founder Card */}
-            <motion.div
-              className="flex items-center gap-4 mt-6 mb-6 p-4 rounded-2xl bg-muted/50 border border-border"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <img
-                src={founderImg}
-                alt={siteConfig.about.founder.name}
-                className="w-14 h-14 rounded-full object-cover border-2 border-primary"
-              />
-              <div>
-                <p className="font-semibold text-foreground">{siteConfig.about.founder.name}</p>
-                <p className="text-sm text-primary font-medium">{siteConfig.about.founder.role}</p>
-              </div>
-            </motion.div>
-
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
