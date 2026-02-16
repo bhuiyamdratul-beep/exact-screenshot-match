@@ -85,7 +85,7 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section - Exact reference style */}
-      <section className="pt-32 pb-16 lg:pb-24" style={{ backgroundColor: '#000000' }}>
+      <section className="pt-40 pb-20 lg:pb-32" style={{ backgroundColor: '#000000' }}>
         <div className="container-custom">
           <div
             ref={headerRef}
@@ -93,21 +93,22 @@ const About = () => {
               headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight" style={{ color: '#ffffff' }}>
-              Empowering Businesses with{" "}
-              <span className="block" style={{ color: '#ef4444' }}>Smart Digital Solutions</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight" style={{ color: '#e5e5e5', fontFamily: "'Inter', sans-serif" }}>
+              Empowering Businesses with
+              <br />
+              <span style={{ color: '#ef4444' }}>Smart Digital Solutions</span>
             </h1>
-            <p className="text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10" style={{ color: '#9ca3af' }}>
+            <p className="text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-10" style={{ color: '#737373' }}>
               Your trusted partner in crafting high-converting sales funnels, seamless automation, and creative designs that drive exponential growth.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <Link to="/#contact">
-                <Button size="lg" className="rounded-lg px-8 text-base font-semibold" style={{ backgroundColor: '#ef4444', color: '#ffffff' }}>
+                <Button size="lg" className="rounded-md px-8 py-3 text-sm font-medium" style={{ backgroundColor: '#ef4444', color: '#ffffff', border: 'none' }}>
                   Get Started
                 </Button>
               </Link>
               <Link to="/services">
-                <Button size="lg" variant="outline" className="rounded-lg px-8 text-base font-semibold" style={{ borderColor: '#374151', color: '#ffffff', backgroundColor: 'transparent' }}>
+                <Button size="lg" variant="outline" className="rounded-md px-8 py-3 text-sm font-medium" style={{ borderColor: '#333333', color: '#e5e5e5', backgroundColor: 'transparent' }}>
                   Our Services
                 </Button>
               </Link>
