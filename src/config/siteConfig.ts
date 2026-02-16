@@ -33,7 +33,12 @@ export const siteConfig = {
     },
     paragraphs: [
       "At Dream It Developer, we specialize in building high-converting websites, sales funnels, and intelligent automation systems using Python, GoHighLevel, ClickFunnels, Zapier, and n8n. We power these solutions with AI integrations, custom API development, and smart chatbots to maximize your business results.",
-      "Led by Md Ahoshan Hasan Ratul, we deliver full-stack solutions that drive measurable growth. From AI-powered automation to Shopify e-commerce, graphic design to digital marketing — we build technology that maximizes ROI and scales seamlessly with your business operations.",
+      "Led by Md Ahoshan Hasan Ratul, we deliver full-stack solutions that drive measurable growth. From AI-powered automation to Shopify e-commerce, CRM systems to digital marketing, graphic design to mobile app development — we build technology that maximizes ROI and scales seamlessly with your business operations.",
+    ],
+    story: [
+      "Dream It Developer started with a simple idea — help businesses grow using technology that actually works. Founded by Md Ahoshan Hasan Ratul, we began as a small team passionate about Python development and automation. Over time, we expanded into a full-service digital agency.",
+      "Today, we offer a wide range of services including Python Development, Web & App Development, AI Integration & Chatbots, Shopify E-commerce, CRM Solutions, UI/UX Design, Graphic Design, Digital Marketing, and Sales Funnel Automation. Each service is designed to solve real business problems and deliver measurable results.",
+      "Our team works with the latest tools and platforms — from GoHighLevel and ClickFunnels for funnel building, to n8n and Zapier for workflow automation, to custom AI solutions that give your business a competitive edge. We don't just build projects — we build long-term partnerships that help your business grow.",
     ],
     image: "https://www.techwebninja.com/assets/who%20we%20are-tnakWEtQ.png",
   },

@@ -97,13 +97,13 @@ const About = () => {
               About <span className="text-gradient">Dream It Developer</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We're a passionate team of developers, designers, and strategists dedicated to helping businesses thrive in the digital age.
+              We specialize in Python Development, AI Solutions, Web & App Development, Shopify E-commerce, CRM, Graphic Design, Digital Marketing, and Sales Funnel Automation — helping businesses thrive in the digital age.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Who We Are Section */}
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -115,13 +115,27 @@ const About = () => {
               />
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
+              <h2 className="text-3xl font-bold mb-6 text-foreground">{siteConfig.about.title}</h2>
               {siteConfig.about.paragraphs.map((paragraph, index) => (
                 <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
                   {paragraph}
                 </p>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-8 text-center text-foreground">Our Story</h2>
+          <div className="max-w-3xl mx-auto">
+            {siteConfig.about.story.map((paragraph, index) => (
+              <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
       </section>
