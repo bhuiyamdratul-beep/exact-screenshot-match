@@ -178,7 +178,7 @@ export const siteConfig = {
       { name: "LinkedIn", url: "#" },
       { name: "GitHub", url: "https://github.com/bhuiyamdratul-beep" },
       { name: "Twitter", url: "#" },
-      { name: "Instagram", url: "#" },
+      
     ],
   },
 

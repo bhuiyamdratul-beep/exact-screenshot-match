@@ -4,7 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Phone, Mail, Globe, Facebook, Instagram, Github } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Globe, Facebook, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface SocialLink {
@@ -18,11 +18,6 @@ const socialLinks: SocialLink[] = [
     name: "Facebook",
     icon: <Facebook className="w-6 h-6" />,
     url: "https://www.facebook.com/share/14V4UgX32io",
-  },
-  {
-    name: "Instagram",
-    icon: <Instagram className="w-6 h-6" />,
-    url: "https://www.instagram.com/dreamitdeveloper?igsh=MTd6Z2hya3ptN3ow",
   },
   {
     name: "GitHub",

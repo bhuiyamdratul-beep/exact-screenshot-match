@@ -18,7 +18,6 @@ import {
   MapPin,
   Loader2,
   Facebook,
-  Instagram,
   Github,
   LucideIcon
 } from "lucide-react";
@@ -32,7 +31,7 @@ interface SocialLink {
 
 const socialLinks: SocialLink[] = [
   { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/14V4UgX32io" },
-  { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/dreamitdeveloper?igsh=MTd6Z2hya3ptN3ow" },
+  
   { name: "GitHub", icon: Github, url: "https://github.com/bhuiyamdratul-beep" },
   { name: "Upwork", url: "https://www.upwork.com/freelancers/mdahoshanhasanr?mp_source=share", customIcon: true },
   { name: "Fiverr", url: "https://www.fiverr.com/s/yvQp2D0", customIcon: true },
