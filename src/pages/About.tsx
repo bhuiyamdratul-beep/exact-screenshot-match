@@ -10,6 +10,7 @@ import teamLeadImage from "@/assets/team-lead-yeasin.png";
 import teamAbirImage from "@/assets/team-abir.jpg";
 import teamLabonnoImage from "@/assets/team-labonno.jpg";
 import teamZihadImage from "@/assets/team-zihad.jpg";
+import teamMohanImage from "@/assets/team-mohan.jpg";
 
 const stats = [
   { icon: Users, value: "50+", label: "Happy Clients" },
@@ -71,6 +72,12 @@ const team = [
     role: "Digital Marketing Expert",
     image: teamZihadImage,
     bio: "Drives online growth through strategic SEO, social media marketing, paid advertising, and content strategies that deliver measurable results.",
+  },
+  {
+    name: "Mohan Khan",
+    role: "WordPress Developer",
+    image: teamMohanImage,
+    bio: "Specializes in building and customizing WordPress websites with clean code, responsive design, and optimized performance for business growth.",
   },
 ];
 
@@ -246,7 +253,7 @@ const About = () => {
           </p>
           <div
             ref={teamRef}
-            className={`grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 transition-all duration-700 ${
+            className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-700 ${
               teamInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
