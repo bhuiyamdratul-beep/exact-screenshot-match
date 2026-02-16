@@ -32,8 +32,9 @@ export const siteConfig = {
       role: "Founder & CEO",
     },
     paragraphs: [
-      "At Dream It Developer, we specialize in building high-converting websites, sales funnels, and intelligent automation systems using Python, GoHighLevel, ClickFunnels, Zapier, and n8n. We power these solutions with AI integrations, custom API development, and smart chatbots to maximize your business results.",
-      "Led by Md Ahoshan Hasan Ratul, we deliver full-stack solutions that drive measurable growth. From AI-powered automation to Shopify e-commerce, CRM systems to Digital Marketing, Graphic Design to mobile app development, Python Development to workflow automation — we build technology that maximizes ROI and scales seamlessly with your business operations.",
+      "At Dream It Developer, we specialize in building high-converting websites, sales funnels, and intelligent automation systems. Led by Md Ahoshan Hasan Ratul, we deliver full-stack solutions that drive measurable growth and scale seamlessly with your business.",
+      "We combine the power of Python & Django to build robust, scalable backends and automate complex workflows with precision. Our front-end development with HTML, CSS, and JavaScript ensures fast, responsive, and visually stunning interfaces that deliver exceptional user experiences. We amplify your reach through result-oriented Digital Marketing strategies — from SEO and paid ads to social media and content marketing. And with our Graphic Design services, we craft visually compelling assets that make your brand stand out and leave a lasting impression.",
+      "From backend to frontend, development to marketing — we build technology and strategies that maximize ROI and grow your business.",
     ],
     story: [
       "Dream It Developer started with a simple idea — help businesses grow using technology that actually works. Founded by Md Ahoshan Hasan Ratul, we began as a small team passionate about Python Development and automation. Over time, we expanded into a full-service digital agency.",
