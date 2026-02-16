@@ -175,7 +175,7 @@ export const siteConfig = {
     address: "Magura Sadar, Magura, PO: 7600, Dhaka, Bangladesh",
     socialLinks: [
       { name: "LinkedIn", url: "#" },
-      { name: "GitHub", url: "#" },
+      { name: "GitHub", url: "https://github.com/bhuiyamdratul-beep" },
       { name: "Twitter", url: "#" },
       { name: "Instagram", url: "#" },
     ],
