@@ -84,21 +84,34 @@ const About = () => {
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
       
-      {/* Hero Section - Clean minimal */}
-      <section className="pt-32 pb-12 bg-background">
+      {/* Hero Section - Reference style */}
+      <section className="pt-32 pb-16 lg:pb-24 bg-background">
         <div className="container-custom">
           <div
             ref={headerRef}
-            className={`text-center max-w-3xl mx-auto transition-all duration-700 ${
+            className={`text-center max-w-4xl mx-auto transition-all duration-700 ${
               headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-              About <span className="text-gradient">Dream It Developer</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 text-foreground leading-tight">
+              Empowering Businesses with{" "}
+              <span className="text-gradient">Smart Digital Solutions</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              We specialize in Python Development, AI Solutions, Web & App Development, Shopify E-commerce, CRM, Graphic Design, Digital Marketing, and Sales Funnel Automation — helping businesses thrive in the digital age.
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
+              Your trusted partner in crafting high-converting sales funnels, seamless automation, and creative designs that drive exponential growth.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/#contact">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 rounded-lg px-8 text-base">
+                  Get Started
+                </Button>
+              </Link>
+              <Link to="/services">
+                <Button size="lg" variant="outline" className="rounded-lg px-8 text-base border-border hover:bg-muted">
+                  Our Services
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
