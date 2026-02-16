@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Phone, MapPin, Facebook, Instagram, Github, LucideIcon } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Facebook, Github, LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface SocialLink {
@@ -11,7 +11,7 @@ interface SocialLink {
 
 const socialLinks: SocialLink[] = [
   { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/14V4UgX32io" },
-  { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/dreamitdeveloper?igsh=MTd6Z2hya3ptN3ow" },
+  
   { name: "GitHub", icon: Github, url: "https://github.com/bhuiyamdratul-beep" },
   { name: "Upwork", url: "https://www.upwork.com/freelancers/mdahoshanhasanr?mp_source=share" },
   { name: "Fiverr", url: "https://www.fiverr.com/s/yvQp2D0" },
