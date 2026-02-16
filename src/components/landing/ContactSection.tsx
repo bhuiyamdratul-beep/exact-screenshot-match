@@ -27,7 +27,7 @@ const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
     icon: <Github className="w-6 h-6" />,
-    url: "https://github.com/dreamitdeveloper",
+    url: "https://github.com/bhuiyamdratul-beep",
   },
   {
     name: "Upwork",
