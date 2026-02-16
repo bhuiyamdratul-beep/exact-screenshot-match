@@ -126,19 +126,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="section-padding bg-muted/30">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-8 text-center text-foreground">Our Story</h2>
-          <div className="max-w-3xl mx-auto">
-            {siteConfig.about.story.map((paragraph, index) => (
-              <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Stats Section */}
       <section className="py-16 bg-background">
