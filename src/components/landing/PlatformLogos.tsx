@@ -118,9 +118,9 @@ const PlatformLogos = () => {
       </div>
 
       {/* Platform Selection Section - Dark strip */}
-      <div className="bg-[hsl(220,30%,8%)] py-16 px-4">
+      <div className="bg-[hsl(220,25%,10%)] py-20 px-4">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -128,7 +128,7 @@ const PlatformLogos = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white italic leading-tight font-serif">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-white italic leading-tight font-serif">
                 We Help You Choose The Best Platform fit To Your Requirements And Budget
               </h2>
               <p className="text-gray-400 mb-4 text-sm leading-relaxed max-w-lg">
@@ -137,24 +137,24 @@ const PlatformLogos = () => {
               <p className="text-gray-400 mb-8 text-sm leading-relaxed max-w-lg">
                 Let us do a full assessment of your needs and propose what is best for you. We are {siteConfig.company.name} and can handle all that scary stuff.
               </p>
-              <p className="text-primary font-bold text-lg italic">
+              <p className="text-white font-bold text-lg italic">
                 You can relax now, you found us!
               </p>
             </motion.div>
 
             {/* Right - Tech Grid */}
             <motion.div 
-              className="bg-[hsl(220,25%,12%)] p-8 rounded-2xl border border-white/5"
+              className="bg-[hsl(220,20%,15%)] p-10 rounded-2xl border border-white/10"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <div className="grid grid-cols-6 gap-6">
+              <div className="grid grid-cols-6 gap-7">
                 {techIcons.map((icon, index) => (
                   <motion.div
                     key={index}
-                    className="w-10 h-10 mx-auto flex items-center justify-center"
+                    className="w-11 h-11 mx-auto flex items-center justify-center"
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -164,7 +164,7 @@ const PlatformLogos = () => {
                     <img 
                       src={icon} 
                       alt="Tech icon" 
-                      className="w-9 h-9 object-contain cursor-pointer"
+                      className="w-10 h-10 object-contain cursor-pointer"
                     />
                   </motion.div>
                 ))}
