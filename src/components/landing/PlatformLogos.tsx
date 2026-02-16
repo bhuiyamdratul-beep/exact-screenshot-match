@@ -117,58 +117,60 @@ const PlatformLogos = () => {
         </div>
       </div>
 
-      {/* Platform Selection Section */}
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground italic leading-tight">
-              We Help You Choose The Best Platform fit To Your Requirements And Budget
-            </h2>
-            <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-              There are so many platforms and tools out there that the technical side of things can easily become overwhelming and very often cost you a lot of money and stress.
-            </p>
-            <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-              Let us do a full assessment of your needs and propose what is best for you. We are Your Funnel Team and can handle all that scary stuff.
-            </p>
-            <p className="text-foreground font-bold text-lg italic">
-              You can relax now, you found us!
-            </p>
-          </motion.div>
+      {/* Platform Selection Section - Dark strip */}
+      <div className="bg-[hsl(220,30%,8%)] py-16 px-4">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white italic leading-tight font-serif">
+                We Help You Choose The Best Platform fit To Your Requirements And Budget
+              </h2>
+              <p className="text-gray-400 mb-4 text-sm leading-relaxed max-w-lg">
+                There are so many platforms and tools out there that the technical side of things can easily become overwhelming and very often cost you a lot of money and stress.
+              </p>
+              <p className="text-gray-400 mb-8 text-sm leading-relaxed max-w-lg">
+                Let us do a full assessment of your needs and propose what is best for you. We are {siteConfig.company.name} and can handle all that scary stuff.
+              </p>
+              <p className="text-primary font-bold text-lg italic">
+                You can relax now, you found us!
+              </p>
+            </motion.div>
 
-          {/* Right - Tech Grid 6x3 */}
-          <motion.div 
-            className="card-dark p-8 rounded-3xl"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="grid grid-cols-6 gap-4">
-              {techIcons.map((icon, index) => (
-                <motion.div
-                  key={index}
-                  className="w-12 h-12 flex items-center justify-center"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.03 }}
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                >
-                  <img 
-                    src={icon} 
-                    alt="Tech icon" 
-                    className="w-10 h-10 object-contain cursor-pointer"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+            {/* Right - Tech Grid */}
+            <motion.div 
+              className="bg-[hsl(220,25%,12%)] p-8 rounded-2xl border border-white/5"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="grid grid-cols-6 gap-6">
+                {techIcons.map((icon, index) => (
+                  <motion.div
+                    key={index}
+                    className="w-10 h-10 mx-auto flex items-center justify-center"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.03 }}
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    <img 
+                      src={icon} 
+                      alt="Tech icon" 
+                      className="w-9 h-9 object-contain cursor-pointer"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
