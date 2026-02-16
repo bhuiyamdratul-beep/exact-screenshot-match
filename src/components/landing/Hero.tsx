@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-[hsl(0,0%,3%)]">
+    <section id="home" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden" style={{ backgroundColor: '#0a0a0f' }}>
       {/* Background Video - very subtle */}
       <div className="absolute inset-0 z-0">
         <video
@@ -20,11 +20,11 @@ const Hero = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover opacity-10"
         >
           <source src={heroBgVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(0,0%,3%)]/80 via-[hsl(0,0%,3%)]/60 to-[hsl(0,0%,3%)]" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,10,15,0.85), rgba(10,10,15,0.7), rgba(10,10,15,1))' }} />
       </div>
 
       {/* Decorative Ring - large gray circle on left */}
@@ -122,7 +122,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[hsl(0,0%,3%)] to-transparent z-[5]" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 z-[5]" style={{ background: 'linear-gradient(to top, #0a0a0f, transparent)' }} />
     </section>
   );
 };
