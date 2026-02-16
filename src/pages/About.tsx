@@ -4,7 +4,7 @@ import Footer from "@/components/landing/Footer";
 import { useInView } from "@/hooks/useInView";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Users, Award, Clock, Target } from "lucide-react";
+import { Users, Award, Clock, Target, ChevronRight } from "lucide-react";
 import founderImage from "@/assets/founder-ratul.jpg";
 import teamLeadImage from "@/assets/team-lead-yeasin.png";
 import teamAbirImage from "@/assets/team-abir.jpg";
@@ -116,7 +116,31 @@ const About = () => {
         </div>
       </section>
 
-      {/* Who We Are Section */}
+      {/* Marquee Banner - LET'S WORK TOGETHER */}
+      <section className="py-8 overflow-hidden" style={{ backgroundColor: '#000000' }}>
+        <div className="relative">
+          {/* Line 1 - scrolling right */}
+          <div className="flex whitespace-nowrap animate-marquee mb-2">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <span key={`r1-${i}`} className="text-2xl sm:text-3xl font-bold uppercase tracking-widest mx-4" style={{ color: '#1f2937' }}>
+                LET'S WORK TOGETHER <span style={{ color: '#ef4444' }}>-</span>
+              </span>
+            ))}
+          </div>
+          {/* Line 2 - red line accent */}
+          <div className="w-full h-[2px] my-2" style={{ backgroundColor: '#ef4444' }} />
+          {/* Line 3 - scrolling left */}
+          <div className="flex whitespace-nowrap" style={{ animation: 'marquee-reverse 30s linear infinite' }}>
+            {Array.from({ length: 10 }).map((_, i) => (
+              <span key={`r2-${i}`} className="text-2xl sm:text-3xl font-bold uppercase tracking-widest mx-4" style={{ color: '#1f2937' }}>
+                LET'S WORK TOGETHER <span style={{ color: '#ef4444' }}>-</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Are Section - Welcome style */}
       <section className="py-16 lg:py-24" style={{ backgroundColor: '#000000' }}>
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -128,12 +152,19 @@ const About = () => {
               />
             </div>
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-8" style={{ color: '#ffffff' }}>{siteConfig.about.title}</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: '#ffffff' }}>
+                Welcome to Dream It Developer
+              </h2>
               {siteConfig.about.paragraphs.map((paragraph, index) => (
                 <p key={index} className="mb-5 leading-relaxed text-base" style={{ color: '#9ca3af' }}>
                   {paragraph}
                 </p>
               ))}
+              <Link to="/#contact">
+                <Button size="lg" className="rounded-lg px-6 text-base font-semibold mt-4 gap-2" style={{ backgroundColor: '#ef4444', color: '#ffffff' }}>
+                  Contact Us today <ChevronRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
