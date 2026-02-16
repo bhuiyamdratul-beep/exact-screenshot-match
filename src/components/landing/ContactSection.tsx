@@ -17,7 +17,7 @@ const socialLinks: SocialLink[] = [
   {
     name: "Facebook",
     icon: <Facebook className="w-6 h-6" />,
-    url: "https://www.facebook.com/share/14V4UgX32io",
+    url: "https://www.facebook.com/share/1LKPPHaruu/",
   },
   {
     name: "GitHub",

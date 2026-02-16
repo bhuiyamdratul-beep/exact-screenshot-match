@@ -10,7 +10,7 @@ interface SocialLink {
 }
 
 const socialLinks: SocialLink[] = [
-  { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/14V4UgX32io" },
+  { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/1LKPPHaruu/" },
   
   { name: "GitHub", icon: Github, url: "https://github.com/bhuiyamdratul-beep" },
   { name: "Upwork", url: "https://www.upwork.com/freelancers/mdahoshanhasanr?mp_source=share" },
