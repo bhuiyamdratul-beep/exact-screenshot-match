@@ -98,7 +98,7 @@ const Contact = () => {
                     WhatsApp
                   </a>
                   <a
-                    href="https://t.me/8801866366695"
+                    href="https://t.me/+8801866366695"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0088cc]/10 text-[#0088cc] hover:bg-[#0088cc]/20 transition-colors text-sm font-medium"

@@ -342,7 +342,7 @@ const ContactSection = () => {
                     WhatsApp
                   </a>
                   <a
-                    href="https://t.me/8801866366695"
+                    href="https://t.me/+8801866366695"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0088cc] hover:bg-[#0077b5] text-white px-5 py-3 rounded-xl transition-colors font-medium text-sm"

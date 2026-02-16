@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/siteConfig";
 const FloatingWhatsApp = () => {
   const whatsappNumber = siteConfig.contact.whatsapp;
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi I need help")}`;
-  const telegramUrl = "https://t.me/+880186636695";
+  const telegramUrl = "https://t.me/+8801866366695";
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
