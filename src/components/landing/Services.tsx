@@ -7,6 +7,9 @@ import { motion } from "framer-motion";
 const Services = () => {
   return (
     <section id="services" className="section-padding bg-background relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px]" />
+      
       {/* Decorative ellipse */}
       <div className="absolute inset-x-0 bottom-0 h-[600px] pointer-events-none">
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[150%] h-full border-2 border-primary/10 rounded-[100%]" />
@@ -29,7 +32,7 @@ const Services = () => {
           {siteConfig.services.map((service, index) => (
             <motion.div
               key={service.title}
-              className="group card-dark p-8 text-center hover:border-primary/50 transition-all duration-300"
+              className="group card-dark card-glow p-8 text-center hover:border-primary/50 transition-all duration-300"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -44,7 +47,7 @@ const Services = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain drop-shadow-lg"
                 />
               </motion.div>
               <h3 className="text-xl font-semibold mb-3 text-foreground">{service.title}</h3>

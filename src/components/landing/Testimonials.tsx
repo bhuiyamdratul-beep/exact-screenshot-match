@@ -23,8 +23,11 @@ const Testimonials = () => {
   const [activeTab, setActiveTab] = useState("Upwork");
 
   return (
-    <section className="section-padding bg-background">
-      <div className="container-custom">
+    <section className="section-padding bg-background relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2" />
+
+      <div className="container-custom relative z-10">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-12"
@@ -40,7 +43,7 @@ const Testimonials = () => {
 
         {/* Platform Tabs */}
         <motion.div 
-          className="flex justify-center gap-2 mb-8 flex-wrap"
+          className="flex justify-center gap-3 mb-10 flex-wrap"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -50,10 +53,10 @@ const Testimonials = () => {
             <motion.button
               key={platform}
               onClick={() => setActiveTab(platform)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
                 activeTab === platform
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
+                  : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -67,7 +70,7 @@ const Testimonials = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            className="flex justify-center gap-6 flex-wrap"
+            className="flex justify-center gap-6 flex-wrap max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -76,11 +79,11 @@ const Testimonials = () => {
             {testimonialImages[activeTab]?.map((image, index) => (
               <motion.div
                 key={index}
-                className="rounded-2xl overflow-hidden border border-border shadow-lg max-w-md"
+                className="rounded-2xl overflow-hidden border border-border shadow-xl max-w-md bg-card"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
+                whileHover={{ scale: 1.03, y: -8 }}
               >
                 <img
                   src={image}

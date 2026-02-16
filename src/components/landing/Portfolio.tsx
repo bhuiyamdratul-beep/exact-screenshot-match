@@ -5,8 +5,11 @@ import { motion } from "framer-motion";
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="section-padding bg-background">
-      <div className="container-custom">
+    <section id="portfolio" className="section-padding bg-background relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px]" />
+
+      <div className="container-custom relative z-10">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-12"
@@ -25,12 +28,12 @@ const Portfolio = () => {
           {siteConfig.portfolio.slice(0, 6).map((item, index) => (
             <motion.div
               key={item.title}
-              className="group relative overflow-hidden rounded-2xl bg-card"
+              className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-lg"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.03, y: -5 }}
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <motion.img
@@ -62,7 +65,7 @@ const Portfolio = () => {
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8 hover:scale-105 transition-transform"
           >
-            <Link to="/portfolio">Explore Our Portfolio</Link>
+            <Link to="/portfolio">See more Projects</Link>
           </Button>
         </motion.div>
       </div>
