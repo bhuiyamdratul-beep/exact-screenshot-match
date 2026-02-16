@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { useInView } from "@/hooks/useInView";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const techCategories = {
   "Next-Gen": [
@@ -50,67 +51,99 @@ const techCategories = {
 };
 
 const TechStack = () => {
-  const { ref, isInView } = useInView({ threshold: 0.1 });
   const [activeTab, setActiveTab] = useState("Next-Gen");
   const tabs = Object.keys(techCategories);
 
   return (
     <section className="section-padding bg-background relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px]" />
+      
       {/* Decorative circle */}
       <div className="absolute top-0 right-0 w-32 h-32 border-2 border-primary/20 rounded-full -mr-16 -mt-16" />
       
-      <div className="container-custom">
+      <div className="container-custom relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-8">
+        <motion.div 
+          className="text-center mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
             Our Technology Stack
           </h2>
-        </div>
+        </motion.div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <motion.div 
+          className="flex flex-wrap justify-center gap-2 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           {tabs.map((tab) => (
-            <button
+            <motion.button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 activeTab === tab
-                  ? "bg-primary text-primary-foreground"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
                   : "bg-secondary/50 text-foreground hover:bg-secondary"
               }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               {tab}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Tech Cards */}
-        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
-          {techCategories[activeTab as keyof typeof techCategories].map((tech, index) => (
-            <div
-              key={tech.title}
-              className={`card-dark p-6 text-center hover:border-primary/50 transition-all duration-300 ${
-                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="text-4xl mb-3 text-primary">{tech.icon}</div>
-              <h3 className="font-semibold text-foreground mb-1">{tech.title}</h3>
-              <p className="text-sm text-muted-foreground">{tech.description}</p>
-            </div>
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={activeTab}
+            className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+          >
+            {techCategories[activeTab as keyof typeof techCategories].map((tech, index) => (
+              <motion.div
+                key={tech.title}
+                className="card-dark card-glow p-6 text-center hover:border-primary/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -5, scale: 1.03 }}
+              >
+                <div className="text-4xl mb-3 text-primary">{tech.icon}</div>
+                <h3 className="font-semibold text-foreground mb-1">{tech.title}</h3>
+                <p className="text-sm text-muted-foreground">{tech.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         {/* CTA Button */}
-        <div className="text-center">
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <Button
             asChild
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8 hover:scale-105 transition-transform"
           >
             <Link to="/services">Check Out Our Services</Link>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

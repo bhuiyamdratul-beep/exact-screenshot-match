@@ -12,8 +12,11 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="section-padding bg-background">
-      <div className="container-custom">
+    <section id="about" className="section-padding bg-background relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2" />
+      
+      <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
           <motion.div 
@@ -23,13 +26,16 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <motion.img
-              src={siteConfig.about.image}
-              alt="Who we are"
-              className="w-full max-w-md mx-auto lg:mx-0"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            />
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/10 rounded-3xl blur-2xl" />
+              <motion.img
+                src={siteConfig.about.image}
+                alt="Who we are"
+                className="w-full max-w-md mx-auto lg:mx-0 relative z-10 drop-shadow-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
           </motion.div>
 
           {/* Content */}
@@ -42,7 +48,7 @@ const About = () => {
             <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground">
               {siteConfig.about.title}
             </h2>
-            {siteConfig.about.paragraphs.map((paragraph, index) => (
+            {siteConfig.about.paragraphs.slice(0, 2).map((paragraph, index) => (
               <motion.p 
                 key={index} 
                 className="text-muted-foreground leading-relaxed mb-4"
@@ -61,12 +67,13 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <Button
-                variant="link"
-                className="text-primary hover:text-primary/80 p-0 h-auto font-semibold group"
-                onClick={() => handleScroll("#services")}
+                asChild
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 font-semibold hover:scale-105 transition-transform mt-2"
               >
-                Learn More About Us
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                <a href="/about" className="inline-flex items-center gap-2">
+                  Learn More About Us
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </Button>
             </motion.div>
           </motion.div>

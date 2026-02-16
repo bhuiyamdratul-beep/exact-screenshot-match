@@ -1,6 +1,7 @@
 import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import heroBgVideo from "@/assets/hero-bg-video.mp4";
 
 const Hero = () => {
   const handleScroll = (href: string) => {
@@ -12,6 +13,20 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-background">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-30"
+        >
+          <source src={heroBgVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+      </div>
+
       {/* Decorative Ring */}
       <motion.div 
         className="hero-ring"
@@ -92,7 +107,7 @@ const Hero = () => {
             <motion.img
               src={siteConfig.hero.heroImage}
               alt="Programming illustration"
-              className="w-full max-w-lg"
+              className="w-full max-w-lg drop-shadow-2xl"
               animate={{ 
                 y: [0, -20, 0],
               }}
@@ -105,6 +120,9 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[5]" />
     </section>
   );
 };
