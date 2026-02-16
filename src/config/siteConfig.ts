@@ -32,8 +32,8 @@ export const siteConfig = {
       role: "Founder & CEO",
     },
     paragraphs: [
-      "At Dream It Developer, we're not just another digital agency — we're the tech partner you've been looking for. Our expert team specializes in Python Development, AI Solutions, Shopify E-commerce, Graphic Design, and Digital Marketing. Whatever challenge your business faces, we have the skills and experience to solve it.",
-      "Our Python developers build custom applications, automation systems, and backend solutions that actually work for your business. Need a Shopify store? We create ones that don't just look good — they convert visitors into paying customers. We also develop AI-powered websites and chatbots that make your customer interactions seamless and automated.",
+      "At Dream It Developer, we specialize in building high-converting websites, sales funnels, and intelligent automation systems using Python, GoHighLevel, ClickFunnels, Zapier, and n8n. We power these solutions with AI integrations, custom API development, and smart chatbots to maximize your business results.",
+      "Led by Md Ahoshan Hasan Ratul, we deliver full-stack solutions that drive measurable growth. From AI-powered automation to Shopify e-commerce, graphic design to digital marketing — we build technology that maximizes ROI and scales seamlessly with your business operations.",
     ],
     image: "https://www.techwebninja.com/assets/who%20we%20are-tnakWEtQ.png",
   },
