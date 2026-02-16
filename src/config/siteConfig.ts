@@ -33,7 +33,7 @@ export const siteConfig = {
     },
     paragraphs: [
       "At Dream It Developer, we specialize in building high-converting websites, sales funnels, and intelligent automation systems using Python, GoHighLevel, ClickFunnels, Zapier, and n8n. We power these solutions with AI integrations, custom API development, and smart chatbots to maximize your business results.",
-      "Led by Md Ahoshan Hasan Ratul, we deliver full-stack solutions that drive measurable growth. From AI-powered automation to Shopify e-commerce, CRM systems to digital marketing, graphic design to mobile app development — we build technology that maximizes ROI and scales seamlessly with your business operations.",
+      "Led by Md Ahoshan Hasan Ratul, we deliver full-stack solutions that drive measurable growth. From AI-powered automation to Shopify e-commerce, CRM systems to Digital Marketing, Graphic Design to mobile app development, Python Development to workflow automation — we build technology that maximizes ROI and scales seamlessly with your business operations.",
     ],
     story: [
       "Dream It Developer started with a simple idea — help businesses grow using technology that actually works. Founded by Md Ahoshan Hasan Ratul, we began as a small team passionate about Python development and automation. Over time, we expanded into a full-service digital agency.",
