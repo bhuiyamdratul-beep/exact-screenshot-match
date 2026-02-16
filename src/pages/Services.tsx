@@ -76,19 +76,6 @@ const serviceDetails = [
     technologies: ["Adobe Photoshop", "Illustrator", "After Effects", "Canva", "Figma", "InDesign"],
   },
   {
-    ...siteConfig.services[4],
-    fullDescription: "Create beautiful, intuitive interfaces that users love. Our design process focuses on understanding your users and creating experiences that drive engagement and conversions.",
-    features: [
-      "User research and persona development",
-      "Wireframing and prototyping",
-      "Visual design and branding",
-      "Usability testing",
-      "Design systems and style guides",
-      "Responsive and accessible design",
-    ],
-    technologies: ["Figma", "Adobe XD", "Sketch", "InVision", "Principle", "Framer"],
-  },
-  {
     ...siteConfig.services[5],
     fullDescription: "Stand out with stunning visual designs that communicate your brand's message effectively. From logos to marketing materials, we create designs that leave lasting impressions.",
     features: [
