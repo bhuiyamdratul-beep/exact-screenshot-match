@@ -127,15 +127,15 @@ const About = () => {
                 className="text-2xl sm:text-3xl font-bold uppercase tracking-[0.2em] mx-6"
                 style={{
                   color: 'transparent',
-                  WebkitTextStroke: '1px #374151',
+                  WebkitTextStroke: '0.8px #1a1a2e',
                 }}
               >
-                LET'S WORK TOGETHER <span style={{ WebkitTextStroke: '1px #ef4444' }}>-</span>{" "}
+                LET'S WORK TOGETHER <span style={{ WebkitTextStroke: '0.8px #3b1a1a' }}>-</span>{" "}
               </span>
             ))}
           </div>
           {/* Red line accent */}
-          <div className="w-full h-[1px] my-3" style={{ backgroundColor: '#ef4444' }} />
+          <div className="w-full h-[1px] my-3" style={{ backgroundColor: '#2a1015' }} />
           {/* Line 2 - scrolling left */}
           <div className="flex whitespace-nowrap" style={{ animation: 'marquee-reverse 30s linear infinite' }}>
             {Array.from({ length: 15 }).map((_, i) => (
@@ -144,10 +144,10 @@ const About = () => {
                 className="text-2xl sm:text-3xl font-bold uppercase tracking-[0.2em] mx-6"
                 style={{
                   color: 'transparent',
-                  WebkitTextStroke: '1px #374151',
+                  WebkitTextStroke: '0.8px #1a1a2e',
                 }}
               >
-                LET'S WORK TOGETHER <span style={{ WebkitTextStroke: '1px #ef4444' }}>-</span>{" "}
+                LET'S WORK TOGETHER <span style={{ WebkitTextStroke: '0.8px #3b1a1a' }}>-</span>{" "}
               </span>
             ))}
           </div>
