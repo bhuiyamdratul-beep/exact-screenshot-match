@@ -41,7 +41,7 @@ const Hero = () => {
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               <motion.span 
-                className="block text-foreground"
+                className="block text-white"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -66,7 +66,7 @@ const Hero = () => {
               </motion.span>
             </h1>
             <motion.p 
-              className="text-muted-foreground text-lg mb-8 max-w-xl leading-relaxed"
+              className="text-gray-400 text-lg mb-8 max-w-xl leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
@@ -89,7 +89,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-border text-foreground bg-transparent hover:bg-muted font-semibold rounded-full px-8 hover:scale-105 transition-transform"
+                className="border-2 border-white/20 text-white bg-transparent hover:bg-white/10 font-semibold rounded-full px-8 hover:scale-105 transition-transform"
                 onClick={() => handleScroll("#portfolio")}
               >
                 {siteConfig.hero.secondaryCta}
