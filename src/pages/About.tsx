@@ -84,8 +84,8 @@ const About = () => {
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-background">
+      {/* Hero Section - Clean minimal */}
+      <section className="pt-32 pb-12 bg-background">
         <div className="container-custom">
           <div
             ref={headerRef}
@@ -96,28 +96,28 @@ const About = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
               About <span className="text-gradient">Dream It Developer</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               We specialize in Python Development, AI Solutions, Web & App Development, Shopify E-commerce, CRM, Graphic Design, Digital Marketing, and Sales Funnel Automation — helping businesses thrive in the digital age.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Who We Are Section */}
-      <section className="section-padding bg-background">
+      {/* Who We Are Section - Reference style: image left, text right, clean */}
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="flex justify-center">
               <img
                 src={siteConfig.about.image}
                 alt="Who we are"
-                className="w-full max-w-md mx-auto"
+                className="w-full max-w-sm"
               />
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-foreground">{siteConfig.about.title}</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-foreground">{siteConfig.about.title}</h2>
               {siteConfig.about.paragraphs.map((paragraph, index) => (
-                <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
+                <p key={index} className="text-muted-foreground mb-5 leading-relaxed text-base">
                   {paragraph}
                 </p>
               ))}
@@ -126,9 +126,8 @@ const About = () => {
         </div>
       </section>
 
-
-      {/* Stats Section */}
-      <section className="py-16 bg-background">
+      {/* Stats Section - Clean inline style */}
+      <section className="py-16 border-y border-border/30">
         <div className="container-custom">
           <div
             ref={statsRef}
@@ -139,80 +138,83 @@ const About = () => {
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="text-center"
+                className="text-center py-4"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <stat.icon className="w-10 h-10 text-primary mx-auto mb-3" />
-                <h3 className="text-4xl font-bold text-gradient mb-1">{stat.value}</h3>
-                <p className="text-muted-foreground">{stat.label}</p>
+                <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
+                <h3 className="text-3xl lg:text-4xl font-bold text-gradient mb-1">{stat.value}</h3>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="section-padding bg-background">
+      {/* Values Section - Clean cards */}
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-12 text-center text-foreground">Our Values</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-center text-foreground">Our Values</h2>
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            The principles that guide everything we do.
+          </p>
           <div
             ref={valuesRef}
-            className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-700 ${
+            className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-700 ${
               valuesInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
             {values.map((value, index) => (
               <div
                 key={value.title}
-                className="card-dark p-6 text-center hover:border-primary/50 transition-all"
+                className="text-center p-6 rounded-xl border border-border/40 hover:border-primary/40 transition-all duration-300"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="text-4xl mb-4">{value.icon}</div>
-                <h3 className="text-lg font-semibold mb-2 text-foreground">{value.title}</h3>
-                <p className="text-sm text-muted-foreground">{value.description}</p>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">{value.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="section-padding bg-background">
+      {/* Team Section - Clean cards with hover */}
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-4 text-center text-foreground">Meet Our Team</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-center text-foreground">Meet Our Team</h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
             A talented group of professionals passionate about creating exceptional digital experiences.
           </p>
           <div
             ref={teamRef}
-            className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-700 ${
+            className={`grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 transition-all duration-700 ${
               teamInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
             {team.map((member, index) => (
               <div
                 key={member.name}
-                className="card-dark p-6 text-center group"
+                className="text-center group"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary transition-colors">
+                <div className="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden border-2 border-border/40 group-hover:border-primary/60 transition-all duration-300">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="font-semibold text-foreground">{member.name}</h3>
-                <p className="text-sm text-primary mb-2">{member.role}</p>
-                <p className="text-xs text-muted-foreground">{member.bio}</p>
+                <h3 className="font-semibold text-foreground mb-1">{member.name}</h3>
+                <p className="text-sm text-primary mb-3">{member.role}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-background">
+      {/* CTA Section - Simple and clean */}
+      <section className="py-16 lg:py-24 border-t border-border/30">
         <div className="container-custom text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
             Ready to Work With Us?
