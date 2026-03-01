@@ -140,27 +140,35 @@ export const siteConfig = {
   faq: [
     {
       question: "What services does Dream It Developer offer?",
-      answer: "We offer comprehensive digital solutions including web development, mobile app development, AI integration, sales funnels, UI/UX design, and graphic design. Each service is tailored to meet your specific business needs.",
+      answer: "We offer Python Development, Web Development, App Development, AI Integration & Chatbots, CRM Solutions (GoHighLevel), UI/UX Design, Graphic Design, and Digital Marketing. Each service is tailored to meet your specific business needs and drive measurable growth.",
+    },
+    {
+      question: "How can Python Development help my business?",
+      answer: "We use Python and Django to build robust backends, automate complex workflows, create data pipelines, and develop custom tools that save time and reduce costs. From web scraping to API integrations, Python powers efficient business solutions.",
+    },
+    {
+      question: "What kind of websites and apps do you build?",
+      answer: "We build responsive websites, e-commerce stores (Shopify, WooCommerce), landing pages, sales funnels (ClickFunnels, GoHighLevel), and cross-platform mobile apps. Everything is optimized for speed, SEO, and conversions.",
+    },
+    {
+      question: "How does your AI Integration service work?",
+      answer: "We integrate AI chatbots, intelligent automation using n8n and Zapier, and custom AI solutions into your existing systems. This helps automate customer support, lead qualification, content generation, and business decision-making.",
+    },
+    {
+      question: "Do you offer CRM setup and automation?",
+      answer: "Yes! We specialize in GoHighLevel CRM setup, pipeline management, automated follow-ups, and sales funnel building. We help you manage leads, nurture customers, and close more deals with less manual work.",
+    },
+    {
+      question: "What Digital Marketing services do you provide?",
+      answer: "We offer SEO, social media marketing, paid advertising (Google & Facebook Ads), content marketing, and email campaigns. Our strategies are data-driven and focused on generating real traffic, leads, and conversions.",
     },
     {
       question: "How long does it take to complete a project?",
-      answer: "Project timelines vary depending on complexity and scope. A typical website takes 4-8 weeks, while mobile apps may take 8-16 weeks. We'll provide a detailed timeline during our initial consultation.",
+      answer: "Project timelines vary depending on complexity. A typical website takes 2-4 weeks, mobile apps 6-12 weeks, and CRM/automation setups 1-3 weeks. We provide a detailed timeline during our free consultation.",
     },
     {
       question: "Do you provide ongoing support after project completion?",
-      answer: "Yes! We offer maintenance packages and ongoing support to ensure your website or app continues to perform optimally. This includes updates, security patches, and technical assistance.",
-    },
-    {
-      question: "What is your development process?",
-      answer: "We follow an agile methodology: discovery and planning, design and prototyping, development, testing and quality assurance, deployment, and ongoing optimization. You'll be involved at every stage.",
-    },
-    {
-      question: "Can you work with existing websites or apps?",
-      answer: "Absolutely! We can redesign, optimize, or add new features to your existing digital products. We'll assess your current setup and recommend the best path forward.",
-    },
-    {
-      question: "What makes Dream It Developer different from other agencies?",
-      answer: "We focus on results, not just aesthetics. Every project is built with conversion optimization, performance, and scalability in mind. Plus, we maintain clear communication and transparent processes throughout.",
+      answer: "Absolutely! We offer maintenance packages, ongoing support, and optimization services. This includes updates, security patches, performance monitoring, and technical assistance to keep everything running smoothly.",
     },
   ],
 
