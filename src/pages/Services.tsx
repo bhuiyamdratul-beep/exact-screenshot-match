@@ -1,211 +1,117 @@
 import { siteConfig } from "@/config/siteConfig";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import { useInView } from "@/hooks/useInView";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
-const serviceDetails = [
-  {
-    ...siteConfig.services[0],
-    fullDescription: "We build powerful, scalable applications and automation systems using Python. From web apps with Django and Flask to data processing pipelines, scripting, and backend APIs — we deliver robust Python solutions tailored to your business.",
-    features: [
-      "Custom Python application development",
-      "Django & Flask web applications",
-      "REST API development and integration",
-      "Data processing and automation scripts",
-      "Backend systems and microservices",
-      "Database design and management",
-    ],
-    technologies: ["Python", "Django", "Flask", "FastAPI", "HTML", "CSS", "JavaScript", "PostgreSQL", "MySQL", "Docker"],
-  },
-  {
-    icon: "🌐",
-    title: "WordPress Development",
-    description: "Professional WordPress websites with custom themes, plugins, and e-commerce solutions that are easy to manage and scale.",
-    image: "https://www.techwebninja.com/assets/web%20development-BZcvMlsB.png",
-    fullDescription: "We create stunning, fully customized WordPress websites that are fast, secure, and easy to manage. Whether you need a business website, blog, or WooCommerce store, our WordPress experts deliver pixel-perfect solutions.",
-    features: [
-      "Custom WordPress theme development",
-      "Plugin development and customization",
-      "WooCommerce e-commerce setup",
-      "Performance optimization and speed",
-      "SEO-friendly structure and setup",
-      "Ongoing maintenance and support",
-    ],
-    technologies: ["WordPress", "PHP", "WooCommerce", "Elementor", "HTML", "CSS", "JavaScript", "MySQL"],
-  },
-  {
-    ...siteConfig.services[7],
-    fullDescription: "Boost your online presence and drive real business growth with our data-driven digital marketing strategies. From SEO and social media to paid ads and content marketing, we help you reach the right audience and convert them into customers.",
-    features: [
-      "Search Engine Optimization (SEO)",
-      "Social media marketing and management",
-      "Google Ads and Facebook Ads campaigns",
-      "Content marketing and copywriting",
-      "Email marketing and automation",
-      "Analytics, reporting, and ROI tracking",
-    ],
-    technologies: ["Google Ads", "Meta Ads", "SEMrush", "Mailchimp", "Google Analytics", "HubSpot"],
-  },
-  {
-    ...siteConfig.services[2],
-    fullDescription: "Leverage the power of artificial intelligence to automate processes, gain insights, and enhance decision-making. Our AI solutions are tailored to your specific business needs.",
-    features: [
-      "Custom AI chatbots and virtual assistants",
-      "Machine learning model development",
-      "Natural Language Processing (NLP)",
-      "RAG (Retrieval Augmented Generation) systems",
-      "Workflow automation with AI",
-      "Predictive analytics and insights",
-    ],
-    technologies: ["OpenAI", "LangChain", "Python", "TensorFlow", "Pinecone", "Zapier"],
-  },
-  {
-    ...siteConfig.services[6],
-    fullDescription: "Stand out with stunning visual designs that communicate your brand's message effectively. From logos to marketing materials, we create designs that leave lasting impressions and strengthen your brand identity.",
-    features: [
-      "Logo design and brand identity",
-      "Marketing collateral and print design",
-      "Social media graphics and templates",
-      "Packaging and product design",
-      "Illustration and iconography",
-      "Brand guidelines and style guides",
-    ],
-    technologies: ["Adobe Photoshop", "Illustrator", "After Effects", "Canva", "Figma", "InDesign"],
-  },
-  {
-    ...siteConfig.services[5],
-    fullDescription: "Stand out with stunning visual designs that communicate your brand's message effectively. From logos to marketing materials, we create designs that leave lasting impressions.",
-    features: [
-      "Logo design and brand identity",
-      "Marketing collateral and print design",
-      "Social media graphics",
-      "Presentation design",
-      "Illustration and iconography",
-      "Brand guidelines",
-    ],
-    technologies: ["Adobe Photoshop", "Illustrator", "After Effects", "Canva", "Figma", "Procreate"],
-  },
-  {
-    icon: "⚡",
-    title: "n8n Automation",
-    description: "Powerful workflow automation and integration solutions using n8n to connect your apps and streamline business processes.",
-    image: "https://www.techwebninja.com/assets/ai-C1sOCY56.png",
-    fullDescription: "Automate your business workflows with n8n, the powerful open-source automation platform. We build custom integrations that connect your tools, automate repetitive tasks, and create seamless data flows across your entire tech stack.",
-    features: [
-      "Custom workflow automation",
-      "Multi-app integrations",
-      "Data synchronization across platforms",
-      "Scheduled tasks and triggers",
-      "API connections and webhooks",
-      "Error handling and monitoring",
-    ],
-    technologies: ["n8n", "REST APIs", "Webhooks", "JavaScript", "PostgreSQL", "Docker"],
-  },
-];
+import { motion } from "framer-motion";
 
 const Services = () => {
-  const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 });
-
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-background">
-        <div className="container-custom">
-          <div
-            ref={headerRef}
-            className={`text-center max-w-3xl mx-auto transition-all duration-700 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+
+      <section className="section-padding pt-32 bg-background relative overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px]" />
+
+        {/* Decorative ellipse */}
+        <div className="absolute inset-x-0 bottom-0 h-[600px] pointer-events-none">
+          <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[150%] h-full border-2 border-primary/10 rounded-[100%]" />
+        </div>
+
+        <div className="container-custom relative z-10">
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-              Our <span className="text-gradient">Services</span>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-foreground">
+              Services We Offer
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Comprehensive digital solutions tailored to your business needs. From web development to AI integration, we've got you covered.
+            <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              From web and app development to AI integration and stunning designs, we deliver end-to-end digital solutions that drive real business growth.
             </p>
+          </motion.div>
+
+          {/* Services Grid - 3x2 */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {siteConfig.services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                className="group card-dark card-glow p-8 text-center hover:border-primary/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
+                <motion.div
+                  className="w-16 h-16 mb-4 mx-auto flex items-center justify-center"
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-contain drop-shadow-lg"
+                  />
+                </motion.div>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{service.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                <Link
+                  to="/#contact"
+                  className="inline-flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all"
+                >
+                  Learn More
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </motion.div>
+            ))}
           </div>
+
+          {/* Decorative stars */}
+          <motion.div
+            className="flex justify-center gap-2 mb-8"
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <span className="text-primary text-2xl">✦</span>
+            <span className="text-primary text-2xl">✦</span>
+            <span className="text-primary text-2xl">✦</span>
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-8 hover:scale-105 transition-transform"
+            >
+              <Link to="/#contact" className="inline-flex items-center gap-2">
+                Contact Us Today
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
-      {/* Services Detail Sections */}
-      {serviceDetails.map((service, index) => (
-        <ServiceSection key={service.title} service={service} index={index} />
-      ))}
-
-
       <Footer />
     </div>
-  );
-};
-
-const ServiceSection = ({ service, index }: { service: typeof serviceDetails[0]; index: number }) => {
-  const { ref, isInView } = useInView({ threshold: 0.1 });
-  const isEven = index % 2 === 0;
-  const isN8n = service.title === "n8n Automation";
-
-  return (
-    <section
-      id={service.title.toLowerCase().replace(/\s+/g, "-")}
-      className={`section-padding bg-background`}
-    >
-      <div className="container-custom">
-        <div
-          ref={ref}
-          className={`grid lg:grid-cols-2 gap-12 items-center ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ transition: "all 0.7s ease" }}
-        >
-          {/* Image - alternating sides */}
-          <div className={`${!isEven ? "lg:order-2" : ""}`}>
-            <div className="card-dark p-8 flex items-center justify-center">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-48 h-48 object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className={`${!isEven ? "lg:order-1" : ""}`}>
-            <div className="text-5xl mb-4">{service.icon}</div>
-            <h2 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h2>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              {service.fullDescription}
-            </p>
-
-            {/* Features */}
-            <div className="space-y-3 mb-6">
-              {service.features.map((feature) => (
-                <div key={feature} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Technologies */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {service.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
   );
 };
 
