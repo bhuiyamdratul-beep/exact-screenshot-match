@@ -24,15 +24,12 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">Services We Offer</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            From web and app development to AI integration and stunning designs, we deliver end-to-end digital solutions that drive real business growth.
-          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">Our Services</h2>
         </motion.div>
 
         {/* Services Grid - 3x2 */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {siteConfig.services.slice(1, 7).map((service, index) => (
+          {siteConfig.services.map((service, index) => (
             <motion.div
               key={service.title}
               className="group card-dark card-glow p-8 text-center hover:border-primary/50 transition-all duration-300"
