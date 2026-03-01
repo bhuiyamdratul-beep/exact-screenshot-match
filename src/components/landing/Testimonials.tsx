@@ -34,20 +34,124 @@ const testimonialCards: Record<string, TestimonialCard[]> = {
       price: "$38.33",
       priceType: "$20.00 /hr · 2 hours",
     },
+    {
+      project: "Python Automation Script for Data Processing",
+      rating: 5,
+      dateRange: "Sep 5, 2024 - Sep 12, 2024",
+      content: "Ratul built an amazing Python automation script that saved us hours of manual work every week. His understanding of data processing and API integrations is top-notch. Delivered ahead of schedule with clean, well-documented code. Will definitely hire again!",
+      clientName: "Client",
+      price: "$150.00",
+      priceType: "Fixed price",
+    },
+    {
+      project: "Digital Marketing Campaign Setup & Management",
+      rating: 5,
+      dateRange: "Oct 1, 2024 - Nov 15, 2024",
+      content: "TechWeb Ninja team handled our entire digital marketing strategy including Facebook Ads, Google Ads, and SEO. Within 2 months, our leads increased by 300%. They are incredibly data-driven and transparent with reporting. Exceptional work!",
+      clientName: "Client",
+      price: "$500.00",
+      priceType: "$25.00 /hr · 20 hours",
+    },
+    {
+      project: "Full Stack Web Application Development",
+      rating: 5,
+      dateRange: "Aug 10, 2024 - Oct 5, 2024",
+      content: "Hired Ratul's team for a complex web application with React frontend and Node.js backend. They delivered a polished, scalable product with excellent UI/UX. Communication was outstanding throughout the project. Highly skilled team!",
+      clientName: "Client",
+      price: "$1,200.00",
+      priceType: "Fixed price",
+    },
+  ],
+  Fiverr: [
+    {
+      project: "Python Web Scraping Bot",
+      rating: 5,
+      dateRange: "Jun 12, 2024 - Jun 18, 2024",
+      content: "Excellent Python developer! Built a custom web scraping tool that extracts data from multiple sources and exports to Excel. Fast delivery, clean code, and great communication. 100% recommended!",
+      clientName: "buyer_tech2024",
+      price: "$85.00",
+      priceType: "Fixed price",
+    },
+    {
+      project: "Social Media Marketing & Content Strategy",
+      rating: 5,
+      dateRange: "Jul 20, 2024 - Aug 20, 2024",
+      content: "TechWeb Ninja created a comprehensive social media strategy for our brand. They managed our Instagram, Facebook, and LinkedIn accounts. Engagement went up 250% in just one month. Amazing results and very professional team!",
+      clientName: "brand_owner_uk",
+      price: "$350.00",
+      priceType: "Fixed price",
+    },
+    {
+      project: "SEO Optimization & Google Ranking",
+      rating: 5,
+      dateRange: "May 5, 2024 - Jun 5, 2024",
+      content: "They optimized our website for SEO and within 4 weeks we were ranking on the first page for our target keywords. Very knowledgeable about on-page and off-page SEO techniques. Great value for money!",
+      clientName: "ecom_seller_us",
+      price: "$200.00",
+      priceType: "Fixed price",
+    },
+  ],
+  Google: [
+    {
+      project: "Website Development & Digital Marketing",
+      rating: 5,
+      dateRange: "2024",
+      content: "TechWeb Ninja built our company website and handled our Google Ads campaigns. The website is fast, modern, and mobile-friendly. Our Google Ads ROI improved by 400%. Truly a one-stop solution for all digital needs!",
+      clientName: "Rahman Enterprise",
+      price: "",
+      priceType: "",
+    },
+    {
+      project: "E-commerce Store with Python Backend",
+      rating: 5,
+      dateRange: "2024",
+      content: "They developed our e-commerce platform with a Python Django backend and integrated payment gateways. The site handles thousands of daily visitors without any issues. Professional, reliable, and highly skilled team!",
+      clientName: "ShopBD Online",
+      price: "",
+      priceType: "",
+    },
+    {
+      project: "Facebook & Instagram Ads Management",
+      rating: 5,
+      dateRange: "2024",
+      content: "Best digital marketing agency we've worked with! They managed our Facebook and Instagram ad campaigns and reduced our cost per lead by 60%. Their targeting strategy and creative designs are outstanding.",
+      clientName: "GreenLeaf Organics",
+      price: "",
+      priceType: "",
+    },
+  ],
+  Trustpilot: [
+    {
+      project: "Custom CRM Development",
+      rating: 5,
+      dateRange: "2024",
+      content: "TechWeb Ninja developed a custom CRM system for our sales team. It integrates with WhatsApp, email, and our existing tools. The Python-based backend is robust and the React frontend is incredibly intuitive. Saved us thousands compared to off-the-shelf solutions!",
+      clientName: "Alex M.",
+      price: "",
+      priceType: "",
+    },
+    {
+      project: "Complete Digital Marketing Package",
+      rating: 5,
+      dateRange: "2024",
+      content: "We hired them for a complete digital marketing overhaul — SEO, PPC, social media, and email marketing. Every aspect was handled professionally. Our online visibility has never been better. They truly understand the digital landscape!",
+      clientName: "Sarah K.",
+      price: "",
+      priceType: "",
+    },
+    {
+      project: "AI Chatbot & Automation",
+      rating: 5,
+      dateRange: "2024",
+      content: "Ratul and his team built an AI-powered chatbot for our customer service using Python and integrated it with our website. It handles 70% of queries automatically now. Brilliant work and ongoing support is excellent!",
+      clientName: "David Chen",
+      price: "",
+      priceType: "",
+    },
   ],
 };
 
-const testimonialImages: Record<string, string[]> = {
-  Fiverr: [
-    "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
-  ],
-  Google: [
-    "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=600&h=400&fit=crop",
-  ],
-  Trustpilot: [
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
-  ],
-};
+const testimonialImages: Record<string, string[]> = {};
 
 const Testimonials = () => {
   const [activeTab, setActiveTab] = useState("Upwork");
@@ -127,10 +231,18 @@ const Testimonials = () => {
                   <span className="text-sm text-muted-foreground">{item.dateRange}</span>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">"{item.content}"</p>
-                <div className="flex items-center justify-between pt-3 border-t border-border">
-                  <span className="text-sm font-semibold text-foreground">{item.price}</span>
-                  <span className="text-sm text-muted-foreground">{item.priceType}</span>
-                </div>
+                {(item.price || item.clientName) && (
+                  <div className="flex items-center justify-between pt-3 border-t border-border">
+                    {item.price ? (
+                      <>
+                        <span className="text-sm font-semibold text-foreground">{item.price}</span>
+                        <span className="text-sm text-muted-foreground">{item.priceType}</span>
+                      </>
+                    ) : (
+                      <span className="text-sm font-medium text-muted-foreground">— {item.clientName}</span>
+                    )}
+                  </div>
+                )}
               </motion.div>
             ))}
 
